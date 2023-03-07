@@ -1353,6 +1353,7 @@ MonoBehaviour:
   next_letter: {fileID: 5636761688654670821}
   current_letter: {fileID: 206890862297524928}
   prev_letter: {fileID: 8277944127600896316}
+  knob: {fileID: 0}
 --- !u!1 &1540836968444347210
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,6 +4314,7 @@ MonoBehaviour:
   next_letter: {fileID: 9169306309137878101}
   current_letter: {fileID: 5856631811045998319}
   prev_letter: {fileID: 6983837253209296867}
+  knob: {fileID: 0}
 --- !u!1 &4882543486581010953
 GameObject:
   m_ObjectHideFlags: 0
@@ -7895,6 +7897,7 @@ MonoBehaviour:
   next_letter: {fileID: 9118289025552124822}
   current_letter: {fileID: 7984451204738998693}
   prev_letter: {fileID: 6905012775385682705}
+  knob: {fileID: 0}
 --- !u!1 &9073044840663024550
 GameObject:
   m_ObjectHideFlags: 0
@@ -8026,3 +8029,4 @@ MonoBehaviour:
   next_letter: {fileID: 5368865767229570100}
   current_letter: {fileID: 1875355515121628657}
   prev_letter: {fileID: 9168567677172269490}
+  knob: {fileID: 0}
