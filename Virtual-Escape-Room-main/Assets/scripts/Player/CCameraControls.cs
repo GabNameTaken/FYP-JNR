@@ -23,12 +23,31 @@ public class CCameraControls : MonoBehaviourPun
         //looking
         if (!previewObj.IsViewing)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(1))
             {
                 yaw -= 2.0f * Input.GetAxis("Mouse X");
                 pitch = Mathf.Clamp(pitch + 2.0f * Input.GetAxis("Mouse Y"), -85, 85);
                 transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
             }
         }
+    }
+
+    public void Office1Cam()
+    {
+        pitch = 0;
+        yaw = 90;
+        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+    }
+    public void ReceptionCam()
+    {
+        pitch = 0;
+        yaw = 0;
+        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+    }
+    public void BossCam()
+    {
+        pitch = 0;
+        yaw = 0;
+        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
     }
 }

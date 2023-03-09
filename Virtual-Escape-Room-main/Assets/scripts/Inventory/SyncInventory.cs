@@ -6,6 +6,8 @@ public class SyncInventory : MonoBehaviour
     private PhotonView photonView;
     private GameObject itemHolder, previewObject;
 
+    private const int INPSECT_LAYER = 6;
+
     void Start()
     {
         photonView = GetComponent<PhotonView>();
@@ -33,6 +35,14 @@ public class SyncInventory : MonoBehaviour
                     item.gameObject.GetComponent<CItem>().setbIsPickedUp(true);
                     item.gameObject.SetActive(false);
                     item.SetParent(previewObject.transform, false);
+                    item.gameObject.GetComponent<CItem>().getPreviewGameObject().layer = INPSECT_LAYER;
+
+                    QueuedNotification.NotificationInfo notificationInfo = new();
+                    notificationInfo.title = "Item Received: ";
+                    notificationInfo.message = item.GetComponent<CItem>().getGameObjectName();
+                    notificationInfo.imageSprite = item.GetComponent<CItem>().getpreviewSprite();
+                    notificationInfo.durationSeconds = 2;
+                    QueuedNotification.instance.QueueNotification(notificationInfo);
                 }
             }
         }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06ce4ebfc6a47e498319b675e1261df, type: 3}
+  m_Name: Session Info
+  m_EditorClassIdentifier: 
+  voucherCode: V001
+  maxPlayers: 100
+  gameDurationMinutes: 1
+  voucherDurationMinutes: 360

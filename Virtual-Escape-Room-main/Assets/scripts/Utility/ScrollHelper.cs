@@ -9,6 +9,8 @@ public struct ScrollHelper<T> where T : Component
     public GameObject prefab;
     public List<T> spawnedPrefabComponents;
 
+    public bool isComponentInChildren;
+
     public void FillContentWithCorrectNumberOfPrefabs(int count)
     {
         int i;
@@ -17,7 +19,15 @@ public struct ScrollHelper<T> where T : Component
             // if we need more spawnedPrefabComponents
             if (i >= spawnedPrefabComponents.Count)
             {
-                spawnedPrefabComponents.Add(Object.Instantiate(prefab, content).GetComponent<T>());
+                GameObject spawnedPrefab = Object.Instantiate(prefab, content);
+                if (isComponentInChildren)
+                {
+                    spawnedPrefabComponents.Add(spawnedPrefab.GetComponentInChildren<T>());
+                }
+                else
+                {
+                    spawnedPrefabComponents.Add(spawnedPrefab.GetComponent<T>());
+                }
             }
 
             spawnedPrefabComponents[i].gameObject.SetActive(true);

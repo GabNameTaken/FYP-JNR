@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class MoveCheese : MonoBehaviour
 {
-    private float speed = 0.01f;
+    private float speed = 0.002f;
 
     void Update()
     {
-        if (this.gameObject.activeInHierarchy)
+        if (this.gameObject.layer == LayerMask.NameToLayer("Inspect")) // Check if item is on Inspect Layer
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {//right
-                this.gameObject.transform.Translate(speed, 0, 0);
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {//left
-                this.gameObject.transform.Translate(-speed, 0, 0);
-            }
-            else if (Input.GetKey(KeyCode.UpArrow)) //up y++
-            {//left
-                this.gameObject.transform.Translate(0, speed, 0);
-            }
-            else if (Input.GetKey(KeyCode.DownArrow)) //down y--
-            {//right
-                this.gameObject.transform.Translate(0, -speed, 0);
+            if (this.gameObject.activeInHierarchy)
+            {
+                if (Input.GetKey(KeyCode.LeftArrow) && this.gameObject.transform.position.x >= -1)
+                {//right
+                    this.gameObject.transform.Translate(speed, 0, 0);
+                }
+                else if (Input.GetKey(KeyCode.RightArrow) && this.gameObject.transform.position.x <= 1)
+                {//left
+                    this.gameObject.transform.Translate(-speed, 0, 0);
+                }
+                else if (Input.GetKey(KeyCode.UpArrow) && this.gameObject.transform.position.y <= 1) //up y++
+                {//left
+                    this.gameObject.transform.Translate(0, -speed, 0);
+                }
+                else if (Input.GetKey(KeyCode.DownArrow) && this.gameObject.transform.position.y >= -1) //down y--
+                {//right
+                    this.gameObject.transform.Translate(0, speed, 0);
+                }
             }
         }
     }

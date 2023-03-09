@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 using Photon.Realtime;
 
 // Use the number of players in the room list cache to check due to limitations with viewing stats and properties in a lobby.
@@ -10,15 +8,6 @@ public class SessionSize : MonoBehaviour
 {
     [SerializeField] RoomCache roomCache;
     [SerializeField] SessionManager sessionManager;
-    
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log(GetPlayerCount());
-        }
-    }
 
     public bool RoomsAreFull()
     {

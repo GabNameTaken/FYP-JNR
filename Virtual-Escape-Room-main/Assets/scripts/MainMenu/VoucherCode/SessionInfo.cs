@@ -1,17 +1,31 @@
 using System;
+using UnityEngine;
 
-public class SessionInfo
+[CreateAssetMenu()]
+public class SessionInfo : ScriptableObject
 {
-    public string VoucherCode { get; }
-    public int MaxPlayers { get; }
-    public DateTime StartTime { get; }
-    public DateTime ExpireTime { get; }
+    [SerializeField] private string voucherCode;
+    [SerializeField] private int maxPlayers;
+    [SerializeField] private int gameDurationMinutes;
+    [SerializeField] private int voucherDurationMinutes;
+    private DateTime startTime;
+    private DateTime expireTime;
 
-    public SessionInfo(string voucherCode, int maxPlayers, DateTime startTime, DateTime expireTime)
+
+    public string VoucherCode { get => voucherCode; }
+    public int MaxPlayers { get => maxPlayers; }
+    public int GameDurationMinutes { get => gameDurationMinutes; }
+    public int VoucherDurationMinutes { get => voucherDurationMinutes; }
+    public DateTime StartTime { get => startTime; }
+    public DateTime ExpireTime { get => expireTime; }
+    public void StoreVoucherData(string voucherCode, VoucherData voucherData)
     {
-        VoucherCode = voucherCode;
-        MaxPlayers = maxPlayers;
-        StartTime = startTime;
-        ExpireTime = expireTime;
+        this.voucherCode = voucherCode;
+        maxPlayers = voucherData.maxPlayers;
+        gameDurationMinutes = voucherData.gameDuration;
+        voucherDurationMinutes = voucherData.voucherDuration;
+        startTime = DateTime.MinValue;
+        expireTime = DateTime.MaxValue;
+        //expireTime = DateTime.Parse(voucherData.endTime);
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.Events;
 
 public class NetworkController : MonoBehaviourPunCallbacks 
 {
@@ -9,7 +10,8 @@ public class NetworkController : MonoBehaviourPunCallbacks
     [SerializeField] bool useOfflineModeOnDisconnect;
     #endregion
 
-    //Initialise variables when Start is called
+    [SerializeField] UnityEvent onConnectedToMaster;
+
     void Start()
     {
         if (useOfflineModeOnStart)
@@ -37,6 +39,7 @@ public class NetworkController : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to " + PhotonNetwork.CloudRegion + " server.");
+        onConnectedToMaster?.Invoke();
     }
 
     public override void OnDisconnected(DisconnectCause cause)

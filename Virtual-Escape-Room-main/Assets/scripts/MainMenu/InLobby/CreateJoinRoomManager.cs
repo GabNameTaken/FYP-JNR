@@ -23,7 +23,7 @@ public class CreateJoinRoomManager : MonoSingletonTemplate<CreateJoinRoomManager
         JoinRoom(roomName);
         return true;
     }
-    public bool TryCreateRoom()
+    public bool TryCreateRoom(string roomName)
     {
         if (sessionSize.RoomsAreFull())
         {
@@ -31,7 +31,7 @@ public class CreateJoinRoomManager : MonoSingletonTemplate<CreateJoinRoomManager
             return false;
         }
 
-        CreateRoom();
+        CreateRoom(roomName);
         return true;
     }
 
@@ -39,12 +39,14 @@ public class CreateJoinRoomManager : MonoSingletonTemplate<CreateJoinRoomManager
     {
         PhotonNetwork.JoinRoom(roomName);
     }
-    private void CreateRoom()
+    private void CreateRoom(string roomName)
     {
         Debug.Log("CREATE ROOM");
         RoomOptions roomOptions = new();
         roomOptions.MaxPlayers = (byte)roomSize;
         roomOptions.EmptyRoomTtl = 0;
-        PhotonNetwork.CreateRoom("Room " + (PhotonNetwork.CountOfRooms + 1), roomOptions);
+        roomOptions.CustomRoomPropertiesForLobby = new string[1];
+        roomOptions.CustomRoomPropertiesForLobby[0] = PlayerListEntries.PLAYER_LIST;
+        PhotonNetwork.CreateRoom(roomName, roomOptions);
     }
 }

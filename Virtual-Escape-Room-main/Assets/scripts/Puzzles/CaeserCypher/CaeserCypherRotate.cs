@@ -8,15 +8,18 @@ public class CaeserCypherRotate : MonoBehaviour
 
     private void Update()
     {
-        if (this.gameObject.activeInHierarchy)
+        if (this.gameObject.layer == LayerMask.NameToLayer("Inspect")) // Check if item is on Inspect Layer
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (this.gameObject.activeInHierarchy)
             {
-                this.gameObject.transform.Rotate(0, speed, 0, Space.Self);
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                this.gameObject.transform.Rotate(0, -speed, 0, Space.Self);
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    this.gameObject.transform.Rotate(0, speed, 0, Space.Self);
+                }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    this.gameObject.transform.Rotate(0, -speed, 0, Space.Self);
+                }
             }
         }
     }

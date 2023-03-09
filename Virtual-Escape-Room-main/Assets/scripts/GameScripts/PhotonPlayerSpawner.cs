@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
@@ -10,11 +8,10 @@ public class PhotonPlayerSpawner : MonoBehaviourPunCallbacks
     {
         base.OnEnable();
 
-        StartGame();
-    }
-    public override void OnDisable()
-    {
-        base.OnDisable();
+        if (PhotonNetwork.InRoom)
+        {
+            OnJoinedRoom();
+        }
     }
     public override void OnJoinedRoom()
     {

@@ -19,7 +19,7 @@ public class NickNameUI : MonoBehaviour
 
     private void SetNickName()
     {
-        NickNameChanger.ChangeNickName(nickNameIF.text, ChangePage, ShowInvalidNameErrorMessage);
+        NickNameChanger.ChangeNickName(nickNameIF.text.ToLower(), ChangePage, ShowInvalidNameErrorMessage);
     }
     private void ChangePage()
     {
@@ -31,6 +31,6 @@ public class NickNameUI : MonoBehaviour
     }
     private void ShowInvalidNameErrorMessage()
     {
-        invalidNameErrorMessage.SetActive(true);
+        //invalidNameErrorMessage.SetActive(true);
     }
 }

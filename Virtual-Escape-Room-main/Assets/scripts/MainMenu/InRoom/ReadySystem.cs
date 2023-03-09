@@ -10,10 +10,7 @@ public class ReadySystem : MonoBehaviourPunCallbacks
 {
     public const string PLAYER_READY = "IsPlayerReady";
 
-    int playerID = -1;
     bool isPlayerReady = false;
-
-    [SerializeField] PlayerListEntries playerListEntries;
 
     [SerializeField] UnityEvent OnReady;
     [SerializeField] UnityEvent OnUnready;
@@ -23,13 +20,11 @@ public class ReadySystem : MonoBehaviourPunCallbacks
         isPlayerReady = false;
         Hashtable initialProps = new Hashtable() { {PLAYER_READY, isPlayerReady }};
         PhotonNetwork.LocalPlayer.SetCustomProperties(initialProps);
-
-        playerID = PhotonNetwork.LocalPlayer.ActorNumber;
     }
 
     public bool AllPlayersAreReady()
     {
-        foreach (KeyValuePair<int, Player> player in playerListEntries.GetPlayerEntries())
+        foreach (KeyValuePair<int, Player> player in PlayerListEntries.instance.GetPlayerEntries())
         {
             object isReady;
             player.Value.CustomProperties.TryGetValue(PLAYER_READY, out isReady);
@@ -52,6 +47,10 @@ public class ReadySystem : MonoBehaviourPunCallbacks
         Debug.Log("Set player ready");
     }
 
+    public override void OnJoinedRoom()
+    {
+        InitialiseReadyProperty();
+    }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         SetPlayerUneady();

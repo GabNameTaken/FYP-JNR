@@ -52,21 +52,20 @@ public class FlexibleGridLayout : LayoutGroup
         {
             fitX = fitY = true;
 
-            float sqrt = Mathf.Sqrt(transform.childCount);
+            float sqrt = Mathf.Sqrt(rectChildren.Count);
             rows = Mathf.CeilToInt(sqrt);
             columns = Mathf.CeilToInt(sqrt);
         }
 
         if (fitType == FitType.Width || fitType == FitType.FixedColumns)
         {
-            rows = Mathf.CeilToInt(transform.childCount / (float)columns);
+            rows = Mathf.CeilToInt(rectChildren.Count / (float)columns);
         }
         else if (fitType == FitType.Height || fitType == FitType.FixedRows)
         {
-            columns = Mathf.CeilToInt(transform.childCount / (float)rows);
+            columns = Mathf.CeilToInt(rectChildren.Count / (float)rows);
         }
     }
-
     private void CalculateCellSize()
     {
         if (fitX)

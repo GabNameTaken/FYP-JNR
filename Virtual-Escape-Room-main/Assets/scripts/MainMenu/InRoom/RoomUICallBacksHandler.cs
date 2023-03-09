@@ -13,16 +13,12 @@ public class RoomUICallBacksHandler : MonoBehaviourPunCallbacks
 
     [SerializeField] SessionManager sessionManager;
     [SerializeField] NavigationPage navigationPage;
-
-    [SerializeField] ReadySystem readySystem;
-
-    [SerializeField] PlayerListEntries playerListEntries;
     public override void OnEnable()
     {
         base.OnEnable();
 
         sessionManager.onJoinedSessionSuccess += ChangePage;
-        playerListEntries.onPlayerListEntriesUpdate += UpdateNameListUI;
+        PlayerListEntries.instance.onPlayerListEntriesUpdate += UpdateNameListUI;
 
         if (PhotonNetwork.InRoom)
         {
@@ -34,10 +30,7 @@ public class RoomUICallBacksHandler : MonoBehaviourPunCallbacks
         base.OnDisable();
 
         sessionManager.onJoinedSessionSuccess -= ChangePage;
-        playerListEntries.onPlayerListEntriesUpdate -= UpdateNameListUI;
-    }
-    private void Start()
-    {
+        PlayerListEntries.instance.onPlayerListEntriesUpdate -= UpdateNameListUI;
     }
     #region Button Functions
 
@@ -55,8 +48,6 @@ public class RoomUICallBacksHandler : MonoBehaviourPunCallbacks
         Debug.Log("Joined: " + PhotonNetwork.CurrentRoom.Name);
 
         roomNameDisplay.text = PhotonNetwork.CurrentRoom.Name;
-
-        readySystem.InitialiseReadyProperty();
 
         UpdateNameListUI();
     }
@@ -90,7 +81,7 @@ public class RoomUICallBacksHandler : MonoBehaviourPunCallbacks
     {
         List<KeyValuePair<string, bool>> playerList = new List<KeyValuePair<string, bool>>();
 
-        foreach (KeyValuePair<int, Player> player in playerListEntries.GetPlayerEntries())
+        foreach (KeyValuePair<int, Player> player in PlayerListEntries.instance.GetPlayerEntries())
         {
             string playerName = player.Value.NickName;
 

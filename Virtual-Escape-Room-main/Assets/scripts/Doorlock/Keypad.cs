@@ -11,9 +11,16 @@ public class Keypad : MonoBehaviour
     [SerializeField] Image[] imageCol;
     string inputText;
     [SerializeField, SerializeReference] LockedDoor lockedDoor;
+    Hints hints;
+    public bool boss_safe_check;
+    public bool boss_safe_keypad_solved;
+    public GameObject boss_safe_keypad_view_button, safe;
+    public GameObject safe_canvas;
     void Start()
     {
         clearKeypadInput();
+        boss_safe_keypad_solved = false;
+        hints = FindObjectOfType<Hints>();
     }
 
     void checkKeypadInput()
@@ -30,13 +37,33 @@ public class Keypad : MonoBehaviour
 
     void OnClick_checkCode()
     {
-        if (keycodeInput[0].text == "5" && keycodeInput[1].text == "3" && keycodeInput[2].text == "9" && keycodeInput[3].text == "8")
+        if (boss_safe_check) // For boss' safe keypad (7582361)
         {
-            StartCoroutine(rightCode());
+            if (keycodeInput[0].text == "7" && 
+                keycodeInput[1].text == "5" && 
+                keycodeInput[2].text == "8" && 
+                keycodeInput[3].text == "2" &&
+                keycodeInput[4].text == "3" &&
+                keycodeInput[5].text == "6" &&
+                keycodeInput[6].text == "1")
+            {
+                StartCoroutine(rightCode_boss_Safe());
+            }
+            else if (keycodeInput[6].text != "")
+            {
+                StartCoroutine(wrongCode());
+            }
         }
-        else if (keycodeInput[3].text != "")
+        else
         {
-            StartCoroutine(wrongCode());
+            if (keycodeInput[0].text == "5" && keycodeInput[1].text == "3" && keycodeInput[2].text == "9" && keycodeInput[3].text == "8")
+            {
+                StartCoroutine(rightCode());
+            }
+            else if (keycodeInput[3].text != "")
+            {
+                StartCoroutine(wrongCode());
+            }
         }
     }
 
@@ -127,11 +154,33 @@ public class Keypad : MonoBehaviour
     {
         changeImageColorGreen();
         yield return new WaitForSeconds(1f);
+        hints.CompletedPuzzle();
         clearKeypadInput();
         changeImageColorOrigin();
+        QueuedNotification.NotificationInfo notificationInfo = new();
+        notificationInfo.title = "Keypad Door";
+        notificationInfo.message = "Unlocked";
+        notificationInfo.durationSeconds = 2;
+        QueuedNotification.instance.QueueNotification(notificationInfo);
         //VarOverScenes.door_receptionUnlocked = true;
         lockedDoor.UnlockDoor();
         this.gameObject.SetActive(false);
+    }
+    IEnumerator rightCode_boss_Safe()
+    {
+        changeImageColorGreen();
+        yield return new WaitForSeconds(1f);
+        QueuedNotification.NotificationInfo notificationInfo = new();
+        notificationInfo.title = "Boss Safe Keypad";
+        notificationInfo.message = "Solved";
+        notificationInfo.durationSeconds = 2;
+        QueuedNotification.instance.QueueNotification(notificationInfo);
+        hints.CompletedPuzzle();
+        boss_safe_keypad_solved = true;
+        safe.GetComponent<BoxCollider>().enabled = true;
+        this.gameObject.SetActive(false);
+        boss_safe_keypad_view_button.SetActive(false);
+        safe_canvas.SetActive(true);
     }
 
     void changeImageColorRed()

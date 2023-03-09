@@ -1,11 +1,10 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public struct ObjectPooler<T> where T : Component
 {
+    public Transform parent;
     public GameObject prefab;
     public List<GameObject> gameObjects;
     public List<T> components;
@@ -28,7 +27,7 @@ public struct ObjectPooler<T> where T : Component
     {
         for (int i = 0; i < initialSize; ++i)
         {
-            GameObject spawn = UnityEngine.Object.Instantiate(prefab);
+            GameObject spawn = UnityEngine.Object.Instantiate(prefab, parent);
 
             T component;
 

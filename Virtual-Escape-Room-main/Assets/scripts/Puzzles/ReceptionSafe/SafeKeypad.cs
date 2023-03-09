@@ -8,15 +8,14 @@ using TMPro;
 public class SafeKeypad : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] keycodeInput;
-    [SerializeField] private Animator detect1;
-    [SerializeField] private Animator detect2;
-    [SerializeField] private Animator detect3;
     [SerializeField] private Sprite[] img;
-    [SerializeField] GameObject safe, pager, keypad, d1, d2, d3, wall, pagerhb;
+    [SerializeField] GameObject safe, pager, keypad, wall, pagerhb, numberdisplay;
+    private GameObject player;
     string inputText;
     void Start()
     {
         clearKeypadInput();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void checkKeypadInput()
@@ -29,6 +28,8 @@ public class SafeKeypad : MonoBehaviour
                 break;
             }
         }
+
+    
     }
 
     void OnClick_checkCode()
@@ -37,32 +38,28 @@ public class SafeKeypad : MonoBehaviour
         {
             StartCoroutine(rightCode());
         }
-        else if (keycodeInput[2].text != "" && keycodeInput[2].text != "7")
+        else if (keycodeInput[2].text != "")
         {
             StartCoroutine(wrongCode());
         }
 
         if (keycodeInput[0].text == "")
         {
-            detect1.SetTrigger("waitinginput");
+            //indicator.SetTrigger("reset");
         }
-        else if (keycodeInput[1].text == "")
+        else if (keycodeInput[0].text != "" && keycodeInput[1].text == "")
         {
-            detect1.SetTrigger("inputsuccess");
-            detect2.SetTrigger("waitinginput");
+            //indicator.SetTrigger("input1");
         }
-        else if (keycodeInput[2].text == "")
+        else if (keycodeInput[0].text != "" && keycodeInput[1].text != "" && keycodeInput[2].text == "")
         {
-            detect2.SetTrigger("inputsuccess");
-            detect3.SetTrigger("waitinginput");
+            //indicator.SetTrigger("input2");
         }
 
     }
 
     private void Update()
-    {
-        
-      
+    { 
         OnClick_checkCode();
     }
 
@@ -128,36 +125,56 @@ public class SafeKeypad : MonoBehaviour
     public void objecttaken()
     {
         safe.GetComponent<Image>().sprite = img[2];
+        player.GetComponent<SyncInventory>().CallPickupItem("Pager");
+        pager.SetActive(true);
     }
 
     IEnumerator wrongCode()
     {
-
-        yield return new WaitForSeconds(0f);
-        detect1.SetTrigger("inputwrong");
-        detect2.SetTrigger("inputwrong");
-        detect3.SetTrigger("inputwrong");
-        //detect2.SetBool("waitinginput",false);
-        //detect3.SetBool("waitinginput", false);
+        changeImageColorRed();
+        keypad.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        keypad.SetActive(true);
+        changeImageColorOrigin();
         clearKeypadInput();
-        
     }
     IEnumerator rightCode()
     {
-        //changeImageColorGreen();
-        detect3.SetTrigger("inputsuccess");
+        changeImageColorGreen();
         yield return new WaitForSeconds(1f);
         safe.GetComponent<Image>().sprite = img[1];
         clearKeypadInput();
+        changeImageColorOrigin();
         pager.gameObject.SetActive(true);
         pagerhb.gameObject.SetActive(true);
-        d1.gameObject.SetActive(false);
-        d2.gameObject.SetActive(false);
-        d3.gameObject.SetActive(false);
         keypad.gameObject.SetActive(false);
+        numberdisplay.SetActive(false);
         wall.GetComponent<ReceptionSafe>().OpenSafe(true);
         //VarOverScenes.door_receptionUnlocked = true;
         // this.gameObject.SetActive(false);
     }
 
+    void changeImageColorRed()
+    {
+        for (int i = 0; i < keycodeInput.Length; i++)
+        {
+            keycodeInput[i].color = Color.red;
+        }
+
+    }
+    void changeImageColorGreen()
+    {
+        for (int i = 0; i < keycodeInput.Length; i++)
+        {
+            keycodeInput[i].color = Color.green;
+        }
+    }
+
+    void changeImageColorOrigin()
+    {
+        for (int i = 0; i < keycodeInput.Length; i++)
+        {
+            keycodeInput[i].color = Color.white;
+        }
+    }
 }

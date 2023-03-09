@@ -1,0 +1,1 @@
+This is the another good example of 2FA where a drive is needed to input the code making it hard to be hacked.

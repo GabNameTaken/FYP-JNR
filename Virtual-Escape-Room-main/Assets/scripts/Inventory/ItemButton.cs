@@ -9,11 +9,13 @@ public class ItemButton : MonoBehaviour, ISelectHandler
     [SerializeField]
     private Image itemImage;
     private CItem item;
+    private ObjectInspectorUI objectInspectorUI;
 
     public static string selectedItem;
-    void Start()
-    {
 
+    private void Awake()
+    {
+        objectInspectorUI = FindObjectOfType<ObjectInspectorUI>();
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -23,6 +25,15 @@ public class ItemButton : MonoBehaviour, ISelectHandler
             selectedItem = item.gameObject.name;
         }
         Debug.Log(selectedItem);
+    }
+
+    public void OnClick_InspectItem()
+    {
+        foreach (Transform child in item.gameObject.transform)
+        {
+            child.gameObject.layer = LayerMask.NameToLayer("Inspect");
+        }
+        objectInspectorUI.InspectItem(item.gameObject);
     }
 
     public void AddItemButton(CItem item)

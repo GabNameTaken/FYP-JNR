@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.EventSystems;
 
 public class PlayerInfo : MonoBehaviourPun, IPunObservable
 {
@@ -37,7 +38,7 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0) && objectClicker)
+        if (Input.GetMouseButtonUp(0) && objectClicker && !EventSystem.current.IsPointerOverGameObject())
         {
             objectClicker.Click();
             GOClickedCItem = objectClicker.ClickOnCItem();

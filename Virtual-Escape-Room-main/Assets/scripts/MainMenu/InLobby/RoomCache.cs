@@ -54,7 +54,7 @@ public class RoomCache : MonoBehaviourPunCallbacks
         {
             if (RoomIsClosedOrRemovedOrInvisible(info))
             {
-                RemoveClosedOrInvisibleOrRemovedRoom(info);
+                RemoveRoom(info);
 
                 continue;
             }
@@ -68,7 +68,7 @@ public class RoomCache : MonoBehaviourPunCallbacks
         return !info.IsOpen || !info.IsVisible || info.RemovedFromList;
     }
 
-    private void RemoveClosedOrInvisibleOrRemovedRoom(RoomInfo info)
+    private void RemoveRoom(RoomInfo info)
     {
         if (cachedRoomList.ContainsKey(info.Name))
         {

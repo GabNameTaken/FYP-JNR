@@ -44,7 +44,7 @@ public class StartGame : MonoBehaviour
 
     private void ChangeScene()
     {
-        levelLoader.LoadNextLevel("GameScene");
+        levelLoader.StartGame();
     }
 
     private bool MinPlayerCountReached()
