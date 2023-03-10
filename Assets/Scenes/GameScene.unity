@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b0a07fe7ab2b943b1d239389dd6170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToUse: ram
+  itemToUse: RAM
   textBefore: One of the RAM cards is missing.
   textAfter: RAM Installed
   unlockedObject: {fileID: 1260944644}
@@ -1329,7 +1329,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 31053506}
         m_TargetAssemblyTypeName: UseItemUnlock2_BobPC, Assembly-CSharp
-        m_MethodName: CheckUse2
+        m_MethodName: CheckUse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28812,7 +28812,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1171358531}
         m_TargetAssemblyTypeName: UseItemUnlock2_BobPC, Assembly-CSharp
-        m_MethodName: CheckUse2
+        m_MethodName: CheckUse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
