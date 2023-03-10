@@ -17,7 +17,7 @@ public class ObjectInspector : MonoBehaviour
     const int minZoomDist = 2;
     const int maxZoomDist = 5;
 
-    float dragSpeed = 1.0f;
+    float dragSpeed = 5.0f;
 
     float distFromCam;
     public bool IsViewing { get => isInspecting3DObject; }
@@ -80,12 +80,31 @@ public class ObjectInspector : MonoBehaviour
             if (Input.GetMouseButton(1))    // right mouse click drag to move inspect camera
             {
                 Vector3 pos = inspectCamera.ScreenToViewportPoint(Input.mousePosition - prevPos);
+                prevPos = Input.mousePosition;
                 Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed,0);
-
+            
                 //if (currentPos != pos)
-                //if (target.transform.position.x )
+                //if (target.transform.position.x <= target.GetComponentInChildren<ObjectMove>().anchorX && target.transform.position.x >= -target.GetComponentInChildren<ObjectMove>().anchorX
+                //    && target.transform.position.y <= target.GetComponentInChildren<ObjectMove>().anchorY && target.transform.position.y >= -target.GetComponentInChildren<ObjectMove>().anchorY)
                 target.transform.Translate(move, Space.World);
                 //currentPos = pos;
+
+                if (target.transform.position.x > target.GetComponentInChildren<ObjectMove>().anchorX)
+                {
+                    target.transform.position = new Vector3(target.GetComponentInChildren<ObjectMove>().anchorX,target.transform.position.y, target.transform.position.z);
+                }
+                else if (target.transform.position.x < -target.GetComponentInChildren<ObjectMove>().anchorX)
+                {
+                    target.transform.position = new Vector3(-target.GetComponentInChildren<ObjectMove>().anchorX, target.transform.position.y, target.transform.position.z);
+                }
+                if (target.transform.position.y > target.GetComponentInChildren<ObjectMove>().anchorY   )
+                {
+                    target.transform.position = new Vector3(target.transform.position.x, target.GetComponentInChildren<ObjectMove>().anchorY, target.transform.position.z);
+                }
+                else if (target.transform.position.y < -target.GetComponentInChildren<ObjectMove>().anchorY)
+                {
+                    target.transform.position = new Vector3(target.transform.position.x, -target.GetComponentInChildren<ObjectMove>().anchorY, target.transform.position.z);
+                }
             }
 
             if (Input.GetMouseButton(2)) // middle mouse click
@@ -143,6 +162,7 @@ public class ObjectInspector : MonoBehaviour
     {
         distFromCam += zoomValue;
         distFromCam = Mathf.Clamp(distFromCam, minZoomDist, maxZoomDist);
-        target.transform.position = inspectCamera.transform.forward.normalized * distFromCam;
+        Vector3 zoom = inspectCamera.transform.forward.normalized * distFromCam;
+        target.transform.position = new Vector3(target.transform.position.x,target.transform.position.y, zoom.z);
     }
 }

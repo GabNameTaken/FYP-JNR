@@ -17,7 +17,7 @@ public class SyncInventory : MonoBehaviour
 
     public void CallPickupItem(string itemName)
     {
-        photonView.RPC("PickupItem", RpcTarget.All, itemName);
+        photonView.RPC("PickupItem", RpcTarget.AllBufferedViaServer, itemName);
     }
 
     [PunRPC]
