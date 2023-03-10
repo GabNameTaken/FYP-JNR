@@ -14,10 +14,8 @@ public class CItem : MonoBehaviour
     //add private refference to the model so we can inspect later
     [SerializeField] private GameObject previewObject;
     [SerializeField] private string itemDescription;
-    [SerializeField] Vector3 V3Normal;
-    [SerializeField] Vector3 V3Up;
+    [SerializeField] public Vector3 inspectRotation;
 
-    public Vector3 getV3Up() { return V3Up; }
     public void setbIsInspectable(bool toSet) { bIsInspectable = toSet; }
     public void setbIsPickedUp(bool toSet) { bIsPickedUp = toSet; }
     public bool getbIsInspectable() { return bIsInspectable; }
@@ -30,6 +28,4 @@ public class CItem : MonoBehaviour
     public string getGameObjectName() { return gameObject.name; }
     public Sprite getpreviewSprite() { return previewSprite; }
     public GameObject getPreviewGameObject() { return previewObject; }
-
-    public Vector3 getV3Normal() { return V3Normal; }
 }

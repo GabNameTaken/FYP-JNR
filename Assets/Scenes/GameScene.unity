@@ -51319,6 +51319,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
+      propertyPath: V3Normal.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
+      propertyPath: V3Normal.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
+      propertyPath: V3Normal.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
       propertyPath: previewObject
       value: 
       objectReference: {fileID: 208892785}

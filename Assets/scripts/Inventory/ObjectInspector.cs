@@ -83,12 +83,9 @@ public class ObjectInspector : MonoBehaviour
                 prevPos = Input.mousePosition;
                 Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed,0);
             
-                //if (currentPos != pos)
-                //if (target.transform.position.x <= target.GetComponentInChildren<ObjectMove>().anchorX && target.transform.position.x >= -target.GetComponentInChildren<ObjectMove>().anchorX
-                //    && target.transform.position.y <= target.GetComponentInChildren<ObjectMove>().anchorY && target.transform.position.y >= -target.GetComponentInChildren<ObjectMove>().anchorY)
                 target.transform.Translate(move, Space.World);
-                //currentPos = pos;
 
+                //  constraint the space where the object can move
                 if (target.transform.position.x > target.GetComponentInChildren<ObjectMove>().anchorX)
                 {
                     target.transform.position = new Vector3(target.GetComponentInChildren<ObjectMove>().anchorX,target.transform.position.y, target.transform.position.z);
@@ -118,7 +115,7 @@ public class ObjectInspector : MonoBehaviour
     {
         distFromCam = maxZoomDist;
         target.transform.position = inspectCamera.transform.forward.normalized * distFromCam;
-        target.transform.rotation = Quaternion.LookRotation(target.GetComponent<CItem>().getV3Normal(), target.GetComponent<CItem>().getV3Up());
+        target.transform.rotation = Quaternion.Euler(target.GetComponent<CItem>().inspectRotation);
     }
 
     public void SetTarget(GameObject target)
@@ -135,7 +132,7 @@ public class ObjectInspector : MonoBehaviour
 
             distFromCam = maxZoomDist;
             target.transform.position = inspectCamera.transform.forward.normalized * distFromCam;
-            target.transform.rotation = Quaternion.LookRotation(target.GetComponent<CItem>().getV3Normal(), target.GetComponent<CItem>().getV3Up());
+            target.transform.rotation = Quaternion.Euler(target.GetComponent<CItem>().inspectRotation);
         }
     }
 

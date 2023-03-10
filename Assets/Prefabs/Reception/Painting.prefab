@@ -149,3 +149,4 @@ MonoBehaviour:
   itemDescription: A painting of a landscape with different coloured birds.
   V3Normal: {x: 0, y: 0, z: 0}
   V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 180, z: 0}
