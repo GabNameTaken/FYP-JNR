@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CaeserCypherRotate : MonoBehaviour
 {
-    private float speed = 0.3f;
+    private float speed = 0.4f;
 
     private void Update()
     {
