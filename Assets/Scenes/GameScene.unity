@@ -1754,6 +1754,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8842481547383856581, guid: ed5eed6f17d3e754a8e20ea8aedaf7b5, type: 3}
+      propertyPath: m_Name
+      value: InventoryItemButtons
+      objectReference: {fileID: 0}
     - target: {fileID: 8842481548083443772, guid: ed5eed6f17d3e754a8e20ea8aedaf7b5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6729,7 +6733,7 @@ GameObject:
   - component: {fileID: 236233457}
   - component: {fileID: 236233459}
   m_Layer: 0
-  m_Name: testcam
+  m_Name: TestCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50726,6 +50730,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4ba16a2e5b88f824e9acdb520cb23f81, type: 2}
+    - target: {fileID: 803581001609685127, guid: 6c0ff41a2f0ace44fa20516a51d01e4f, type: 3}
+      propertyPath: m_Name
+      value: DoorLock_Reception
+      objectReference: {fileID: 0}
     - target: {fileID: 3743897366827623397, guid: 6c0ff41a2f0ace44fa20516a51d01e4f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -50886,6 +50894,10 @@ PrefabInstance:
     - target: {fileID: 2224609735027786295, guid: b13891e30e21ad644bd0124cf9cc7e88, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 78.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591037260803500875, guid: b13891e30e21ad644bd0124cf9cc7e88, type: 3}
+      propertyPath: m_Name
+      value: PlayerName
       objectReference: {fileID: 0}
     - target: {fileID: 4591037260803500886, guid: b13891e30e21ad644bd0124cf9cc7e88, type: 3}
       propertyPath: m_text
