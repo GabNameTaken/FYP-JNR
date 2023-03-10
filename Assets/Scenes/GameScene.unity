@@ -14953,8 +14953,7 @@ MonoBehaviour:
   previewSprite: {fileID: 21300000, guid: ba8a2fce9b37a8e42a346396f46de2ad, type: 3}
   previewObject: {fileID: 562307155}
   itemDescription: A book with info about morse code.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &564567956
 GameObject:
   m_ObjectHideFlags: 0
@@ -15130,8 +15129,7 @@ MonoBehaviour:
   previewSprite: {fileID: 21300000, guid: 38e88d75c45fa5445b9123073c87a571, type: 3}
   previewObject: {fileID: 1178270026}
   itemDescription: A screwdriver. Can be used to unscrew things open.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &594272503
 GameObject:
   m_ObjectHideFlags: 0
@@ -28528,8 +28526,7 @@ MonoBehaviour:
   previewSprite: {fileID: 21300000, guid: 0f55f549efbf0b24793a236eac9a3e29, type: 3}
   previewObject: {fileID: 544550799}
   itemDescription: A key. Could open something.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!1001 &1164506413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34982,10 +34979,8 @@ MonoBehaviour:
   strItemName: Cheese
   previewSprite: {fileID: 21300000, guid: 4bfc2bc2b3a29c94e8cfe4855664458a, type: 3}
   previewObject: {fileID: 1449995522}
-  itemDescription: I wonder why there's a piece of paper with cheese on it... Use
-    arrow keys to shift the cheese around.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  itemDescription: I wonder why there's a piece of paper with cheese on it.
+  inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &1450553443
 GameObject:
   m_ObjectHideFlags: 0
@@ -37645,8 +37640,7 @@ MonoBehaviour:
   previewSprite: {fileID: 21300000, guid: 68b2b6ef1c8b3ad48bd1baab38ccea74, type: 3}
   previewObject: {fileID: 809995011}
   itemDescription: A QR code to open Robin's room.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!65 &1611974544
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41797,7 +41791,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721414513591973464, guid: aa35cfe5338a7ad41b88219e18c27ea7, type: 3}
       propertyPath: m_Name
-      value: ram
+      value: RAM
       objectReference: {fileID: 0}
     - target: {fileID: 5390252197918649570, guid: aa35cfe5338a7ad41b88219e18c27ea7, type: 3}
       propertyPath: m_RootOrder
@@ -42283,7 +42277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8158549640143568446, guid: 4a9762b04b4d0b04abf95672d1feef8a, type: 3}
       propertyPath: m_Name
-      value: clipboard
+      value: Clipboard
       objectReference: {fileID: 0}
     - target: {fileID: 8823445604741260420, guid: 4a9762b04b4d0b04abf95672d1feef8a, type: 3}
       propertyPath: m_RootOrder
@@ -45625,10 +45619,8 @@ MonoBehaviour:
   strItemName: Safe Note
   previewSprite: {fileID: 21300000, guid: 79f43869386380f43b48c621a56c79ea, type: 3}
   previewObject: {fileID: 1968422856}
-  itemDescription: Instructions for opening a safe. I wonder which?.. Use arrow keys
-    to shift it around.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  itemDescription: Instructions for opening a safe. I wonder which?
+  inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!65 &1968422859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50567,7 +50559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2799535402857461992, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
       propertyPath: m_Name
-      value: food magazine
+      value: Food Magazine
       objectReference: {fileID: 0}
     - target: {fileID: 3033345100349425060, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
       propertyPath: previewObject
@@ -50575,8 +50567,7 @@ PrefabInstance:
       objectReference: {fileID: 435533554}
     - target: {fileID: 3033345100349425060, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
       propertyPath: itemDescription
-      value: A food magazine containing an ingredient list to make honey baklava...
-        Use arrow keys to shift the book around.
+      value: A food magazine containing an ingredient list to make honey baklava.
       objectReference: {fileID: 0}
     - target: {fileID: 3033345100349425061, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
       propertyPath: m_Size.x
@@ -51191,7 +51182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5803531520997093657, guid: 0998c962b4791a945b54cd87cce1369f, type: 3}
       propertyPath: m_Name
-      value: pager
+      value: Pager
       objectReference: {fileID: 0}
     - target: {fileID: 5803531520997093657, guid: 0998c962b4791a945b54cd87cce1369f, type: 3}
       propertyPath: m_IsActive
@@ -51336,8 +51327,7 @@ PrefabInstance:
       objectReference: {fileID: 208892785}
     - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
       propertyPath: itemDescription
-      value: A painting of a landscape with trees, apples, and birds... Use arrow
-        keys to shift it around.
+      value: A painting of a landscape with trees, apples, and birds.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
