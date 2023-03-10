@@ -17,6 +17,8 @@ public class ObjectInspector : MonoBehaviour
     const int minZoomDist = 2;
     const int maxZoomDist = 5;
 
+    float dragSpeed = 1.0f;
+
     float distFromCam;
     public bool IsViewing { get => isInspecting3DObject; }
 
@@ -67,6 +69,23 @@ public class ObjectInspector : MonoBehaviour
             if (Input.mouseScrollDelta.y != 0)
             {
                 Zoom3DCamera(-Input.mouseScrollDelta.y);
+            }
+
+            if (Input.GetMouseButtonDown(1))    // right mouse click
+            {
+                prevPos = Input.mousePosition;
+                //currentPos = prevPos;
+            }
+
+            if (Input.GetMouseButton(1))    // right mouse click drag to move inspect camera
+            {
+                Vector3 pos = inspectCamera.ScreenToViewportPoint(Input.mousePosition - prevPos);
+                Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed,0);
+
+                //if (currentPos != pos)
+                //if (target.transform.position.x )
+                target.transform.Translate(move, Space.World);
+                //currentPos = pos;
             }
 
             if (Input.GetMouseButton(2)) // middle mouse click
