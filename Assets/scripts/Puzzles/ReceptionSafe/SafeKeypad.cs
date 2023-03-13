@@ -116,7 +116,6 @@ public class SafeKeypad : MonoBehaviour
     IEnumerator RightCode()
     {
         ChangeImageColorGreen();
-        hints.CompletedPuzzle();
         yield return new WaitForSeconds(1);
         safe.GetComponent<Image>().sprite = img[1];
         ClearKeypadInput();
@@ -126,6 +125,7 @@ public class SafeKeypad : MonoBehaviour
         keypad.SetActive(false);
         numberdisplay.SetActive(false);
         wall.GetComponent<ReceptionSafe>().OpenSafe(true);
+        hints.CompletedPuzzle();
     }
 
     void ChangeImageColorRed()
