@@ -12,7 +12,7 @@ public class GetText : MonoBehaviour
     [SerializeField] string folder;
     [SerializeField] TextMeshProUGUI recallTextObject;
 
-    public Transform contentWindow;
+    //public Transform contentWindow;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +23,8 @@ public class GetText : MonoBehaviour
 
         foreach (string line in fileLines)
         {
-            //Instantiate(recallTextObject, contentWindow);
             recallTextObject.text = line;
         }
     }
 
 }
-
-
