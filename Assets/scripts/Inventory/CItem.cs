@@ -7,6 +7,10 @@ public class CItem : MonoBehaviour
 {
     private bool bIsInspectable;
     private bool bIsPickedUp;
+
+    public float anchorX = 1.0f;
+    public float anchorY = 1.0f;
+
     [SerializeField] private bool bIsRotatable;
 
     [SerializeField] private string strItemName;

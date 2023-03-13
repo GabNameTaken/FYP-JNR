@@ -17,7 +17,7 @@ public class SyncInventory : MonoBehaviour
 
     public void CallPickupItem(string itemName)
     {
-        photonView.RPC("PickupItem", RpcTarget.AllBufferedViaServer, itemName);
+        photonView.RPC("PickupItem", RpcTarget.AllViaServer, itemName);
     }
 
     [PunRPC]
@@ -33,7 +33,10 @@ public class SyncInventory : MonoBehaviour
                 {
                     CInventoryItemButtons.instance.onAddInventoryCItem(item.gameObject.GetComponent<CItem>());
                     item.gameObject.GetComponent<CItem>().setbIsPickedUp(true);
+                    //item.gameObject.GetComponent<SyncObject>().active = false;
                     item.gameObject.SetActive(false);
+                    //item.gameObject.GetComponent<PhotonView>().gameObject.SetActive(false);
+                    
                     item.SetParent(previewObject.transform, false);
                     item.gameObject.GetComponent<CItem>().getPreviewGameObject().layer = INPSECT_LAYER;
 
@@ -59,6 +62,13 @@ public class SyncInventory : MonoBehaviour
                     return itemTransform;
                 }
             }
+            //foreach (Transform itemTransform in room.GetComponentInChildren<Transform>())
+            //{
+            //    if (itemTransform.gameObject.GetComponent<CItem>() != null && itemTransform.gameObject.name == itemName)
+            //    {
+            //        return itemTransform;
+            //    }
+            //}
         }
 
         return null;
