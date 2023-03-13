@@ -16,7 +16,6 @@ public class PhotonObjectSpawner : MonoBehaviour
         {
             photonView.RPC("SpawnObjectRPC", RpcTarget.AllViaServer, gameObject.name,gameObject.transform.position,gameObject.transform.rotation);
         }
-        
     }
 
     // Update is called once per frame

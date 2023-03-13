@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3283724673728291410}
   - component: {fileID: 3033345100349425061}
   - component: {fileID: 3033345100349425060}
-  - component: {fileID: 112253041184581840}
   m_Layer: 0
   m_Name: food_magazine
   m_TagString: Untagged
@@ -60,25 +59,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 0
+  anchorY: 1
+  constraintToAnchor: 0
   bIsRotatable: 1
   strItemName: Food Magazine
   previewSprite: {fileID: 21300000, guid: 56bb5628fc508e74aa3c1b54a1ad8e70, type: 3}
   previewObject: {fileID: 2799535402857461992}
   itemDescription: 
   inspectRotation: {x: 0, y: 0, z: 0}
---- !u!114 &112253041184581840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2799535402857461992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a317f11047d9e34dae1a29cd8edd7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
 --- !u!1 &5224228669850485627
 GameObject:
   m_ObjectHideFlags: 0

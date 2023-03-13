@@ -31,15 +31,14 @@ public class SyncInventory : MonoBehaviour
 
                 if (item)
                 {
-                    CInventoryItemButtons.instance.onAddInventoryCItem(item.gameObject.GetComponent<CItem>());
+                    //CInventoryItemButtons.instance.onAddInventoryCItem(item.gameObject.GetComponent<CItem>());
+                    PhotonView itemPV = item.GetComponent<PhotonView>();
+                    itemPV.RPC("ActiveObject", RpcTarget.AllBufferedViaServer, false);
                     item.gameObject.GetComponent<CItem>().setbIsPickedUp(true);
-                    //item.gameObject.GetComponent<SyncObject>().active = false;
-                    item.gameObject.SetActive(false);
-                    //item.gameObject.GetComponent<PhotonView>().gameObject.SetActive(false);
+                    //item.gameObject.SetActive(false);
                     
                     item.SetParent(previewObject.transform, false);
                     item.gameObject.GetComponent<CItem>().getPreviewGameObject().layer = INPSECT_LAYER;
-                    Destroy(item.gameObject);
 
                     QueuedNotification.NotificationInfo notificationInfo = new();
                     notificationInfo.title = "Item Received: ";
@@ -63,13 +62,6 @@ public class SyncInventory : MonoBehaviour
                     return itemTransform;
                 }
             }
-            //foreach (Transform itemTransform in room.GetComponentInChildren<Transform>())
-            //{
-            //    if (itemTransform.gameObject.GetComponent<CItem>() != null && itemTransform.gameObject.name == itemName)
-            //    {
-            //        return itemTransform;
-            //    }
-            //}
         }
 
         return null;

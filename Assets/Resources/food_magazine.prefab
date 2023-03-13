@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3283724673728291410}
   - component: {fileID: 3033345100349425061}
   - component: {fileID: 3033345100349425060}
+  - component: {fileID: 5408948729072178718}
   - component: {fileID: 9204155015735442696}
   m_Layer: 0
   m_Name: food_magazine
@@ -62,12 +63,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorX: 1
   anchorY: 1
+  constraintToAnchor: 0
   bIsRotatable: 1
   strItemName: Food Magazine
   previewSprite: {fileID: 21300000, guid: 56bb5628fc508e74aa3c1b54a1ad8e70, type: 3}
   previewObject: {fileID: 2799535402857461992}
   itemDescription: A food magazine containing an ingredient list to make honey baklava.
   inspectRotation: {x: 270, y: 0, z: 0}
+--- !u!114 &5408948729072178718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2799535402857461992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a317f11047d9e34dae1a29cd8edd7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9204155015735442696
 MonoBehaviour:
   m_ObjectHideFlags: 0

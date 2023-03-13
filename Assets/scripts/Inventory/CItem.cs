@@ -10,6 +10,7 @@ public class CItem : MonoBehaviour
 
     public float anchorX = 1.0f;
     public float anchorY = 1.0f;
+    public bool constraintToAnchor = false;
 
     [SerializeField] private bool bIsRotatable;
 

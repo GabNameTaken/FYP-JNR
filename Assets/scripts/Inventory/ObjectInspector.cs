@@ -86,21 +86,24 @@ public class ObjectInspector : MonoBehaviour
                 target.transform.Translate(move, Space.World);
 
                 //  constraint the space where the object can move
-                if (target.transform.position.x > target.GetComponent<CItem>().anchorX)
+                if (target.GetComponent<CItem>().constraintToAnchor)
                 {
-                    target.transform.position = new Vector3(target.GetComponent<CItem>().anchorX,target.transform.position.y, target.transform.position.z);
-                }
-                else if (target.transform.position.x < -target.GetComponent<CItem>().anchorX)
-                {
-                    target.transform.position = new Vector3(-target.GetComponent<CItem>().anchorX, target.transform.position.y, target.transform.position.z);
-                }
-                if (target.transform.position.y > target.GetComponent<CItem>().anchorY   )
-                {
-                    target.transform.position = new Vector3(target.transform.position.x, target.GetComponent<CItem>().anchorY, target.transform.position.z);
-                }
-                else if (target.transform.position.y < -target.GetComponent<CItem>().anchorY)
-                {
-                    target.transform.position = new Vector3(target.transform.position.x, -target.GetComponent<CItem>().anchorY, target.transform.position.z);
+                    if (target.transform.position.x > target.GetComponent<CItem>().anchorX)
+                    {
+                        target.transform.position = new Vector3(target.GetComponent<CItem>().anchorX, target.transform.position.y, target.transform.position.z);
+                    }
+                    else if (target.transform.position.x < -target.GetComponent<CItem>().anchorX)
+                    {
+                        target.transform.position = new Vector3(-target.GetComponent<CItem>().anchorX, target.transform.position.y, target.transform.position.z);
+                    }
+                    if (target.transform.position.y > target.GetComponent<CItem>().anchorY)
+                    {
+                        target.transform.position = new Vector3(target.transform.position.x, target.GetComponent<CItem>().anchorY, target.transform.position.z);
+                    }
+                    else if (target.transform.position.y < -target.GetComponent<CItem>().anchorY)
+                    {
+                        target.transform.position = new Vector3(target.transform.position.x, -target.GetComponent<CItem>().anchorY, target.transform.position.z);
+                    }
                 }
             }
 
