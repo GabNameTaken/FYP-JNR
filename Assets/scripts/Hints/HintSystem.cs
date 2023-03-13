@@ -7,7 +7,7 @@ using Photon.Pun;
 
 public class HintSystem : MonoBehaviourPun
 {
-    private PhotonView photonView;
+    //private PhotonView photonView;
 
     [SerializeField] Transform container;
     [SerializeField] GameObject hint;
@@ -17,7 +17,6 @@ public class HintSystem : MonoBehaviourPun
     [SerializeField] TextMeshProUGUI nextHintText;
     [SerializeField] TextMeshProUGUI viewHintText;
     int viewHintNumTest = 0;
-    //GameObject[] hintList;
 
     int numHints = 5;
     float nextHintTimer;
@@ -58,10 +57,9 @@ public class HintSystem : MonoBehaviourPun
         photonView.RPC("ReceiveHint", RpcTarget.All);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
+        //photonView = GetComponent<PhotonView>();
         nextHintTimer = resetNextHintTimer;
         nextHintText.text = "Next Hint: Available";
         viewHintText.text = "No Hints at the moment :(";
@@ -69,7 +67,6 @@ public class HintSystem : MonoBehaviourPun
         InstantiateHint();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (disableHint)
