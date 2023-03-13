@@ -5,26 +5,18 @@ using TMPro;
 
 public class Hints : MonoBehaviour
 {
-
     [SerializeField] GameObject[] hint;
     [SerializeField] TextMeshProUGUI counter;
 
-    [SerializeField] GameObject Confirmation, NoHints, UsedHints, HintPage;
+    [SerializeField] GameObject Confirmation, NoHints, HintPage;
 
-    int numberOfHints = 5;
+    int numberOfHints = 100;
     int currentHint = 0;
     bool hintUsed = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         counter.text = "You have " + numberOfHints + " hints left";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void HintButtonPress()
@@ -35,7 +27,8 @@ public class Hints : MonoBehaviour
         }
         else if (hintUsed == true)
         {
-            UsedHints.SetActive(true);
+            hint[currentHint].SetActive(true);
+            HintPage.SetActive(true);
         }
         else
         {

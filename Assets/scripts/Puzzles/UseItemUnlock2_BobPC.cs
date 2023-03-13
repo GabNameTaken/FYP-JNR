@@ -23,40 +23,6 @@ public class UseItemUnlock2_BobPC : MonoBehaviour
 
     public void CheckUse()
     {
-        if (unlockedObject.GetComponent<CheckLocked>().GetStatus() == false && unlockedObject2.GetComponent<CheckLocked>().GetStatus() == false)
-        {
-            unlockedObject.SetActive(true);
-            unlockedObject2.SetActive(true);
-            closedObject.SetActive(false);
-            closedObject2.SetActive(false);
-        }
-        else
-        {
-            if (ItemButton.selectedItem == itemToUse)
-            {
-                CInventoryItemButtons.instance.onRemoveInventoryCItem(itemToUse);
-                unlockedObject.SetActive(true);
-                unlockedObject2.SetActive(true);
-                closedObject.SetActive(false);
-                closedObject2.SetActive(false);
-                unlockedObject.GetComponent<CheckLocked>().SetStatus(false);
-                unlockedObject2.GetComponent<CheckLocked>().SetStatus(false);
-                hints.CompletedPuzzle();
-            }
-            else
-            {
-                QueuedNotification.NotificationInfo notificationInfo = new();
-                notificationInfo.title = "RAM Slot";
-                notificationInfo.message = "RAM Missing";
-                notificationInfo.durationSeconds = 5;
-                QueuedNotification.instance.QueueNotification(notificationInfo);
-            }
-        }
-
-    }
-
-    public void CheckUse2()
-    {
         if (ItemButton.selectedItem == itemToUse)
         {
             CInventoryItemButtons.instance.onRemoveInventoryCItem(itemToUse);
@@ -64,8 +30,6 @@ public class UseItemUnlock2_BobPC : MonoBehaviour
             unlockedObject2.SetActive(true);
             closedObject.SetActive(false);
             closedObject2.SetActive(false);
-            unlockedObject.GetComponent<CheckLocked>().SetStatus(false);
-            unlockedObject2.GetComponent<CheckLocked>().SetStatus(false);
             this.gameObject.SetActive(false);
             hints.CompletedPuzzle();
         }
