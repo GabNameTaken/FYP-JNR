@@ -11,150 +11,124 @@ public class SafeKeypad : MonoBehaviour
     [SerializeField] private Sprite[] img;
     [SerializeField] GameObject safe, pager, keypad, wall, pagerhb, numberdisplay;
     private GameObject player;
-    string inputText;
+
+    Hints hints;
+
     void Start()
     {
-        clearKeypadInput();
+        ClearKeypadInput();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        hints = FindObjectOfType<Hints>();
     }
 
-    void checkKeypadInput()
+    void KeypadInput(string input)
     {
         for (int i = 0; i < keycodeInput.Length; i++)
         {
             if (keycodeInput[i].text == "")
             {
-                keycodeInput[i].text = inputText;
+                keycodeInput[i].text = input;
+                if (i == 2)
+                    OnClickCheckCode();
                 break;
             }
         }
-
-    
     }
 
-    void OnClick_checkCode()
+    void OnClickCheckCode()
     {
         if (keycodeInput[0].text == "3" && keycodeInput[1].text == "9" && keycodeInput[2].text == "7")
         {
-            StartCoroutine(rightCode());
+            StartCoroutine(RightCode());
         }
         else if (keycodeInput[2].text != "")
         {
-            StartCoroutine(wrongCode());
+            StartCoroutine(WrongCode());
         }
-
-        if (keycodeInput[0].text == "")
-        {
-            //indicator.SetTrigger("reset");
-        }
-        else if (keycodeInput[0].text != "" && keycodeInput[1].text == "")
-        {
-            //indicator.SetTrigger("input1");
-        }
-        else if (keycodeInput[0].text != "" && keycodeInput[1].text != "" && keycodeInput[2].text == "")
-        {
-            //indicator.SetTrigger("input2");
-        }
-
     }
 
-    private void Update()
-    { 
-        OnClick_checkCode();
-    }
-
-    void clearKeypadInput()
+    void ClearKeypadInput()
     {
-        foreach (TextMeshProUGUI _text in keycodeInput)
-        {
-            _text.text = "";
-        }
+        keycodeInput[0].text = "";
+        keycodeInput[1].text = "";
+        keycodeInput[2].text = "";
     }
 
     public void OnClick_1()
     {
-        inputText = "1";
-        checkKeypadInput();
+        KeypadInput("1");
     }
     public void OnClick_2()
     {
-        inputText = "2";
-        checkKeypadInput();
+        KeypadInput("2");
     }
     public void OnClick_3()
     {
-        inputText = "3";
-        checkKeypadInput();
+        KeypadInput("3");
     }
     public void OnClick_4()
     {
-        inputText = "4";
-        checkKeypadInput();
+        KeypadInput("4");
     }
     public void OnClick_5()
     {
-        inputText = "5";
-        checkKeypadInput();
+        KeypadInput("5");
     }
     public void OnClick_6()
     {
-        inputText = "6";
-        checkKeypadInput();
+        KeypadInput("6");
     }
     public void OnClick_7()
     {
-        inputText = "7";
-        checkKeypadInput();
+        KeypadInput("7");
     }
     public void OnClick_8()
     {
-        inputText = "8";
-        checkKeypadInput();
+        KeypadInput("8");
     }
     public void OnClick_9()
     {
-        inputText = "9";
-        checkKeypadInput();
+        KeypadInput("9");
     }
     public void OnClick_0()
     {
-        inputText = "0";
-        checkKeypadInput();
+        KeypadInput("0");
     }
 
-    public void objecttaken()
+    public void ObjectTaken()
     {
         safe.GetComponent<Image>().sprite = img[2];
         player.GetComponent<SyncInventory>().CallPickupItem("Pager");
         pager.SetActive(true);
     }
 
-    IEnumerator wrongCode()
+    IEnumerator WrongCode()
     {
-        changeImageColorRed();
+        ChangeImageColorRed();
         keypad.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2);
         keypad.SetActive(true);
-        changeImageColorOrigin();
-        clearKeypadInput();
-    }
-    IEnumerator rightCode()
-    {
-        changeImageColorGreen();
-        yield return new WaitForSeconds(1f);
-        safe.GetComponent<Image>().sprite = img[1];
-        clearKeypadInput();
-        changeImageColorOrigin();
-        pager.gameObject.SetActive(true);
-        pagerhb.gameObject.SetActive(true);
-        keypad.gameObject.SetActive(false);
-        numberdisplay.SetActive(false);
-        wall.GetComponent<ReceptionSafe>().OpenSafe(true);
-        //VarOverScenes.door_receptionUnlocked = true;
-        // this.gameObject.SetActive(false);
+        ChangeImageColorOrigin();
+        ClearKeypadInput();
     }
 
-    void changeImageColorRed()
+    IEnumerator RightCode()
+    {
+        ChangeImageColorGreen();
+        hints.CompletedPuzzle();
+        yield return new WaitForSeconds(1);
+        safe.GetComponent<Image>().sprite = img[1];
+        ClearKeypadInput();
+        ChangeImageColorOrigin();
+        pager.SetActive(true);
+        pagerhb.SetActive(true);
+        keypad.SetActive(false);
+        numberdisplay.SetActive(false);
+        wall.GetComponent<ReceptionSafe>().OpenSafe(true);
+    }
+
+    void ChangeImageColorRed()
     {
         for (int i = 0; i < keycodeInput.Length; i++)
         {
@@ -162,7 +136,7 @@ public class SafeKeypad : MonoBehaviour
         }
 
     }
-    void changeImageColorGreen()
+    void ChangeImageColorGreen()
     {
         for (int i = 0; i < keycodeInput.Length; i++)
         {
@@ -170,7 +144,7 @@ public class SafeKeypad : MonoBehaviour
         }
     }
 
-    void changeImageColorOrigin()
+    void ChangeImageColorOrigin()
     {
         for (int i = 0; i < keycodeInput.Length; i++)
         {
