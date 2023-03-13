@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class ObjectMove : MonoBehaviour
 {
-    private float speed = 0.01f;
-    public float anchorX, anchorY;
-    public bool flippedXY, flippedY;
+    //private float speed = 0.01f;
+    //public float anchorX, anchorY;
+    //public bool flippedXY, flippedY;
     // Start is called before the first frame update
     void Start()
     {
