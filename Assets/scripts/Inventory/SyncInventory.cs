@@ -39,6 +39,7 @@ public class SyncInventory : MonoBehaviour
                     
                     item.SetParent(previewObject.transform, false);
                     item.gameObject.GetComponent<CItem>().getPreviewGameObject().layer = INPSECT_LAYER;
+                    Destroy(item.gameObject);
 
                     QueuedNotification.NotificationInfo notificationInfo = new();
                     notificationInfo.title = "Item Received: ";

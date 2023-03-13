@@ -6138,13 +6138,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 208892785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30635dceac2bb6947a2b1e4ef279796d, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchorX: 1
-  anchorY: 1
-  flippedXY: 0
-  flippedY: 1
 --- !u!1 &212664256
 GameObject:
   m_ObjectHideFlags: 0
@@ -11904,10 +11900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30635dceac2bb6947a2b1e4ef279796d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchorX: 1.5
-  anchorY: 1
-  flippedXY: 0
-  flippedY: 0
 --- !u!1 &445270193
 GameObject:
   m_ObjectHideFlags: 0
@@ -14960,6 +14952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
   bIsRotatable: 1
   strItemName: morse
   previewSprite: {fileID: 21300000, guid: ba8a2fce9b37a8e42a346396f46de2ad, type: 3}
@@ -15136,6 +15130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
   bIsRotatable: 1
   strItemName: Screwdriver
   previewSprite: {fileID: 21300000, guid: 38e88d75c45fa5445b9123073c87a571, type: 3}
@@ -28261,6 +28257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
   bIsRotatable: 1
   strItemName: Key
   previewSprite: {fileID: 21300000, guid: 0f55f549efbf0b24793a236eac9a3e29, type: 3}
@@ -34582,6 +34580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
   bIsRotatable: 1
   strItemName: Cheese
   previewSprite: {fileID: 21300000, guid: 4bfc2bc2b3a29c94e8cfe4855664458a, type: 3}
@@ -37163,6 +37163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
   bIsRotatable: 1
   strItemName: QRCode
   previewSprite: {fileID: 21300000, guid: 68b2b6ef1c8b3ad48bd1baab38ccea74, type: 3}
@@ -44451,6 +44453,8 @@ GameObject:
   - component: {fileID: 1923749560}
   - component: {fileID: 1923749562}
   - component: {fileID: 1923749561}
+  - component: {fileID: 1923749564}
+  - component: {fileID: 1923749563}
   m_Layer: 0
   m_Name: PhotonSetup
   m_TagString: Untagged
@@ -44502,6 +44506,42 @@ MonoBehaviour:
   onConnectedToMaster:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1923749563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923749559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 16
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1923749564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923749559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dacea9f8fd6de4a9543af52a705868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjects:
+  - {fileID: 2799535402857461992, guid: 67e3f484d78b54242b4084a1e99291aa, type: 3}
 --- !u!1 &1928394833
 GameObject:
   m_ObjectHideFlags: 0
@@ -45143,6 +45183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
   bIsRotatable: 1
   strItemName: Safe Note
   previewSprite: {fileID: 21300000, guid: 79f43869386380f43b48c621a56c79ea, type: 3}
@@ -45174,10 +45216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30635dceac2bb6947a2b1e4ef279796d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchorX: 1
-  anchorY: 2
-  flippedXY: 1
-  flippedY: 0
 --- !u!1001 &1970286528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50089,6 +50127,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food Magazine
       objectReference: {fileID: 0}
+    - target: {fileID: 2799535402857461992, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3033345100349425060, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
       propertyPath: previewObject
       value: 
@@ -50165,7 +50207,8 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 16
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 112253041184581840, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
 --- !u!1001 &3782539545209553921
 PrefabInstance:
