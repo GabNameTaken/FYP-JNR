@@ -32,7 +32,7 @@ public class PC1 : MonoBehaviour
 
     public void OnClick_Login()
     {
-        if (passwordInput.text == password)
+        if (passwordInput.text.ToUpper() == password.ToUpper())
         {
             confirmText.text = "Logged in";
             //add new screen or smth
