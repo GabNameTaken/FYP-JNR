@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InventoryPanelPopup : MonoBehaviour
 {
-    [SerializeField] RectTransform panelRTransform;
+    [SerializeField] RectTransform button;
     [SerializeField] GameObject openedPanel;
     [SerializeField] GameObject closedPanel;
 
@@ -32,15 +32,13 @@ public class InventoryPanelPopup : MonoBehaviour
         openedPanel.SetActive(true);
         closedPanel.SetActive(false);
 
-        panelRTransform.offsetMin += new Vector2(0, 173);
-        panelRTransform.offsetMax += new Vector2(0, 173);
+        button.position = new Vector3(button.position.x, button.position.y +  225, button.position.z);
     }
     private void HideInventoryPanel()
     {
         openedPanel.SetActive(false);
         closedPanel.SetActive(true);
 
-        panelRTransform.offsetMin -= new Vector2(0, 173);
-        panelRTransform.offsetMax -= new Vector2(0, 173);
+        button.position = new Vector3(button.position.x, button.position.y - 225, button.position.z);
     }
 }
