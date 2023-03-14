@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 8823445604741260420}
   - component: {fileID: 9077449776104522611}
   - component: {fileID: 9077449776104522604}
-  - component: {fileID: 4067765083501485764}
   - component: {fileID: 16355977459737362}
   m_Layer: 0
   m_Name: clipboard
@@ -153,18 +152,6 @@ MonoBehaviour:
   previewObject: {fileID: 8158549640143568446}
   itemDescription: A clipboard with all the employee names.
   inspectRotation: {x: 0, y: 0, z: 0}
---- !u!114 &4067765083501485764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8158549640143568446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a317f11047d9e34dae1a29cd8edd7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &16355977459737362
 MonoBehaviour:
   m_ObjectHideFlags: 0

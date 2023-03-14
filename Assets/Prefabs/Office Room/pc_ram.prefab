@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 5390252197918649570}
   - component: {fileID: 5567782493975268109}
   - component: {fileID: 5567782493975268106}
+  - component: {fileID: 1923546657079857838}
   m_Layer: 0
   m_Name: pc_ram
   m_TagString: Untagged
@@ -129,13 +130,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
+  constraintToAnchor: 0
   bIsRotatable: 1
   strItemName: RAM
   previewSprite: {fileID: 0}
   previewObject: {fileID: 4721414513591973464}
   itemDescription: A working RAM stick used in computers.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!65 &5567782493975268106
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,3 +152,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.058247, y: 0.3621254, z: 3.494135}
   m_Center: {x: -0.013692856, y: -0.02226448, z: -0.0070695877}
+--- !u!114 &1923546657079857838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721414513591973464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

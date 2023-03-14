@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3287173280652816740}
   - component: {fileID: 3921974305628977982}
   - component: {fileID: 3018640517895013557}
+  - component: {fileID: 1923856673513649488}
   m_Layer: 0
   m_Name: USB_kill_switch
   m_TagString: Untagged
@@ -59,13 +60,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
+  constraintToAnchor: 0
   bIsRotatable: 1
   strItemName: Kill Switch
   previewSprite: {fileID: 0}
   previewObject: {fileID: 2798338465790897118}
   itemDescription: For use during cyber attacks to flush malwares out of system.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &1923856673513649488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798338465790897118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6774178311084141350
 GameObject:
   m_ObjectHideFlags: 0

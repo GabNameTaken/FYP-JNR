@@ -8,9 +8,10 @@ public class CItem : MonoBehaviour
     private bool bIsInspectable;
     private bool bIsPickedUp;
 
+    //  Variables for inspection menu
     public float anchorX = 1.0f;
     public float anchorY = 1.0f;
-    public bool constraintToAnchor = false;
+    public bool constraintToAnchor = false; //Constraint or no constraint for inspection menu
 
     [SerializeField] private bool bIsRotatable;
 
@@ -33,4 +34,11 @@ public class CItem : MonoBehaviour
     public string getGameObjectName() { return gameObject.name; }
     public Sprite getpreviewSprite() { return previewSprite; }
     public GameObject getPreviewGameObject() { return previewObject; }
+
+    [PunRPC]
+    public void AddToInventory()
+    {
+        CInventoryItemButtons.instance.onAddInventoryCItem(gameObject.GetComponent<CItem>());
+        gameObject.SetActive(false);
+    }
 }

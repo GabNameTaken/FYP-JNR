@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 7776042139237419385}
   - component: {fileID: 7809440066006838934}
   - component: {fileID: 7809440066006838933}
-  - component: {fileID: 615982972006652761}
   - component: {fileID: 7665277807983734393}
   m_Layer: 0
   m_Name: Painting
@@ -153,18 +152,6 @@ MonoBehaviour:
   previewObject: {fileID: 6963090095495140291}
   itemDescription: A painting of a landscape with different coloured birds.
   inspectRotation: {x: 0, y: 180, z: 0}
---- !u!114 &615982972006652761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6963090095495140291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a317f11047d9e34dae1a29cd8edd7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7665277807983734393
 MonoBehaviour:
   m_ObjectHideFlags: 0

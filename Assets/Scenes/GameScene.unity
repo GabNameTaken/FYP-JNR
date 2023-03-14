@@ -5398,6 +5398,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 192334288}
+  - component: {fileID: 192334289}
+  - component: {fileID: 192334290}
   m_Layer: 0
   m_Name: ItemHolder
   m_TagString: ItemHolder
@@ -5430,6 +5432,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &192334289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192334287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a317f11047d9e34dae1a29cd8edd7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  photonView: {fileID: 0}
+--- !u!114 &192334290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192334287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 32
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &193189614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d7de8f3200d31e940a993fcbbef332e9, type: 3}
@@ -8675,6 +8712,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 596894609}
     m_Modifications:
+    - target: {fileID: 1923856673513649488, guid: 91d8bc4c512367c4f929aeabe4a33487, type: 3}
+      propertyPath: sceneViewId
+      value: 37
+      objectReference: {fileID: 0}
     - target: {fileID: 2798338465790897118, guid: 91d8bc4c512367c4f929aeabe4a33487, type: 3}
       propertyPath: m_Name
       value: Kill Switch
@@ -14829,6 +14870,28 @@ MonoBehaviour:
   previewObject: {fileID: 562307155}
   itemDescription: A book with info about morse code.
   inspectRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &562307162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562307156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 40
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &564567956
 GameObject:
   m_ObjectHideFlags: 0
@@ -15008,6 +15071,28 @@ MonoBehaviour:
   previewObject: {fileID: 1178270026}
   itemDescription: A screwdriver. Can be used to unscrew things open.
   inspectRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &592709507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592709503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 41
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &594272503
 GameObject:
   m_ObjectHideFlags: 0
@@ -21872,6 +21957,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1651324428}
     m_Modifications:
+    - target: {fileID: 3207481982422937613, guid: aabb417f2c6d5ad42921a33ac9efd88a, type: 3}
+      propertyPath: sceneViewId
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 7085415047722430173, guid: aabb417f2c6d5ad42921a33ac9efd88a, type: 3}
       propertyPath: m_Name
       value: Caeser Cypher
@@ -28135,6 +28224,28 @@ MonoBehaviour:
   previewObject: {fileID: 544550799}
   itemDescription: A key. Could open something.
   inspectRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &1163465878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163465875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 42
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &1164506413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34395,6 +34506,7 @@ GameObject:
   - component: {fileID: 1449995523}
   - component: {fileID: 1449995524}
   - component: {fileID: 1449995525}
+  - component: {fileID: 1449995526}
   m_Layer: 0
   m_Name: Cheese Puzzle
   m_TagString: Untagged
@@ -34454,6 +34566,28 @@ MonoBehaviour:
   previewObject: {fileID: 1449995522}
   itemDescription: I wonder why there's a piece of paper with cheese on it.
   inspectRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &1449995526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449995522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 34
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1450553443
 GameObject:
   m_ObjectHideFlags: 0
@@ -37050,6 +37184,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.72, y: 7.72, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1611974545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611974541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 39
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1613501590
 GameObject:
   m_ObjectHideFlags: 0
@@ -41182,6 +41338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 323713269}
     m_Modifications:
+    - target: {fileID: 1923546657079857838, guid: aa35cfe5338a7ad41b88219e18c27ea7, type: 3}
+      propertyPath: sceneViewId
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 4721414513591973464, guid: aa35cfe5338a7ad41b88219e18c27ea7, type: 3}
       propertyPath: m_Name
       value: RAM
@@ -44323,7 +44483,6 @@ GameObject:
   - component: {fileID: 1923749560}
   - component: {fileID: 1923749562}
   - component: {fileID: 1923749561}
-  - component: {fileID: 1923749564}
   - component: {fileID: 1923749563}
   m_Layer: 0
   m_Name: PhotonSetup
@@ -44398,20 +44557,6 @@ MonoBehaviour:
   sceneViewId: 16
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1923749564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923749559}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19dacea9f8fd6de4a9543af52a705868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjects:
-  - {fileID: 2799535402857461992, guid: 67e3f484d78b54242b4084a1e99291aa, type: 3}
 --- !u!1 &1928394833
 GameObject:
   m_ObjectHideFlags: 0
@@ -45075,6 +45220,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 44.52335, y: 61.61091, z: 1.4}
   m_Center: {x: 0.028412342, y: 0.038585663, z: 0}
+--- !u!114 &1968422860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968422857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 38
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &1968422863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49167,18 +49334,6 @@ MonoBehaviour:
   sceneViewId: 17
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &543450653071357098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086640646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a317f11047d9e34dae1a29cd8edd7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &543450653420911645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6611734536904518563, guid: 0998c962b4791a945b54cd87cce1369f, type: 3}
@@ -50744,6 +50899,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384018769}
     m_Modifications:
+    - target: {fileID: 246060774686858699, guid: 0998c962b4791a945b54cd87cce1369f, type: 3}
+      propertyPath: sceneViewId
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 5065549871655579734, guid: 0998c962b4791a945b54cd87cce1369f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8

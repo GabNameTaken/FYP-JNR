@@ -31,12 +31,9 @@ public class SyncInventory : MonoBehaviour
 
                 if (item)
                 {
-                    //CInventoryItemButtons.instance.onAddInventoryCItem(item.gameObject.GetComponent<CItem>());
-                    PhotonView itemPV = item.GetComponent<PhotonView>();
-                    itemPV.RPC("ActiveObject", RpcTarget.AllBufferedViaServer, false);
+                    PhotonView itemPV = item.gameObject.GetComponent<PhotonView>();
+                    itemPV.RPC("AddToInventory", RpcTarget.AllBufferedViaServer);
                     item.gameObject.GetComponent<CItem>().setbIsPickedUp(true);
-                    //item.gameObject.SetActive(false);
-                    
                     item.SetParent(previewObject.transform, false);
                     item.gameObject.GetComponent<CItem>().getPreviewGameObject().layer = INPSECT_LAYER;
 

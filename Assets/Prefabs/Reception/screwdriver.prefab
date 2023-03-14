@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 264167310254337494}
   - component: {fileID: 297303243604013099}
   - component: {fileID: 297303243604013096}
+  - component: {fileID: 3090759660484680955}
   m_Layer: 0
   m_Name: screwdriver
   m_TagString: Untagged
@@ -60,13 +61,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
+  constraintToAnchor: 0
   bIsRotatable: 1
   strItemName: Screwdriver
   previewSprite: {fileID: 0}
   previewObject: {fileID: 0}
   itemDescription: A screwdriver. Can be used to unscrew things open.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &3090759660484680955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639883230745114476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8047592248979102729
 GameObject:
   m_ObjectHideFlags: 0

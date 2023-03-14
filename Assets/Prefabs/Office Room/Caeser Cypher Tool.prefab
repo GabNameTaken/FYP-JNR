@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7574953274403697767}
   - component: {fileID: 7968304405376804742}
   - component: {fileID: 7968304405376804743}
+  - component: {fileID: 3207481982422937613}
   m_Layer: 0
   m_Name: Caeser Cypher Tool
   m_TagString: Untagged
@@ -144,13 +145,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
+  constraintToAnchor: 0
   bIsRotatable: 1
   strItemName: Caeser Cypher aTool
   previewSprite: {fileID: 21300000, guid: e50ac67f9cad37e4c9844e7c1cbaf2ba, type: 3}
   previewObject: {fileID: 7085415047722430173}
   itemDescription: A rotatable tool. Use the left & right arrow keys to rotate it.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &3207481982422937613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7085415047722430173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &7968304405728236258
 PrefabInstance:
   m_ObjectHideFlags: 0
