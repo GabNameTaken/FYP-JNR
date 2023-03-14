@@ -9,13 +9,16 @@ public class Drawer : MonoBehaviour
     [SerializeField] private Sprite[] img;
     [SerializeField] private GameObject image, screwdriver, note;
     private GameObject player;
-    // Start is called before the first frame update
+
+    Hints hints;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        hints = FindObjectOfType<Hints>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -28,6 +31,8 @@ public class Drawer : MonoBehaviour
         //player.GetComponent<SyncInventory>().CallPickupItem("Note");
         //screwdriver.SetActive(true);
         //note.SetActive(true);
+
+        hints.CompletedPuzzle();
     }
 
     public void BookPickup()
