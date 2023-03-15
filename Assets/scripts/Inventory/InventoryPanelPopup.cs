@@ -32,13 +32,13 @@ public class InventoryPanelPopup : MonoBehaviour
         openedPanel.SetActive(true);
         closedPanel.SetActive(false);
 
-        button.position = new Vector3(button.position.x, button.position.y +  225, button.position.z);
+        button.position = new Vector3(button.position.x, button.position.y + 190, button.position.z);
     }
     private void HideInventoryPanel()
     {
         openedPanel.SetActive(false);
         closedPanel.SetActive(true);
 
-        button.position = new Vector3(button.position.x, button.position.y - 225, button.position.z);
+        button.position = new Vector3(button.position.x, button.position.y - 190, button.position.z);
     }
 }
