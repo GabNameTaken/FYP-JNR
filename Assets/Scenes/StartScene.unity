@@ -1046,11 +1046,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152566609}
   m_CullTransparentMesh: 1
---- !u!1 &184655849 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9063141253590315223, guid: c3e7920252d8fd647ba4c33ed2fbdc85, type: 3}
-  m_PrefabInstance: {fileID: 562530748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &202075968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2301,6 +2296,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 658036099917328917, guid: c3e7920252d8fd647ba4c33ed2fbdc85, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 658036099917328917, guid: c3e7920252d8fd647ba4c33ed2fbdc85, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
@@ -2499,7 +2498,7 @@ PrefabInstance:
     - target: {fileID: 3739840968686776927, guid: c3e7920252d8fd647ba4c33ed2fbdc85, type: 3}
       propertyPath: closeButton
       value: 
-      objectReference: {fileID: 184655849}
+      objectReference: {fileID: 0}
     - target: {fileID: 3903511063691936558, guid: c3e7920252d8fd647ba4c33ed2fbdc85, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2561,6 +2560,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8377156481204482019, guid: c3e7920252d8fd647ba4c33ed2fbdc85, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384024565721757688, guid: c3e7920252d8fd647ba4c33ed2fbdc85, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}

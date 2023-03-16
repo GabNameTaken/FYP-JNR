@@ -10,7 +10,6 @@ public class VideoConferenceSetupUI : MonoBehaviour
     [Header("Main Elements")]
     [SerializeField] GameObject openButton;
     [SerializeField] GameObject dropdownPanel;
-    [SerializeField] GameObject closeButton;
 
     [Header("Dropdown Setup panel")]
     [SerializeField] GameObject setupPanel;
@@ -65,10 +64,9 @@ public class VideoConferenceSetupUI : MonoBehaviour
         //dk why but close button deosnt work if i leave drop down open
         if (videoConferenceSetupController.isActiveAndEnabled)
         {
-            openButton.SetActive(true);
-            dropdownPanel.SetActive(false);
+            //openButton.SetActive(true);
+            //dropdownPanel.SetActive(false);
         }
-        closeButton.GetComponent<Button>().interactable = true;
     }
 
     private void OnJoinedConference()
