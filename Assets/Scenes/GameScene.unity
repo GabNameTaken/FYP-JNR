@@ -9816,10 +9816,8 @@ MonoBehaviour:
 
     
 
-    
-
-    Find clues and solve puzzles to get to
-    the manager''s workstation and stop the hack before time runs out and escape.
+    Find clues and solve puzzles to get to the manager''s
+    workstation and stop the hack before time runs out and escape.
 
     
 
@@ -11318,7 +11316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &670844824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27749,10 +27747,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2083492170}
     m_Modifications:
+    - target: {fileID: 413258460519989885, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 413258460519989885, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 413258460519989885, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413258460519989885, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413258460519989885, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413258460519989885, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 413258460519989885, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 340
+      objectReference: {fileID: 0}
     - target: {fileID: 4356402727992522961, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e3aeada5eb60355489d9145bef4c7230, type: 3}
+      objectReference: {fileID: 21300000, guid: c6fa6772b63d8194b9957cd2d5260f00, type: 3}
+    - target: {fileID: 4356402727992522961, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941585336777087931, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0ef68ab44c69ff147b0faeefcb1d57c6, type: 3}
+    - target: {fileID: 5941585336777087931, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941585336777087931, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941585336777087931, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941585336777087931, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6513559828292819870, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -27841,6 +27891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InspectObjectUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6920283464496038850, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7012391001400483426, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -27863,7 +27917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7012391001400483426, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 7012391001400483426, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -27871,7 +27925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7012391001400483426, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7598965821284029720, guid: 0635918e05d95fc4e819291fd4c8970f, type: 3}
       propertyPath: m_IsActive
