@@ -33,7 +33,7 @@ public class ReceptionPCLogin : MonoBehaviour
 
     public void PasswordCheck()
     {
-        if (passwordInput.text == password)
+        if (passwordInput.text.ToUpper() == password.ToUpper())
         {
             syncedPuzzle.CallSyncSolvePuzzle();
         }
