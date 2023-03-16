@@ -61,12 +61,8 @@ public class VideoConferenceSetupUI : MonoBehaviour
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        //dk why but close button deosnt work if i leave drop down open
-        if (videoConferenceSetupController.isActiveAndEnabled)
-        {
-            //openButton.SetActive(true);
-            //dropdownPanel.SetActive(false);
-        }
+       //Additional settings to change if needed after changing scenes
+
     }
 
     private void OnJoinedConference()
