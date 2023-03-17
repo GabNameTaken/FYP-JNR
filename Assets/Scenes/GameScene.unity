@@ -9534,15 +9534,15 @@ MonoBehaviour:
     it is your job to intercept the hack before it''s too late and unlock the building
     from the lockdown.
 
-    
+
 
     Find clues and solve puzzles to get to the manager''s
     workstation and stop the hack before time runs out and escape.
 
-    
 
-    You
-    will also learn some cyber security tips whilst going through the office.'
+
+    You will
+    also learn some cyber security tips whilst going through the office.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
   m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
@@ -10949,7 +10949,7 @@ RectTransform:
   - {fileID: 565195483}
   - {fileID: 22123758}
   m_Father: {fileID: 2083492170}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -32424,9 +32424,9 @@ RectTransform:
   - {fileID: 910250993}
   - {fileID: 1754747065}
   - {fileID: 6250334679333623590}
+  - {fileID: 670844824}
   - {fileID: 1030079349}
   - {fileID: 912821457}
-  - {fileID: 670844824}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35245,6 +35245,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 6.48
       objectReference: {fileID: 0}
+    - target: {fileID: 4404566173152039653, guid: 6c0ff41a2f0ace44fa20516a51d01e4f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4404566173657201451, guid: 6c0ff41a2f0ace44fa20516a51d01e4f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -35940,7 +35944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224609734845200844, guid: b13891e30e21ad644bd0124cf9cc7e88, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2224609735027786295, guid: b13891e30e21ad644bd0124cf9cc7e88, type: 3}
       propertyPath: m_SizeDelta.x
