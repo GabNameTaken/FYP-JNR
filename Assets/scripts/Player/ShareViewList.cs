@@ -30,6 +30,7 @@ public class ShareViewList : MonoBehaviour
         Debug.Log(photonView.ViewID.ToString());
         foreach (Player player in PhotonNetwork.PlayerListOthers)
         {
+            Debug.Log("name");
             GameObject go = Instantiate(playerButton, gameObject.transform);
             go.GetComponentInChildren<TextMeshProUGUI>().text = player.NickName;
             go.GetComponent<Button>().onClick.AddListener(delegate { CallShareScreen(player); });
