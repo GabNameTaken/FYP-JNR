@@ -82,8 +82,8 @@ public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutput
             if (rawImages[slotIndex].texture == noImgTexture)
                 rawImages[slotIndex].texture = null;
 
-            //bool mirror = args.IsRemote == false;
-            bool mirror = true;
+            bool mirror = args.IsRemote == false;
+            //bool mirror = true;
             UnityMediaHelper.UpdateRawImageTransform(rawImages[slotIndex], args.Frame, mirror);
 
             if (rawImages[slotIndex].texture == null)
