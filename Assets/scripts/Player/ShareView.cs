@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class ShareView : MonoBehaviour
 {
     private PhotonView photonView;
-    [SerializeField] private Camera cam, myCam;
+    [SerializeField] private Camera myCam;
+    private Camera cam;
     private Button shareButton, closeButton;
     [SerializeField] private GameObject sharePlayerButton;
 

@@ -86,7 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e6afc636383074695dd459335e8e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   myCam: {fileID: 6846847999683891626}
   sharePlayerButton: {fileID: 2276719047644439273, guid: 02fd40d58797bb040a2ed5f1ba8f33aa, type: 3}
 --- !u!114 &4851046784194656993

@@ -1,11 +1,12 @@
 using UnityEngine;
 using Photon.Pun;
+using System.Collections;
 public class VideoConferenceSetupController : MonoBehaviourPunCallbacks
 {
     [SerializeField] VideoConference videoConference;
     private IVideoConferenceUIHandler videoConferenceUIHandler;
 
-    bool muteOnJoin;
+    bool muteOnJoin = true;
     bool videoOnJoin;
     public bool MuteOnJoin { get => muteOnJoin; set => muteOnJoin = value; }
     public bool VideoOnJoin { get => videoOnJoin; set => videoOnJoin = value; }
@@ -72,6 +73,14 @@ public class VideoConferenceSetupController : MonoBehaviourPunCallbacks
         videoConference.ToggleMute(MuteOnJoin);
         videoConference.ToggleVideo(VideoOnJoin);
         videoConferenceUIHandler.JoinConference();
+        StartCoroutine(WaitForJoin());
+    }
+
+    IEnumerator WaitForJoin()
+    {
+        yield return new WaitForSeconds(1.0f);
+        videoConference.ToggleMute(MuteOnJoin);
+        Debug.Log(MuteOnJoin);
     }
 
     public void LeaveConference()

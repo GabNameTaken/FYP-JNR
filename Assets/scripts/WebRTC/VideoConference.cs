@@ -1,6 +1,7 @@
 using Byn.Awrtc;
 using Byn.Awrtc.Unity;
 using Byn.Unity.Examples;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class VideoConference : MonoBehaviour, IVideoConferenceUIHandler
@@ -108,7 +109,7 @@ public class VideoConference : MonoBehaviour, IVideoConferenceUIHandler
         conferenceVideoOutputHandler.AddUser(ConnectionId.INVALID);
         call.Configure(MediaConfig);
         call.SetMute(isMuteOnJoin);
-
+        
         onJoinedConference?.Invoke();
     }
 
