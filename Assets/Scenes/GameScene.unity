@@ -30512,6 +30512,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1804773852116499143, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804773852116499143, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804773852116499143, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2184492690306463068, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -30600,9 +30612,17 @@ PrefabInstance:
       propertyPath: photonPlayer
       value: 
       objectReference: {fileID: 1787059795}
+    - target: {fileID: 4820937178390663375, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5463482090086873832, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_Name
       value: ShareScreenCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367657270142934132, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8598814113172819718, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_AnchorMax.x
@@ -30610,6 +30630,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598814113172819718, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598814113172819718, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -32687,7 +32711,7 @@ Canvas:
   m_GameObject: {fileID: 2083492166}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

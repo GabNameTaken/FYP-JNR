@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShareView : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class ShareView : MonoBehaviour
     private Camera cam;
     private Button shareButton, closeButton;
     [SerializeField] private GameObject sharePlayerButton;
+    public bool viewing;
+    private GameObject shareViewList;
+    [SerializeField] private GameObject playerButton;
 
     // Start is called before the first frame update
     private void Start()
@@ -32,6 +37,25 @@ public class ShareView : MonoBehaviour
             //Destroy(cam.GetComponent<CCameraControls>());
             //Destroy(cam.GetComponent<CRaycastOnClick>());
         }
+
+        
+        shareViewList = GameObject.FindGameObjectWithTag("ShareScreenCanvas").transform.Find("SharedList").transform.Find("Viewport").transform.Find("Content").gameObject;
+    }
+
+    [PunRPC]
+    public void UpdateShareList(string name, Player host)
+    {
+        //shareViewList = GameObject.FindGameObjectWithTag("ShareScreenCanvas").transform.Find("SharedList").transform.Find("Viewport").transform.Find("Content").gameObject;
+        //GameObject go = PhotonNetwork.Instantiate("SharePlayerButton", gameObject.transform.position, Quaternion.identity);
+        GameObject go = Instantiate(playerButton, shareViewList.transform);
+        go.GetComponentInChildren<TextMeshProUGUI>().text = name;
+        go.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().ViewPlayerScreen(host); });
+    }
+
+    [PunRPC]
+    public void CallShareScreen(Player target)
+    {
+        photonView.RPC("ShareScreen", target);
     }
 
     [PunRPC]

@@ -7,6 +7,7 @@ TagManager:
   - ItemHolder
   - PreviewObject
   - PopupNotif
+  - ShareScreenCanvas
   layers:
   - Default
   - TransparentFX
