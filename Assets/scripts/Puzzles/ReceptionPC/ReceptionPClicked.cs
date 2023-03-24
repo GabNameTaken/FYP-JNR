@@ -17,7 +17,7 @@ public class ReceptionPClicked : MonoBehaviour
         }
     }
 
-    public void close()
+    public void Close()
     {
         pcScreen.SetActive(false);
         roomItems.SetActive(true);
