@@ -1229,6 +1229,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 730991594}
     m_Modifications:
+    - target: {fileID: 2930631951270447424, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631951270447424, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631951270447424, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631951270447424, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631951270447424, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631951270447424, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631951270447424, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2930631951492799072, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
       propertyPath: m_Name
       value: QRCodeScanner
@@ -1321,6 +1349,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 34.2667
       objectReference: {fileID: 0}
+    - target: {fileID: 2930631951849886762, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631951849886762, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 440
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631951849886762, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631951849886762, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2930631951849886763, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
       propertyPath: title
       value: QR Code Scanner
@@ -1351,7 +1395,55 @@ PrefabInstance:
       objectReference: {fileID: 1661872388}
     - target: {fileID: 2930631951937368017, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124728, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9dfe3a0d30d6ce347960d194f8ddbc5b, type: 3}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930631952621124730, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 2930631952621124731, guid: c82b91e9555e4264fb412836ca20ae61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -10130,7 +10222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &730991591
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14284,7 +14376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2797161656329150526, guid: 633d562d5d8edeb48895d4fa05d3e227, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 180
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 2797161656329150526, guid: 633d562d5d8edeb48895d4fa05d3e227, type: 3}
       propertyPath: m_SizeDelta.y
@@ -17711,7 +17803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1276544033
 Transform:
   m_ObjectHideFlags: 0
