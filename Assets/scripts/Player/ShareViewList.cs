@@ -12,43 +12,37 @@ public class ShareViewList : MonoBehaviour
     private GameObject shareViewList;
     private bool listOpen;
 
-    [SerializeField] private PhotonPlayerSpawner photonPlayer;
-    private PhotonView photonView;
+    public PhotonView photonView;
     private Player client;
-    private string playerName;
 
     void Start()
     {
         listOpen = false;
         shareViewList = transform.parent.parent.gameObject;
         shareViewList.SetActive(false);
-        photonView = photonPlayer.GetThisPV();
     }
-
-    //private void UpdateShareList()
-    //{
-    //    Debug.Log(photonView.ViewID.ToString());
-    //    foreach (Player player in PhotonNetwork.PlayerListOthers)
-    //    {
-    //        GameObject go = Instantiate(playerButton, gameObject.transform);
-    //        go.GetComponentInChildren<TextMeshProUGUI>().text = player.NickName;
-    //        go.GetComponent<Button>().onClick.AddListener(delegate { CallShareScreen(player); });
-    //    }
-    //}
 
     public void ListShareScreen()
     {
         if (PhotonNetwork.LocalPlayer.IsLocal)
         {
-            playerName = PhotonNetwork.LocalPlayer.NickName;
             client = PhotonNetwork.LocalPlayer;
-            photonView.RPC("UpdateShareList", RpcTarget.AllViaServer, playerName, client);
+            photonView.RPC("UpdateShareList", RpcTarget.AllViaServer, client);
+            Debug.Log(client.NickName);
         }
-        //UpdateShareList(playerName);
+    }
+
+    [PunRPC]
+    public void UpdateShareList(Player host)
+    {
+        GameObject go = Instantiate(playerButton, gameObject.transform);
+        go.GetComponentInChildren<TextMeshProUGUI>().text = host.NickName;
+        go.GetComponent<Button>().onClick.AddListener(delegate { ViewPlayerScreen(host); });
     }
 
     public void ViewPlayerScreen(Player host)
     {
+        Debug.Log(host.NickName);
         photonView.RPC("CallShareScreen", host, PhotonNetwork.LocalPlayer);
     }
 

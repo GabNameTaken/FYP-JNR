@@ -1177,7 +1177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerButton: {fileID: 2276719047644439273, guid: 02fd40d58797bb040a2ed5f1ba8f33aa, type: 3}
-  photonPlayer: {fileID: 0}
 --- !u!1 &7714999093689159534
 GameObject:
   m_ObjectHideFlags: 0

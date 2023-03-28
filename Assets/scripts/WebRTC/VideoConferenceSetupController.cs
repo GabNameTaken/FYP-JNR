@@ -24,18 +24,15 @@ public class VideoConferenceSetupController : MonoBehaviourPunCallbacks
     }
     public override void OnEnable()
     {
-        if (!videoConference.isActiveAndEnabled)
+        base.OnEnable();
+
+        if (PhotonNetwork.InRoom)
         {
-            base.OnEnable();
-
-            if (PhotonNetwork.InRoom)
-            {
-                OnJoinedRoom();
-            }
-
-            videoConference.onJoinedConference += OnJoinedConference;
-            videoConference.onLeftConference += OnLeftConference;
+            OnJoinedRoom();
         }
+
+        videoConference.onJoinedConference += OnJoinedConference;
+        videoConference.onLeftConference += OnLeftConference;
     }
 
     public override void OnDisable()

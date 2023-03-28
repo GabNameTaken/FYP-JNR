@@ -3,11 +3,10 @@ using Photon.Pun;
 
 public class PhotonPlayerSpawner : MonoBehaviourPunCallbacks
 {
-    private PhotonView thisPV;
     public override void OnEnable()
     {
         base.OnEnable();
-
+        
         if (PhotonNetwork.InRoom)
         {
             OnJoinedRoom();
@@ -20,12 +19,12 @@ public class PhotonPlayerSpawner : MonoBehaviourPunCallbacks
 
     private void StartGame()
     {
-        GameObject thisPlayer = PhotonNetwork.Instantiate("Player", new Vector3(0, 0, 0), Quaternion.identity);
-        thisPV = thisPlayer.GetComponent<PhotonView>();
-    }
-
-    public PhotonView GetThisPV()
-    {
-        return thisPV;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            GameObject thisPlayer = PhotonNetwork.Instantiate("Player", new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject Network = GameObject.Find("Network");
+            //thisPlayer.GetComponent<PlayerInfo>().playerNum = Network.GetComponent<LocalPlayerList>().AddPlayer(thisPlayer);
+            //Debug.Log(thisPlayer.GetComponent<PlayerInfo>().playerNum);
+        }
     }
 }
