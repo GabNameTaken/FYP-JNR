@@ -90,7 +90,7 @@ MonoBehaviour:
   myCam: {fileID: 6846847999683891626}
   cam: {fileID: 0}
   playerButton: {fileID: 2276719047644439273, guid: 02fd40d58797bb040a2ed5f1ba8f33aa, type: 3}
-  shareViewClose: {fileID: 1143504478049178337, guid: 71580ea1df54bbb4b8475758a65fd497, type: 3}
+  shareViewClosePrefab: {fileID: 0}
 --- !u!114 &4851046784194656993
 MonoBehaviour:
   m_ObjectHideFlags: 0
