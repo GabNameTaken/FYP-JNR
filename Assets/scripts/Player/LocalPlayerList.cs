@@ -7,7 +7,6 @@ using Photon.Realtime;
 public class LocalPlayerList : MonoBehaviour
 {
     public List<GameObject> PlayerList = new();
-    [SerializeField] private GameObject playerPrefab;
 
     public int AddPlayer(GameObject newPlayer)
     {
