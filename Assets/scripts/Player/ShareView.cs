@@ -11,10 +11,13 @@ public class ShareView : MonoBehaviour
     private PhotonView photonView;
     [SerializeField] private Camera myCam;
     public Camera cam;
+    private GameObject shareScreenCanvas;
     private GameObject shareViewList;
-    private GameObject localPlayerList;
+    private LocalPlayerList localPlayerList;
+    GameObject host;
+
     [SerializeField] private GameObject playerButton;
-    [SerializeField] private GameObject sharedCamera;
+    [SerializeField] GameObject shareViewClose;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,36 +26,58 @@ public class ShareView : MonoBehaviour
 
         if (!photonView.IsMine)
             cam = gameObject.transform.Find("Camera").gameObject.GetComponent<Camera>();
-        localPlayerList = GameObject.Find("Network");
-        shareViewList = GameObject.FindGameObjectWithTag("ShareScreenCanvas").transform.Find("SharedList").transform.Find("Viewport").transform.Find("Content").gameObject;
+        localPlayerList = GameObject.Find("Network").GetComponent<LocalPlayerList>();
+        shareScreenCanvas = GameObject.FindGameObjectWithTag("ShareScreenCanvas");
+        shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("Viewport").transform.Find("Content").gameObject;
+    }
+
+    [PunRPC]
+    public void UpdateShareList(Player host)
+    {
+        GameObject go = Instantiate(playerButton, shareViewList.transform);
+        go.GetComponentInChildren<TextMeshProUGUI>().text = host.NickName.ToUpper();
+        go.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().ViewPlayerScreen(host); });
     }
 
     [PunRPC]
     public void CallShareScreen(Player viewer)
     {
-        Debug.Log(viewer.NickName);
-        if (photonView.IsMine)
+        Debug.Log(viewer.NickName + " is viewing");
+        photonView.RPC("ShareScreen", viewer, gameObject.GetComponent<PlayerInfo>().playerNum);
+        Debug.Log("calling share screen now");
+    }
+
+    [PunRPC]
+    public void ShareScreen(int hostPlayerNum)
+    {
+        Debug.Log(hostPlayerNum);
+        Debug.Log(PhotonNetwork.PlayerList[hostPlayerNum] + " sharing to " + PhotonNetwork.PlayerList[gameObject.GetComponent<PlayerInfo>().playerNum]);
+        host = localPlayerList.FindPlayer(hostPlayerNum);
+        if (host != null)
         {
-            photonView.RPC("ShareScreen", viewer, localPlayerList.GetComponent<LocalPlayerList>().FindIndex(gameObject));
-            Debug.Log("ran boi");
+            Camera hostCam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
+            hostCam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
+            hostCam.depth = -1;
+            myCam.depth = 1;
+            gameObject.SetActive(false);
+            GameObject go = Instantiate(shareViewClose,shareScreenCanvas.transform);
+            go.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
+            Debug.Log("share success");
         }
     }
 
     [PunRPC]
-    public void ShareScreen(int index)
+    public void CloseViewScreen()
     {
-        Debug.Log(index);
-        GameObject host = GameObject.Find("Network").GetComponent<LocalPlayerList>().FindPlayer(index);
         if (host != null)
         {
-            cam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
-            cam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
-            myCam.depth = 1;
+            Camera hostCam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
+            hostCam.rect = new Rect(0f,0f,1f,1f);
+            hostCam.depth = 0;
+            myCam.depth = -1;
         }
-    }
-
-    public void CloseScreen()
-    {
-        myCam.depth = 1;
+        gameObject.SetActive(true);
+        Destroy(shareViewClose);
+        Debug.Log("Closed Screen");
     }
 }

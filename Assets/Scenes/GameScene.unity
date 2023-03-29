@@ -2822,6 +2822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerList: []
+  playerPrefab: {fileID: 6846847999501653002, guid: 0cd38c83cf877884a89cb55df04897f5, type: 3}
 --- !u!4 &167299573
 Transform:
   m_ObjectHideFlags: 0
@@ -8760,7 +8761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd612583b7e69b7418ae4a6130ab2bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shareList: {fileID: 1971970072}
 --- !u!1 &487367327
 GameObject:
   m_ObjectHideFlags: 0
@@ -27930,7 +27930,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1787059794}
-  - component: {fileID: 1787059795}
   - component: {fileID: 1787059797}
   - component: {fileID: 1787059796}
   m_Layer: 0
@@ -27955,18 +27954,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1787059795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787059793}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3081832bcdcd33488f83e634886b9b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1787059796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30724,7 +30711,7 @@ PrefabInstance:
     - target: {fileID: 2957869496813184046, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: photonPlayer
       value: 
-      objectReference: {fileID: 1787059795}
+      objectReference: {fileID: 480262444}
     - target: {fileID: 4820937178390663375, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_Value
       value: 1
@@ -30755,11 +30742,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
---- !u!1 &1971970072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7563092818662878478, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
-  m_PrefabInstance: {fileID: 1971970071}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1974318524
 RectTransform:
   m_ObjectHideFlags: 0

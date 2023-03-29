@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class LocalPlayerList : MonoBehaviour
 {
     public List<GameObject> PlayerList = new();
+    [SerializeField] private GameObject playerPrefab;
 
     public int AddPlayer(GameObject newPlayer)
     {
@@ -21,5 +24,14 @@ public class LocalPlayerList : MonoBehaviour
     public int FindIndex(GameObject player)
     {
         return PlayerList.IndexOf(player);
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < PlayerList.Count; i++)
+        {
+            if (PlayerList[i] == null)
+                PlayerList.RemoveAt(i);
+        }
     }
 }
