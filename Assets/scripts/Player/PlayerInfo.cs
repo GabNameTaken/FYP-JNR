@@ -18,6 +18,8 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
     int PFPIndex = 0;
     int MAX_PFPsprites = 6;
 
+    public int playerNum;
+
     public int CurrentSprite { get { return PFPIndex; } }
 
     private void Awake()
@@ -33,7 +35,17 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
                 cam.depth = 1;
                 cam.gameObject.AddComponent(typeof(AudioListener));
             }
+            GameObject canvas = GameObject.Find("Canvas");
+            canvas.GetComponent<Canvas>().worldCamera = cam;
+            if (photonView.ViewID % 1000 == 1 && !PhotonNetwork.IsMasterClient)
+                PhotonNetwork.Destroy(photonView);
         }
+
+        GameObject Network = GameObject.Find("Network");
+        playerNum = Network.GetComponent<LocalPlayerList>().AddPlayer(gameObject);
+        Debug.Log(Network.GetComponent<LocalPlayerList>().PlayerList.Count);
+        for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
+            Debug.Log(PhotonNetwork.PlayerList[i] + "," + i + "," + Network.GetComponent<LocalPlayerList>().FindIndex(gameObject) + "," + PhotonNetwork.PlayerList[i].ActorNumber);
     }
 
     public void Update()
