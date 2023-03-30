@@ -15,9 +15,9 @@ public class ShareView : MonoBehaviour
     private GameObject shareViewList;
     private LocalPlayerList localPlayerList;
     GameObject host;
-
+    GameObject shareViewCloseButton;
     [SerializeField] private GameObject playerButton;
-    [SerializeField] GameObject shareViewClose;
+    [SerializeField] GameObject shareViewClosePrefab;
 
     // Start is called before the first frame update
     private void Start()
@@ -59,9 +59,9 @@ public class ShareView : MonoBehaviour
             hostCam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
             hostCam.depth = -1;
             myCam.depth = 1;
-            gameObject.SetActive(false);
-            GameObject go = Instantiate(shareViewClose,shareScreenCanvas.transform);
-            go.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
+            gameObject.transform.Find("Camera").gameObject.GetComponent<Camera>().depth = 1;
+            shareViewCloseButton = Instantiate(shareViewClosePrefab,shareScreenCanvas.transform);
+            shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
             Debug.Log("share success");
         }
     }
@@ -75,9 +75,10 @@ public class ShareView : MonoBehaviour
             hostCam.rect = new Rect(0f,0f,1f,1f);
             hostCam.depth = 0;
             myCam.depth = -1;
+            Destroy(shareViewCloseButton);
         }
         gameObject.SetActive(true);
-        Destroy(shareViewClose);
+        
         Debug.Log("Closed Screen");
     }
 }
