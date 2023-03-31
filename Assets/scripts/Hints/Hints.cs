@@ -61,6 +61,18 @@ public class Hints : MonoBehaviour
     {
         hintUsed = false;
         currentHint++;
-        progressBar.value++;
+        StartCoroutine(UpdateProgressBar());
+    }
+
+    private IEnumerator UpdateProgressBar()
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 1.0f)
+        {
+            elapsedTime += Time.deltaTime;
+            progressBar.value = Mathf.Lerp(currentHint - 1, currentHint, elapsedTime);
+            yield return null;
+        }
     }
 }
