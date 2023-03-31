@@ -58,7 +58,6 @@ public class ReceptionPCLogin : MonoBehaviour
         if (passwordInput.inputType == TMP_InputField.InputType.Password) // Reveal Password
         {
             passwordInput.inputType = TMP_InputField.InputType.Standard;
-           
         }
         else // Hides password
         {
