@@ -82,6 +82,8 @@ public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutput
             if (rawImages[slotIndex].texture == noImgTexture)
                 rawImages[slotIndex].texture = null;
 
+            rawImages[slotIndex].color = Color.white;   //Set Image on webcam to white to make webcam visible
+            rawImages[slotIndex].transform.Find("Icon").gameObject.SetActive(false);    //Set the icon in the child to false
             bool mirror = args.IsRemote == false;
             //bool mirror = true;
             UnityMediaHelper.UpdateRawImageTransform(rawImages[slotIndex], args.Frame, mirror);

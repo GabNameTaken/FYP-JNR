@@ -10,30 +10,42 @@ public class ShareViewList : MonoBehaviour
 {
     [SerializeField] private GameObject playerButton;
     private GameObject shareViewList;
+    private GameObject localPlayerList;
     private bool listOpen;
 
-    [SerializeField]
-    private PhotonPlayerSpawner photonPlayer;
+    [SerializeField] private SceneGameManager photonPlayer;
     private PhotonView photonView;
+    private Player client;
 
     void Start()
     {
         listOpen = false;
         shareViewList = transform.parent.parent.gameObject;
         shareViewList.SetActive(false);
-        photonView = photonPlayer.GetThisPV();
-        UpdateShareList();
+        localPlayerList = GameObject.Find("Network");
+        photonView = photonPlayer.GetPlayerPhotonView();
     }
 
-    private void UpdateShareList()
+    public void ListShareScreen()
     {
-        Debug.Log(photonView.ViewID.ToString());
-        foreach (Player player in PhotonNetwork.PlayerListOthers)
+        if (PhotonNetwork.LocalPlayer.IsLocal)
         {
-            GameObject go = Instantiate(playerButton, gameObject.transform);
-            go.GetComponentInChildren<TextMeshProUGUI>().text = player.NickName;
-            go.GetComponent<Button>().onClick.AddListener(delegate { CallShareScreen(player); });
+            client = PhotonNetwork.LocalPlayer;
+            photonView.RPC("UpdateShareList", RpcTarget.AllViaServer, client);
+            Debug.Log(client.NickName);
         }
+    }
+
+    public void ViewPlayerScreen(Player host)
+    {
+        Debug.Log("Viewing: " + host.NickName);
+        photonView.RPC("CallShareScreen", host, PhotonNetwork.LocalPlayer);
+    }
+
+    public void CloseView(Player player)
+    {
+        photonView.RPC("CloseViewScreen", player);
+        Debug.Log("Exiting view for " + player.NickName);
     }
 
     public void ShareButtonHandler()
@@ -48,10 +60,5 @@ public class ShareViewList : MonoBehaviour
             shareViewList.SetActive(false);
             listOpen = false;
         }
-    }
-
-    private void CallShareScreen(Player target)
-    {
-        photonView.RPC("ShareScreen", target);
     }
 }
