@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Hints : MonoBehaviour
@@ -10,18 +11,22 @@ public class Hints : MonoBehaviour
 
     [SerializeField] GameObject Confirmation, NoHints, HintPage;
 
-    int numberOfHints = 100;
+    [SerializeField] Slider progressBar;
+
+    int playerHints = 100;
     int currentHint = 0;
     bool hintUsed = false;
 
     void Start()
     {
-        counter.text = "You have " + numberOfHints + " hints left";
+        counter.text = "You have " + playerHints + " hints left";
+        progressBar.value = 0;
+        progressBar.maxValue = hint.Length;
     }
 
     public void HintButtonPress()
     {
-        if (numberOfHints <= 0)
+        if (playerHints <= 0)
         {
             NoHints.SetActive(true);
         }
@@ -39,8 +44,8 @@ public class Hints : MonoBehaviour
     public void YesButtonPress()
     {
         Confirmation.SetActive(false);
-        numberOfHints--;
-        counter.text = "You have " + numberOfHints + " hints left";
+        playerHints--;
+        counter.text = "You have " + playerHints + " hints left";
         hint[currentHint].SetActive(true);
         HintPage.SetActive(true);
     }
@@ -56,5 +61,6 @@ public class Hints : MonoBehaviour
     {
         hintUsed = false;
         currentHint++;
+        progressBar.value++;
     }
 }
