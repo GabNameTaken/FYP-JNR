@@ -120,7 +120,7 @@ public class ObjectClicker : MonoBehaviour
                     }
                 }
             }
-            else if (objectOnHover != interactableObject)
+            else if (objectOnHover != interactableObject && !interactableObject.gameObject.GetComponent<CItem>())
             {
                 RestoreInteractable();
                 objectOnHover = interactableObject.gameObject;
