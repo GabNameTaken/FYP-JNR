@@ -8,9 +8,14 @@ public class ObjectClicker : MonoBehaviour
     private RaycastHit raycastHit;
     private Camera cam;
 
+    InteractableObject interactableObject;
+    CItem item;
+
     GameObject objectOnHover;
     Color originalColor;
+    Material originalMaterial;
     float highlightFactor = 0.5f;
+    public Material highlightMaterial;
 
     private void Awake()
     {
@@ -50,7 +55,7 @@ public class ObjectClicker : MonoBehaviour
         return null;
     }
 
-    private void HighlightInteractable()
+    private void HighlightItems()
     {
         Renderer renderer = objectOnHover.GetComponent(typeof(Renderer)) as Renderer;
         originalColor = renderer.material.GetColor("_Color");
@@ -58,7 +63,24 @@ public class ObjectClicker : MonoBehaviour
         renderer.material.SetColor("_Color", newColor);
     }
 
+    private void HighlightInteractable()
+    {
+        Renderer renderer = objectOnHover.GetComponent(typeof(Renderer)) as Renderer;
+        originalMaterial = renderer.material;
+        renderer.material = highlightMaterial;
+    }
+
     private void RestoreInteractable()
+    {
+        if (objectOnHover != null)
+        {
+            Renderer renderer = objectOnHover.GetComponent(typeof(Renderer)) as Renderer;
+            renderer.material = originalMaterial;
+            objectOnHover = null;
+        }
+    }
+
+    private void RestoreItem()
     {
         if (objectOnHover != null)
         {
@@ -68,16 +90,16 @@ public class ObjectClicker : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void Update()   //object highlighting
     {
         raycast = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(raycast, out raycastHit))
         {
-            InteractableObject interactableObject = raycastHit.transform.gameObject.GetComponent<InteractableObject>();
-            CItem item = raycastHit.transform.gameObject.GetComponent<CItem>();
+            interactableObject = raycastHit.transform.gameObject.GetComponent<InteractableObject>();
+            item = raycastHit.transform.gameObject.GetComponent<CItem>();
             if (objectOnHover == null)
             {
-                if (interactableObject)
+                if (interactableObject) //check for interactable object/item
                 {
                     objectOnHover = raycastHit.transform.gameObject;
                     Debug.Log(objectOnHover.transform.name);
@@ -85,36 +107,54 @@ public class ObjectClicker : MonoBehaviour
                 }
                 else if (item)
                 {
-                    if (raycastHit.transform.name == "Cheese Puzzle")
+                    if (!item.getbIsPickedUp())
                     {
-                        objectOnHover = raycastHit.transform.GetChild(1).transform.GetChild(0).gameObject;
+                        if (raycastHit.transform.name == "Cheese Puzzle")
+                        {
+                            objectOnHover = raycastHit.transform.GetChild(1).transform.GetChild(0).gameObject;
+                        }
+                        else
+                            objectOnHover = raycastHit.transform.GetChild(0).gameObject;
+                        Debug.Log(objectOnHover.transform.name);
+                        HighlightItems();
                     }
-                    else
-                        objectOnHover = raycastHit.transform.GetChild(0).gameObject;
-                    Debug.Log(objectOnHover.transform.name);
-                    HighlightInteractable();
                 }
             }
-            else if (raycastHit.transform != objectOnHover.transform)
+            else if (objectOnHover != interactableObject)
             {
                 RestoreInteractable();
+                objectOnHover = interactableObject.gameObject;
+                HighlightInteractable();
+            }
+            else if (raycastHit.transform != objectOnHover.transform)   //in the event of player swooping their mouse
+            {
                 if (interactableObject)
                 {
+                    RestoreInteractable();
                     objectOnHover = raycastHit.transform.gameObject;
                 }
                 else if (item)
                 {
-                    if (raycastHit.transform.name == "Cheese Puzzle")
+                    RestoreItem();
+                    if (!item.getbIsPickedUp())
                     {
-                        objectOnHover = raycastHit.transform.GetChild(1).transform.GetChild(0).gameObject;
+                        if (raycastHit.transform.name == "Cheese Puzzle")
+                        {
+                            objectOnHover = raycastHit.transform.GetChild(1).transform.GetChild(0).gameObject;
+                        }
+                        else
+                            objectOnHover = raycastHit.transform.GetChild(0).gameObject;
+                        HighlightItems();
                     }
-                    else
-                        objectOnHover = raycastHit.transform.GetChild(0).gameObject;
                 }
-                HighlightInteractable();
             }
         }
         else
-            RestoreInteractable();
+        {
+            if (interactableObject)
+                RestoreInteractable();
+            else if (item)
+                RestoreItem();
+        }
     }
 }
