@@ -43,7 +43,7 @@ public class ShareView : MonoBehaviour
     public void CallShareScreen(Player viewer)
     {
         Debug.Log(viewer.NickName + " is viewing");
-        photonView.RPC("ShareScreen", viewer, gameObject.GetComponent<PlayerInfo>().playerNum);
+        photonView.RPC("ShareScreen", viewer, PhotonNetwork.LocalPlayer.ActorNumber);
         Debug.Log("calling share screen now");
     }
 
@@ -51,7 +51,8 @@ public class ShareView : MonoBehaviour
     public void ShareScreen(int hostPlayerNum)
     {
         Debug.Log(hostPlayerNum);
-        Debug.Log(PhotonNetwork.PlayerList[hostPlayerNum] + " sharing to " + PhotonNetwork.PlayerList[gameObject.GetComponent<PlayerInfo>().playerNum]);
+        //Debug.Log(PhotonNetwork.PlayerList[hostPlayerNum] + " sharing to " + PhotonNetwork.PlayerList[gameObject.GetComponent<PlayerInfo>().playerNum]);
+        Debug.Log(hostPlayerNum + " sharing to " + PhotonNetwork.LocalPlayer.ActorNumber);
         host = localPlayerList.FindPlayer(hostPlayerNum);
         if (host != null)
         {
