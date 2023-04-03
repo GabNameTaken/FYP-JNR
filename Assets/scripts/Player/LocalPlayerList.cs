@@ -15,9 +15,14 @@ public class LocalPlayerList : MonoBehaviour
         return PlayerList.IndexOf(newPlayer);
     }
 
-    public GameObject FindPlayer(int playerNum)
+    public GameObject FindPlayer(int playerActorNum)
     {
-        return PlayerList[playerNum];
+        for (int i = 0; i < PlayerList.Count; i++)
+        {
+            if (PlayerList[i].GetComponent<PhotonView>().OwnerActorNr == playerActorNum)
+                return PlayerList[i];
+        }
+        return null;
     }
 
     public int FindIndex(GameObject player)
