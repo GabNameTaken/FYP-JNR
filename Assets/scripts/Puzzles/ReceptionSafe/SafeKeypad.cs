@@ -8,8 +8,8 @@ using TMPro;
 public class SafeKeypad : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] keycodeInput;
-    [SerializeField] private Sprite[] img;
-    [SerializeField] GameObject safe, pager, keypad, wall, pagerhb, numberdisplay;
+    [SerializeField] Sprite[] img;
+    [SerializeField] GameObject safe, pager, keypad, wall, pagerButton, numberDisplay;
     private GameObject player;
 
     Hints hints;
@@ -121,9 +121,9 @@ public class SafeKeypad : MonoBehaviour
         ClearKeypadInput();
         ChangeImageColorOrigin();
         pager.SetActive(true);
-        pagerhb.SetActive(true);
+        pagerButton.SetActive(true);
         keypad.SetActive(false);
-        numberdisplay.SetActive(false);
+        numberDisplay.SetActive(false);
         wall.GetComponent<ReceptionSafe>().OpenSafe(true);
         hints.CompletedPuzzle();
     }
