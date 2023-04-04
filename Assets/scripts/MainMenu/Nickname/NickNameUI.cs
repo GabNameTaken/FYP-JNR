@@ -8,8 +8,9 @@ public class NickNameUI : MonoBehaviour
 
     [SerializeField] GameObject invalidNameErrorMessage;
 
-    [SerializeField] NavigationPage navigationPage;
-    [SerializeField] VideoBackgroundPage nextPage;
+    //[SerializeField] NavigationPage navigationPage;
+    //[SerializeField] VideoBackgroundPage nextPage;
+    [SerializeField] GameObject nextPage;
 
     public void OnSetNickName()
     {
@@ -23,7 +24,9 @@ public class NickNameUI : MonoBehaviour
     }
     private void ChangePage()
     {
-        navigationPage.PushPage(nextPage);
+        //navigationPage.PushPage(nextPage);
+        nextPage.SetActive(true);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
     private void HideInvalidNameErrorMessage()
     {

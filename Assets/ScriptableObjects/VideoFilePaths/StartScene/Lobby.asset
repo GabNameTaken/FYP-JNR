@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd97bd854eff964dae2722da89376ad, type: 3}
   m_Name: Lobby
   m_EditorClassIdentifier: 
-  startVideoPath: 3. Screen_Lobby/Screen_Lobby_Start.mp4
+  startVideoPath: 
   loopVideoPath: 3. Screen_Lobby/Screen_Lobby_Loop.mp4
-  endVideoPath: 3. Screen_Lobby/Screen_Lobby_End.mp4
+  endVideoPath: 
