@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReceptionPClicked : MonoBehaviour
+public class CanvasToggle : MonoBehaviour
 {
-    [SerializeField] GameObject pcScreen, roomItems;
+    [SerializeField] GameObject canvas, roomItems;
     [SerializeField] GameObject[] otherGOs;
 
-    public void SetPCScreenToActive()
+    public void SetCanvasToActive()
     {
-        pcScreen.SetActive(true);
+        canvas.SetActive(true);
         roomItems.SetActive(false);
         for (int i = 0; i < otherGOs.Length; i++)
         {
@@ -19,7 +19,7 @@ public class ReceptionPClicked : MonoBehaviour
 
     public void Close()
     {
-        pcScreen.SetActive(false);
+        canvas.SetActive(false);
         roomItems.SetActive(true);
         for (int i = 0; i < otherGOs.Length; i++)
         {

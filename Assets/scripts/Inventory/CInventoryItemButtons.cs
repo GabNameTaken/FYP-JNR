@@ -11,6 +11,7 @@ public class CInventoryItemButtons : MonoSingletonTemplate<CInventoryItemButtons
     {
         InitializeSingleton(this);
     }
+
     public void onAddInventoryCItem(CItem item)
     {
         GameObject go = Instantiate(inv, gameObject.transform);
