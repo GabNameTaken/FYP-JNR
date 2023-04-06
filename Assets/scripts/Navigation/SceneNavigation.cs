@@ -25,11 +25,6 @@ public class SceneNavigation : MonoBehaviour
     // 5 : boss room
     [SerializeField] GameObject[] items;
 
-    private void Start()
-    {
-        //playercam = GameObject.FindGameObjectWithTag("Player");
-    }
-
     public void ChangeSceneWithSceneName(string name)
     {
         //disables the rooms first
@@ -68,19 +63,11 @@ public class SceneNavigation : MonoBehaviour
         {
             Debug.Log("Office room right");
             rooms[6].SetActive(true);
-            //items[8].SetActive(true);
         }
-        else if (name == "Arrow_OfficePantry1")
-        {
-            Debug.Log("Office room right");
-            rooms[7].SetActive(true);
-            //items[6].SetActive(true);
-        }
-        else if (name == "Arrow_OfficePantry2")
+        else if (name == "Arrow_OfficePantry")
         {
             Debug.Log("Office room right");
             rooms[8].SetActive(true);
-            //items[7].SetActive(true);
         }
         else if (name == "Arrow_BossRoom")
         {
