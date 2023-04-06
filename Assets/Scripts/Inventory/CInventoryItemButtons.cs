@@ -6,15 +6,20 @@ using UnityEngine.UI;
 public class CInventoryItemButtons : MonoSingletonTemplate<CInventoryItemButtons>
 {
     [SerializeField] private GameObject inv;
-
+    [SerializeField] private GameObject inventoryContent;
     private void Awake()
     {
         InitializeSingleton(this);
     }
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void onAddInventoryCItem(CItem item)
     {
-        GameObject go = Instantiate(inv, gameObject.transform);
+        GameObject go = Instantiate(inv, inventoryContent.transform);
         ItemButton button = go.GetComponent<ItemButton>();
         button.AddItemButton(item);
     }
