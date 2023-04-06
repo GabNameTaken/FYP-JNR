@@ -38,7 +38,7 @@ public class CItem : MonoBehaviour
     [PunRPC]
     public void AddToInventory()
     {
-        InventoryManager.instance.onAddInventoryCItem(gameObject.GetComponent<CItem>());
+        CInventoryItemButtons.instance.onAddInventoryCItem(gameObject.GetComponent<CItem>());
         gameObject.SetActive(false);
     }
 }
