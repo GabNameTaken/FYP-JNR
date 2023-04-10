@@ -9,7 +9,7 @@ public class SafeKeypad : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] keycodeInput;
     [SerializeField] Sprite[] img;
-    [SerializeField] GameObject safe, pager, keypad, wall, pagerButton, numberDisplay;
+    [SerializeField] GameObject safe, safeItems, keypad, wall, pagerButton, numberDisplay;
     private GameObject player;
 
     Hints hints;
@@ -100,7 +100,7 @@ public class SafeKeypad : MonoBehaviour
     {
         safe.GetComponent<Image>().sprite = img[2];
         player.GetComponent<SyncInventory>().CallPickupItem("Pager");
-        pager.SetActive(true);
+        safeItems.SetActive(true);
     }
 
     IEnumerator WrongCode()
@@ -120,7 +120,7 @@ public class SafeKeypad : MonoBehaviour
         safe.GetComponent<Image>().sprite = img[1];
         ClearKeypadInput();
         ChangeImageColorOrigin();
-        pager.SetActive(true);
+        safeItems.SetActive(true);
         pagerButton.SetActive(true);
         keypad.SetActive(false);
         numberDisplay.SetActive(false);
