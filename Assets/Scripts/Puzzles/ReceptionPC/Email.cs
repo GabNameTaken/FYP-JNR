@@ -10,57 +10,39 @@ public class Email : MonoBehaviour
     // 0 : customer inquiry
     // 1 : purchase of goods
     // 2 : password reset
-    [SerializeField] GameObject[] emailbodies;
-    [SerializeField] GameObject susLink;
-
-    [SerializeField] GameObject[] emailButtons;
-
-    //public void SusEmail()
-    //{
-    //    foreach (GameObject email in emailButtons)
-    //    {
-    //        email.SetActive(false);
-    //    }
-    //    img_email.sprite = emailSprites[1];
-    //    susLink.SetActive(true);
-    //}
+    [SerializeField] GameObject emailButtons;
+    [SerializeField] GameObject[] emailBodies;
+    [SerializeField] GameObject backButton;
 
     public void Email0()
     {
-        foreach (GameObject email in emailButtons)
-        {
-            email.SetActive(false);
-        }
-        emailbodies[0].SetActive(true);
+        emailButtons.SetActive(false);
+        emailBodies[0].SetActive(true);
+        backButton.SetActive(true);
     }
 
     public void Email1()
     {
-        foreach (GameObject email in emailButtons)
-        {
-            email.SetActive(false);
-        }
-        emailbodies[1].SetActive(true);
+        emailButtons.SetActive(false);
+        emailBodies[1].SetActive(true);
+        backButton.SetActive(true);
     }
     public void Email2()
     {
-        foreach (GameObject email in emailButtons)
-        {
-            email.SetActive(false);
-        }
-        emailbodies[2].SetActive(true);
+        emailButtons.SetActive(false);
+        emailBodies[2].SetActive(true);
+        backButton.SetActive(true);
     }
 
     public void OnClick_ResetEmail()
     {
-        foreach (GameObject email in emailButtons)
-        {
-            email.SetActive(true);
-        }
-        foreach (GameObject email in emailbodies)
+        emailButtons.SetActive(true);
+
+        foreach (GameObject email in emailBodies)
         {
             email.SetActive(false);
         }
-        //susLink.SetActive(false);
+
+        backButton.SetActive(false);
     }
 }

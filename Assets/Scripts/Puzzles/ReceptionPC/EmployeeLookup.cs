@@ -7,7 +7,7 @@ using TMPro;
 public class EmployeeLookup : MonoBehaviour
 {
     [SerializeField] TMP_InputField input;
-    [SerializeField] GameObject employee_lookup_menu;
+    [SerializeField] GameObject mainPage;
     
     // Array containing the employee lookup sprites
     // 0 : Adam
@@ -16,74 +16,80 @@ public class EmployeeLookup : MonoBehaviour
     // 3 : Daniel
     // 4 : Gabriel
     // 5 : James
-    // 6 : Robin
+    // 6 : Grace
     // 7 : Search List Error
-    [SerializeField] GameObject[] employee_lookup_pages_list;
+    [SerializeField] GameObject[] employeePageList;
+
+    [SerializeField] GameObject backButton;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            EL_onCheckName();
+            OnCheckName();
         }
     }
 
-    public void EL_onCheckName()
+    public void OnCheckName()
     {
+        backButton.SetActive(true);
+
+        foreach (GameObject page in employeePageList)
+        {
+            page.SetActive(false);
+        }
+
         if (input.text == "Adam" || input.text == "adam")
         {
-            employee_lookup_menu.SetActive(false);
-            employee_lookup_pages_list[0].SetActive(true);
+            mainPage.SetActive(false);
+            employeePageList[0].SetActive(true);
         }
         else if (input.text == "Bob" || input.text == "bob")
         {
-            employee_lookup_menu.SetActive(false);
-            employee_lookup_pages_list[1].SetActive(true);
+            mainPage.SetActive(false);
+            employeePageList[1].SetActive(true);
         }
         else if (input.text == "Collin" || input.text == "collin")
         {
-            employee_lookup_menu.SetActive(false);
-            employee_lookup_pages_list[2].SetActive(true);
+            mainPage.SetActive(false);
+            employeePageList[2].SetActive(true);
         }
         else if (input.text == "Daniel" || input.text == "daniel")
         {
-            employee_lookup_menu.SetActive(false);
-            employee_lookup_pages_list[3].SetActive(true);
+            mainPage.SetActive(false);
+            employeePageList[3].SetActive(true);
         }
         else if (input.text == "Gabriel" || input.text == "gabriel")
         {
-            employee_lookup_menu.SetActive(false);
-            employee_lookup_pages_list[4].SetActive(true);
+            mainPage.SetActive(false);
+            employeePageList[4].SetActive(true);
         }
         else if (input.text == "James" || input.text == "james")
         {
-            employee_lookup_menu.SetActive(false);
-            employee_lookup_pages_list[5].SetActive(true);
-        }
-        else if (input.text == "Robin" || input.text == "robin")
-        {
-            employee_lookup_menu.SetActive(false);
-            employee_lookup_pages_list[6].SetActive(true);
+            mainPage.SetActive(false);
+            employeePageList[5].SetActive(true);
         }
         else if (input.text == "Grace" || input.text == "grace")
         {
-            employee_lookup_menu.SetActive(false);
-            employee_lookup_pages_list[8].SetActive(true);
+            mainPage.SetActive(false);
+            employeePageList[6].SetActive(true);
         }
-        else // Error
+        else
         {
-            employee_lookup_menu.SetActive(false);
-            employee_lookup_pages_list[7].SetActive(true);
+            mainPage.SetActive(false);
+            employeePageList[7].SetActive(true);
         }
     }
 
-    public void EL_onCloseTab()
+    public void OnCloseTab()
     {
-        foreach(GameObject employee_page in employee_lookup_pages_list)
+        foreach(GameObject employeePage in employeePageList)
         {
-            employee_page.SetActive(false);
+            employeePage.SetActive(false);
         }
-        employee_lookup_menu.SetActive(true);
+
+        mainPage.SetActive(true);
+        backButton.SetActive(false);
         input.text = "";
     }
 }
