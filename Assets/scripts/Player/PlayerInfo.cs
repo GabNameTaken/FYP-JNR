@@ -26,6 +26,7 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
     {
         objectClicker = gameObject.GetComponentInChildren<ObjectClicker>();
         syncInventory = GetComponent<SyncInventory>();
+        GameObject Network = GameObject.Find("Network");
 
         if (photonView.IsMine)
         {
@@ -35,14 +36,17 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
                 cam.depth = 1;
                 cam.gameObject.AddComponent(typeof(AudioListener));
             }
-            //GameObject canvas = GameObject.Find("Canvas");
+            //GameObject canvas = transform.Find("Canvas").gameObject;
+            //canvas.SetActive(true);
             //canvas.GetComponent<Canvas>().worldCamera = cam;
             if (photonView.ViewID % 1000 == 1 && !PhotonNetwork.IsMasterClient)
+            {
+                Network.GetComponent<LocalPlayerList>().PlayerList.Remove(gameObject);
                 PhotonNetwork.Destroy(photonView);
+            }
         }
-
-        GameObject Network = GameObject.Find("Network");
-        playerNum = Network.GetComponent<LocalPlayerList>().AddPlayer(gameObject);
+        if (!Network.GetComponent<LocalPlayerList>().PlayerList.Contains(gameObject))
+            playerNum = Network.GetComponent<LocalPlayerList>().AddPlayer(gameObject);
         Debug.Log(Network.GetComponent<LocalPlayerList>().PlayerList.Count);
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
             Debug.Log(PhotonNetwork.PlayerList[i] + "," + i + "," + Network.GetComponent<LocalPlayerList>().FindIndex(gameObject) + "," + PhotonNetwork.PlayerList[i].ActorNumber);

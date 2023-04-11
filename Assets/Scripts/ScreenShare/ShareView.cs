@@ -16,8 +16,11 @@ public class ShareView : MonoBehaviour
     private LocalPlayerList localPlayerList;
     GameObject host;
     GameObject shareViewCloseButton;
+    private GameObject canvasGO;
     [SerializeField] private GameObject playerButton;
     [SerializeField] GameObject shareViewClosePrefab;
+
+    public List<Player> listOfViewers = new();
 
     // Start is called before the first frame update
     private void Start()
@@ -29,6 +32,16 @@ public class ShareView : MonoBehaviour
         localPlayerList = GameObject.Find("Network").GetComponent<LocalPlayerList>();
         shareScreenCanvas = GameObject.FindGameObjectWithTag("ShareScreenCanvas");
         shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("Viewport").transform.Find("Content").gameObject;
+
+        canvasGO = GameObject.Find("Canvas");
+    }
+
+    private void Update()
+    {
+        if (listOfViewers.Count > 0)
+        {
+            canvasGO.GetComponent<ShareCanvas>().Share(listOfViewers);
+        }
     }
 
     [PunRPC]
@@ -44,6 +57,7 @@ public class ShareView : MonoBehaviour
     {
         Debug.Log(viewer.NickName + " is viewing");
         photonView.RPC("ShareScreen", viewer, PhotonNetwork.LocalPlayer.ActorNumber);
+        //canvasGO.GetComponent<ShareCanvas>().SendCanvasToOtherPlayers(canvasGO.GetComponent<Canvas>(), canvasGO.GetComponent<PhotonView>().ViewID);
         Debug.Log("calling share screen now");
     }
 
@@ -81,5 +95,25 @@ public class ShareView : MonoBehaviour
         gameObject.SetActive(true);
         
         Debug.Log("Closed Screen");
+    }
+
+    [PunRPC]
+    public void ListViewer(Player viewer)
+    {
+        listOfViewers.Add(viewer);
+        Debug.Log(viewer.NickName + " added to the viewerList");
+    }
+
+    [PunRPC]
+    public void RemoveViewer(Player viewer)
+    {
+        if (host != null)
+        {
+            if (host.GetComponent<ShareView>().listOfViewers.Contains(viewer))
+            {
+                host.GetComponent<ShareView>().listOfViewers.Remove(viewer);
+                Debug.Log(viewer.NickName + " removed from the viewerList");
+            }
+        }
     }
 }
