@@ -33,7 +33,7 @@ public class ShareView : MonoBehaviour
         shareScreenCanvas = GameObject.FindGameObjectWithTag("ShareScreenCanvas");
         shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("Viewport").transform.Find("Content").gameObject;
 
-        canvasGO = GameObject.Find("Canvas");
+        canvasGO = GameObject.Find("NetworkCanvasController");
     }
 
     private void Update()
@@ -72,9 +72,9 @@ public class ShareView : MonoBehaviour
         {
             Camera hostCam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
             hostCam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
-            hostCam.depth = -1;
-            myCam.depth = 1;
-            gameObject.transform.Find("Camera").gameObject.GetComponent<Camera>().depth = 1;
+            hostCam.depth = 1;
+            myCam.depth = -1;
+            //gameObject.transform.Find("Camera").gameObject.GetComponent<Camera>().depth = 1;
             shareViewCloseButton = Instantiate(shareViewClosePrefab,shareScreenCanvas.transform);
             shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
             Debug.Log("share success");
@@ -88,13 +88,11 @@ public class ShareView : MonoBehaviour
         {
             Camera hostCam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
             hostCam.rect = new Rect(0f,0f,1f,1f);
-            hostCam.depth = 0;
-            myCam.depth = -1;
+            hostCam.depth = -1;
+            myCam.depth = 0;
             Destroy(shareViewCloseButton);
         }
-        gameObject.SetActive(true);
-        
-        Debug.Log("Closed Screen");
+        Debug.Log("Quit viewing");
     }
 
     [PunRPC]
@@ -114,6 +112,12 @@ public class ShareView : MonoBehaviour
                 host.GetComponent<ShareView>().listOfViewers.Remove(viewer);
                 Debug.Log(viewer.NickName + " removed from the viewerList");
             }
+            else
+            {
+                Debug.Log("host doesn't contain viewer");
+            }
         }
+        else
+            Debug.Log("host is null");
     }
 }

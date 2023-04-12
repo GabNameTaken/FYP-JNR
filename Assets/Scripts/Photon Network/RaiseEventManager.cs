@@ -8,8 +8,7 @@ using UnityEngine.UI;
 
 public class RaiseEventManager : MonoBehaviour,IOnEventCallback
 {
-    public const byte shareCanvas = 1;
-    public const byte sendCanvas = 2;
+    public const byte sendCanvas = 1;
     public void Start()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -33,41 +32,14 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
 
     public void OnEvent(EventData eventData)
     {
-        if (eventData.Code == shareCanvas)
+        if (eventData.Code == sendCanvas)
         {
             object[] data = (object[])eventData.CustomData;
-            // Deserialize the canvas data back into a canvas object
-            string canvasDataStr = (string)data[0];
-            CanvasData canvasData = JsonUtility.FromJson<CanvasData>(canvasDataStr);
-
-            Debug.Log((string)data[0]);
-            Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-            canvas.scaleFactor = canvasData.scale;
-
-            //foreach (GraphicData graphicData in canvasData.graphics)
-            //{
-            //    GameObject graphicObject = new GameObject(graphicData.type);
-            //    graphicObject.AddComponent(System.Type.GetType(graphicData.type));
-            //    Graphic graphic = graphicObject.GetComponent<Graphic>();
-            //    graphic.rectTransform.anchoredPosition = graphicData.position;
-            //    // Add any other properties you want to deserialize here
-            //    graphic.transform.SetParent(canvas.transform);
-            //}
-
-            // Update the canvas on the receiving end
-            int viewId = (int)data[1];
-            GameObject canvasGO = PhotonView.Find(viewId).gameObject;
-            CopyCanvas(canvas, canvasGO.GetComponent<Canvas>());
-            Debug.Log("Canvas shared to " + viewId);
-        }
-        else if (eventData.Code == sendCanvas)
-        {
-            object[] data = (object[])eventData.CustomData;
-            List<GameObject> listOfGameObjects = (List<GameObject>)data[0];
-            GameObject canvasGO = GameObject.Find("Canvas");
-            for (int i = 0; i < canvasGO.transform.childCount; i++)
+            Dictionary<string,bool> activeStateOfGameObjects = (Dictionary<string,bool>)data[0];
+            ShareCanvas canvas = GameObject.Find("NetworkCanvasController").GetComponent<ShareCanvas>();
+            for (int i = 0; i < canvas.gameObjects.Count; i++)
             {
-                canvasGO.transform.GetChild(i).gameObject.SetActive(listOfGameObjects[i].activeSelf);
+                canvas.gameObjects[i].SetActive(activeStateOfGameObjects[canvas.gameObjects[i].name]);
             }
             Debug.Log("Canvas sent");
         }

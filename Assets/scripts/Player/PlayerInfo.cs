@@ -41,7 +41,6 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
             //canvas.GetComponent<Canvas>().worldCamera = cam;
             if (photonView.ViewID % 1000 == 1 && !PhotonNetwork.IsMasterClient)
             {
-                Network.GetComponent<LocalPlayerList>().PlayerList.Remove(gameObject);
                 PhotonNetwork.Destroy(photonView);
             }
         }
@@ -49,7 +48,7 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
             playerNum = Network.GetComponent<LocalPlayerList>().AddPlayer(gameObject);
         Debug.Log(Network.GetComponent<LocalPlayerList>().PlayerList.Count);
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
-            Debug.Log(PhotonNetwork.PlayerList[i] + "," + i + "," + Network.GetComponent<LocalPlayerList>().FindIndex(gameObject) + "," + PhotonNetwork.PlayerList[i].ActorNumber);
+            Debug.Log(PhotonNetwork.PlayerList[i] + "," + i + "," + PhotonNetwork.PlayerList[i].ActorNumber);
     }
 
     public void Update()

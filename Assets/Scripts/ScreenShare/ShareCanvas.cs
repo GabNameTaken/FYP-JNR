@@ -6,121 +6,59 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using ExitGames.Client.Photon;
 
-
-[System.Serializable]
-public class CanvasData
-{
-    public float scale;
-    public List<GraphicData> graphics;
-}
-
-// Custom class to represent the data of a Graphic
-[System.Serializable]
-public class GraphicData
-{
-    public string type;
-    public Vector2 position;
-    // Add any other properties you want to serialize here
-}
-
 public class ShareCanvas : MonoBehaviour
 {
-    public string SerializeCanvasToString(Canvas canvas)
-    {
-        // Serialize the canvas to a JSON string
-        string json = JsonUtility.ToJson(canvas);
-
-        // Return the serialized string
-        return json;
-    }
-
-    public void SendCanvasToOtherPlayers(Canvas canvas, int viewId)
-    {
-        // Serialize the Canvas to a JSON string
-        CanvasData canvasData = new CanvasData
-        {
-            scale = canvas.scaleFactor,
-            graphics = new List<GraphicData>()
-        };
-
-        foreach (Graphic graphic in canvas.GetComponentsInChildren<Graphic>())
-        {
-            GraphicData graphicData = new GraphicData
-            {
-                type = graphic.GetType().ToString(),
-                position = graphic.rectTransform.anchoredPosition
-                // Add any other properties you want to serialize here
-            };
-            canvasData.graphics.Add(graphicData);
-        }
-
-        //string jsonString = JsonUtility.ToJson(canvasData);
-        string jsonString = SerializeCanvasToString(canvas);
-
-        // Create a Photon message and send it to other players
-        object[] data = new object[] { jsonString, viewId };
-        PhotonNetwork.RaiseEvent(RaiseEventManager.shareCanvas, data, new RaiseEventOptions { Receivers = ReceiverGroup.Others }, SendOptions.SendReliable);
-    }
-
-
-    List<GameObject> gameObjects = new();
+    public Dictionary<string,bool> activeStateOfGameObjects = new();
+    public List<GameObject> gameObjects;
     private void Start()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        ResetActiveStateOfGameObjects();
+    }
+
+    private void ResetActiveStateOfGameObjects()
+    {
+        activeStateOfGameObjects.Clear();
+        for (int i = 0; i < gameObjects.Count; i++)
         {
-            gameObjects.Add(transform.GetChild(i).gameObject);
+            GameObject child = gameObjects[i];
+            activeStateOfGameObjects.Add(child.name, child.activeSelf);
+            Debug.Log(activeStateOfGameObjects);
         }
     }
 
-    public void Share(List<Player> listOfPlayers)
+    public void Share(List<Player> listOfViewers)
     {
-        int[] receivers = new int[listOfPlayers.Count];
-        for (int i =0; i < listOfPlayers.Count; i++)
+        int[] receivers = new int[listOfViewers.Count];
+        for (int i =0; i < listOfViewers.Count; i++)
         {
-            receivers[i] = listOfPlayers[i].ActorNumber;
+            receivers[i] = listOfViewers[i].ActorNumber;
+            Debug.Log("Sharing to " + receivers[i]);
         }
-        if (CompareGameObjectList(gameObjects)) //Check for changes in the list of gameobjects under the canvas child
+        if (CompareActiveStates(activeStateOfGameObjects)) //Check for changes in the list of gameobjects under the canvas child
         {
-            gameObjects.Clear();
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                gameObjects.Add(transform.GetChild(i).gameObject);
-            }
-            object[] content = new object[] { gameObjects };
+            ResetActiveStateOfGameObjects();
+            Debug.Log("Raising event for sending canvas");
+            object[] content = new object[] { activeStateOfGameObjects };
             PhotonNetwork.RaiseEvent(RaiseEventManager.sendCanvas, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
         }
+        else
+            Debug.Log("No canvas changes");
     }
 
-    bool CompareGameObjectList(List<GameObject> list)
+    bool CompareActiveStates(Dictionary<string,bool> list)   //check for child objects that had a change in their active
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < gameObjects.Count; i++)
         {
-            bool listActive = list[i].activeSelf;
-            bool tempActive = transform.GetChild(i).gameObject.activeSelf;
+            bool listActive = list[gameObjects[i].name];
+            bool tempActive = gameObjects[i].activeSelf;
 
             if (listActive != tempActive)
             {
+                Debug.Log("Change detected");
                 return true;
             }
         }
 
         return false;
-    }
-
-    void CallShareCanvas(Player targetPlayer)
-    {
-        PhotonView photonView;
-        photonView = GetComponent<PhotonView>();
-
-        photonView.RPC("OnShareCanvas", targetPlayer);
-    }
-
-    [PunRPC]
-    void OnShareCanvas()
-    {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(gameObjects[i].activeSelf);
-        }
     }
 }

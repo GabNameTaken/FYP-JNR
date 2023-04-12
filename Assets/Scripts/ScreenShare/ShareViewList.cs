@@ -48,7 +48,7 @@ public class ShareViewList : MonoBehaviour
     public void CloseView(Player player)
     {
         photonView.RPC("CloseViewScreen", player);
-        photonView.RPC("RemoveViewer", RpcTarget.Others,PhotonNetwork.LocalPlayer);
+        photonView.RPC("RemoveViewer", RpcTarget.AllViaServer,PhotonNetwork.LocalPlayer);
         Debug.Log("Exiting view for " + player.NickName);
     }
 
