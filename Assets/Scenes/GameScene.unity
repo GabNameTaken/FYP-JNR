@@ -3512,7 +3512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9c09def56cc4b4986e74a89f2f9568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  canvas: {fileID: 5852715752109236665}
   roomItems: {fileID: 1579143975}
   otherGOs:
   - {fileID: 707922299}
@@ -3673,7 +3673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &236233457
 Transform:
   m_ObjectHideFlags: 0
@@ -9326,7 +9326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9c09def56cc4b4986e74a89f2f9568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  canvas: {fileID: 5852715752833201643}
   roomItems: {fileID: 1579143975}
   otherGOs:
   - {fileID: 586335877}
@@ -10138,7 +10138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &670844824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55297,7 +55297,7 @@ RectTransform:
   - {fileID: 5852715752652129936}
   - {fileID: 6099231097741128265}
   m_Father: {fileID: 5852715752170451125}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -55318,7 +55318,7 @@ GameObject:
   - component: {fileID: 5852715752039728876}
   - component: {fileID: 5852715752039728877}
   m_Layer: 0
-  m_Name: LoginCanvas
+  m_Name: PC6LoginCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55515,7 +55515,7 @@ GameObject:
   - component: {fileID: 5852715752041112391}
   - component: {fileID: 5852715752041112408}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: PC3Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56295,8 +56295,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5852715752218057047}
   - {fileID: 5852715752039728874}
+  - {fileID: 5852715752218057047}
   m_Father: {fileID: 5852715751747337512}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56451,7 +56451,7 @@ GameObject:
   - component: {fileID: 5852715752218057033}
   - component: {fileID: 5852715752218057046}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: PC6Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56490,7 +56490,7 @@ RectTransform:
   - {fileID: 5852715751783219680}
   - {fileID: 6880949218173089535}
   m_Father: {fileID: 5852715752170451125}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -56612,7 +56612,7 @@ GameObject:
   - component: {fileID: 5852715752219311330}
   - component: {fileID: 5852715752219311331}
   m_Layer: 0
-  m_Name: LoginCanvas
+  m_Name: PC3LoginCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56632,7 +56632,7 @@ GameObject:
   - component: {fileID: 5852715752231491559}
   - component: {fileID: 5852715752231491558}
   m_Layer: 0
-  m_Name: LoginCanvas
+  m_Name: PC2LoginCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57849,7 +57849,7 @@ GameObject:
   - component: {fileID: 5852715752417526709}
   - component: {fileID: 5852715752417526708}
   m_Layer: 0
-  m_Name: LoginCanvas
+  m_Name: PC1LoginCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58407,7 +58407,7 @@ GameObject:
   - component: {fileID: 5852715752509935230}
   - component: {fileID: 5852715752509935231}
   m_Layer: 0
-  m_Name: LoginCanvas
+  m_Name: PC4LoginCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60721,7 +60721,7 @@ GameObject:
   - component: {fileID: 5852715752914492432}
   - component: {fileID: 5852715752914492431}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: PC1Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60958,7 +60958,7 @@ GameObject:
   - component: {fileID: 5852715752950955625}
   - component: {fileID: 5852715752950955638}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: BossCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61229,7 +61229,7 @@ GameObject:
   - component: {fileID: 5852715753069385003}
   - component: {fileID: 5852715753069385012}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: PC8Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61433,7 +61433,7 @@ GameObject:
   - component: {fileID: 5852715753159101836}
   - component: {fileID: 5852715753159101839}
   m_Layer: 0
-  m_Name: LoginCanvas
+  m_Name: ReceptionPCLoginCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62302,7 +62302,7 @@ GameObject:
   - component: {fileID: 5852715753245151787}
   - component: {fileID: 5852715753245151786}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: ReceptionPCCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62588,7 +62588,7 @@ GameObject:
   - component: {fileID: 5852715753268808334}
   - component: {fileID: 5852715753268808335}
   m_Layer: 0
-  m_Name: LoginCanvas
+  m_Name: PC8LoginCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62866,7 +62866,7 @@ GameObject:
   - component: {fileID: 5852715753310944710}
   - component: {fileID: 5852715753310944711}
   m_Layer: 0
-  m_Name: LoginCanvas
+  m_Name: PC5LoginCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63527,7 +63527,7 @@ GameObject:
   - component: {fileID: 5852715753389318607}
   - component: {fileID: 5852715753389318604}
   m_Layer: 0
-  m_Name: LoginCanvas
+  m_Name: BossLoginCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70575,7 +70575,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6216208228506942216, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: m_Name
-      value: NetworkCanvasController
+      value: ShareScreenController
       objectReference: {fileID: 0}
     - target: {fileID: 6660828270081752896, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: m_RootOrder
@@ -70622,6 +70622,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
+      propertyPath: gameObjects.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[0]
       value: 
       objectReference: {fileID: 5852715753299196881}
@@ -70656,53 +70660,85 @@ PrefabInstance:
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[8]
       value: 
-      objectReference: {fileID: 5852715752087866044}
+      objectReference: {fileID: 2072096149}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[9]
       value: 
-      objectReference: {fileID: 5852715752908044320}
+      objectReference: {fileID: 5852715752087866044}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[10]
       value: 
-      objectReference: {fileID: 5852715753181334424}
+      objectReference: {fileID: 5852715752908044320}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[11]
       value: 
-      objectReference: {fileID: 5852715752170451122}
+      objectReference: {fileID: 5852715753181334424}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[12]
       value: 
-      objectReference: {fileID: 1989398098}
+      objectReference: {fileID: 5852715752170451122}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[13]
       value: 
-      objectReference: {fileID: 5852715753122381008}
+      objectReference: {fileID: 1989398098}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[14]
       value: 
-      objectReference: {fileID: 502452785}
+      objectReference: {fileID: 5852715753122381008}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[15]
       value: 
-      objectReference: {fileID: 5852715752997574546}
+      objectReference: {fileID: 502452785}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[16]
       value: 
-      objectReference: {fileID: 7724509821575982400}
+      objectReference: {fileID: 5852715752997574546}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[17]
       value: 
-      objectReference: {fileID: 4726506207896632252}
+      objectReference: {fileID: 7724509821575982400}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[18]
       value: 
-      objectReference: {fileID: 5383646162997301503}
+      objectReference: {fileID: 4726506207896632252}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[19]
       value: 
-      objectReference: {fileID: 1879982798}
+      objectReference: {fileID: 5383646162997301503}
     - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
       propertyPath: gameObjects.Array.data[20]
+      value: 
+      objectReference: {fileID: 1879982798}
+    - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
+      propertyPath: gameObjects.Array.data[21]
+      value: 
+      objectReference: {fileID: 979587699}
+    - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
+      propertyPath: gameObjects.Array.data[22]
+      value: 
+      objectReference: {fileID: 979587699}
+    - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
+      propertyPath: gameObjects.Array.data[23]
+      value: 
+      objectReference: {fileID: 979587699}
+    - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
+      propertyPath: gameObjects.Array.data[24]
+      value: 
+      objectReference: {fileID: 979587699}
+    - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
+      propertyPath: gameObjects.Array.data[25]
+      value: 
+      objectReference: {fileID: 979587699}
+    - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
+      propertyPath: gameObjects.Array.data[26]
+      value: 
+      objectReference: {fileID: 979587699}
+    - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
+      propertyPath: gameObjects.Array.data[27]
+      value: 
+      objectReference: {fileID: 979587699}
+    - target: {fileID: 8105183058408888526, guid: 9b30789bdf8bacb40886901ab623c254, type: 3}
+      propertyPath: gameObjects.Array.data[28]
       value: 
       objectReference: {fileID: 979587699}
     m_RemovedComponents: []
