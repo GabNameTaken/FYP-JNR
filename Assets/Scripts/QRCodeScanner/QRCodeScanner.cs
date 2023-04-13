@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class QRCodeScanner : InteractableObject
 {
-    private ScannerClicked scannerController;
-    // Start is called before the first frame update
+    private CanvasToggle scannerController;
+
     void Start()
     {
-        scannerController = transform.parent.GetComponent<ScannerClicked>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        scannerController = transform.parent.GetComponent<CanvasToggle>();
     }
 
     public override void OnClick()
     {
-        scannerController.SetScannerToActive();
+        scannerController.SetCanvasToActive();
     }
 }
