@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Drawer : MonoBehaviour
 {
-
     [SerializeField] private Sprite[] img;
     [SerializeField] private GameObject image, screwdriver, note;
     private GameObject player;
