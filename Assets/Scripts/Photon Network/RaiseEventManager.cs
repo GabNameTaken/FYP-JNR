@@ -19,17 +19,6 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
         PhotonNetwork.RemoveCallbackTarget(this);
     }
 
-    public static void CopyCanvas(Canvas sourceCanvas, Canvas targetCanvas)
-    {
-        targetCanvas.renderMode = sourceCanvas.renderMode;
-        targetCanvas.pixelPerfect = sourceCanvas.pixelPerfect;
-        targetCanvas.worldCamera = sourceCanvas.worldCamera;
-        targetCanvas.planeDistance = sourceCanvas.planeDistance;
-        targetCanvas.sortingLayerID = sourceCanvas.sortingLayerID;
-        targetCanvas.sortingOrder = sourceCanvas.sortingOrder;
-        targetCanvas.targetDisplay = sourceCanvas.targetDisplay;
-    }
-
     public void OnEvent(EventData eventData)
     {
         if (eventData.Code == sendCanvas)
