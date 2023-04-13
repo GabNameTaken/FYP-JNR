@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6660828270081752896}
   - component: {fileID: 8105183058408888526}
   m_Layer: 0
-  m_Name: NetworkCanvasController
+  m_Name: ShareScreenController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

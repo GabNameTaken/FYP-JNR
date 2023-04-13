@@ -74,10 +74,29 @@ public class ShareView : MonoBehaviour
             hostCam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
             hostCam.depth = 1;
             myCam.depth = -1;
-            //gameObject.transform.Find("Camera").gameObject.GetComponent<Camera>().depth = 1;
             shareViewCloseButton = Instantiate(shareViewClosePrefab,shareScreenCanvas.transform);
             shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
             Debug.Log("share success");
+
+            foreach(GameObject child in canvasGO.GetComponent<ShareCanvas>().gameObjects)
+            {
+                if (child.GetComponent<Canvas>())
+                {
+                    child.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+                    child.GetComponent<Canvas>().worldCamera = hostCam;
+                    child.GetComponent<Canvas>().sortingOrder = 1;
+                }
+                else if (child.transform.GetChild(0).GetComponent<Canvas>())
+                {
+                    for (int i = 0; i < child.transform.childCount; i++)
+                    {
+                        child.transform.GetChild(i).GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+                        child.transform.GetChild(i).GetComponent<Canvas>().worldCamera = hostCam;
+                        child.transform.GetChild(i).GetComponent<Canvas>().sortingOrder = 1;
+                    }
+                }
+            }
+            Debug.Log("Canvas cam change success");
         }
     }
 
@@ -90,6 +109,10 @@ public class ShareView : MonoBehaviour
             hostCam.rect = new Rect(0f,0f,1f,1f);
             hostCam.depth = -1;
             myCam.depth = 0;
+            foreach (GameObject child in canvasGO.GetComponent<ShareCanvas>().gameObjects)
+            {
+                child.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+            }
             Destroy(shareViewCloseButton);
         }
         Debug.Log("Quit viewing");

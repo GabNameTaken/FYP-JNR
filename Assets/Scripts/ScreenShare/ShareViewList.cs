@@ -10,7 +10,6 @@ public class ShareViewList : MonoBehaviour
 {
     [SerializeField] private GameObject playerButton;
     private GameObject shareViewList;
-    private GameObject localPlayerList;
 
     private bool listOpen;
 
@@ -23,7 +22,6 @@ public class ShareViewList : MonoBehaviour
         listOpen = false;
         shareViewList = transform.parent.parent.gameObject;
         shareViewList.SetActive(false);
-        localPlayerList = GameObject.Find("Network");
         
         photonView = photonPlayer.GetPlayerPhotonView();
     }
