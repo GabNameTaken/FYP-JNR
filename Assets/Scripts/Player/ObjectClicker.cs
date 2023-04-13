@@ -14,8 +14,9 @@ public class ObjectClicker : MonoBehaviour
     GameObject objectOnHover;
     Color originalColor;
     Material originalMaterial;
-    float highlightFactor = 0.5f;
+    float highlightFactor = 0.3f;
     public Material highlightMaterial;
+    public Color highlightColor;
 
     private void Awake()
     {
@@ -59,7 +60,7 @@ public class ObjectClicker : MonoBehaviour
     {
         Renderer renderer = objectOnHover.GetComponent(typeof(Renderer)) as Renderer;
         originalColor = renderer.material.GetColor("_Color");
-        Color newColor = new Color(255f,255f, originalColor.b, originalColor.a);
+        Color newColor = highlightColor;
         renderer.material.SetColor("_Color", newColor);
     }
 

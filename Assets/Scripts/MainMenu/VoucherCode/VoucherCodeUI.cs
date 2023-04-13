@@ -18,8 +18,9 @@ public class VoucherCodeUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI invalidCodeErrorMessage;
     [SerializeField] CanvasGroup invalidCodeErrorMessageCanvasGroup;
 
-    [SerializeField] NavigationPage navigationPage;
-    [SerializeField] VideoBackgroundPage nickNamePage;
+    //[SerializeField] NavigationPage navigationPage;
+    //[SerializeField] VideoBackgroundPage nickNamePage;
+    [SerializeField] GameObject nextPage;
 
     [SerializeField] SessionManager sessionManager;
     [SerializeField] ModalWindow modalWindow;
@@ -93,7 +94,9 @@ public class VoucherCodeUI : MonoBehaviour
     }
     private void ChangePage()
     {
-        navigationPage.PushPage(nickNamePage);
+        //navigationPage.PushPage(nickNamePage);
+        nextPage.SetActive(true);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
     private void HideInvalidCodeErrorMessage()
     {

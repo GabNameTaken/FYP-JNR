@@ -62,10 +62,7 @@ public class VideoConferenceSetupUI : MonoBehaviour
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         //Additional settings to change if needed after changing scenes
-        openButton.SetActive(false);
-        dropdownPanel.SetActive(true);
-        setupPanel.SetActive(true);
-        inConferencePanel.SetActive(false);
+        
     }
 
     private void OnJoinedConference()
@@ -81,7 +78,10 @@ public class VideoConferenceSetupUI : MonoBehaviour
     }
     private void OnJoinedRoom()
     {
-        
+        openButton.SetActive(false);
+        dropdownPanel.SetActive(true);
+        setupPanel.SetActive(true);
+        inConferencePanel.SetActive(false);
     }
     private void OnLeftRoom()
     {
