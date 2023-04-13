@@ -22,7 +22,22 @@ public class ShareCanvas : MonoBehaviour
         {
             GameObject child = gameObjects[i];
             activeStateOfGameObjects.Add(child.name, child.activeSelf);
-            Debug.Log(activeStateOfGameObjects);
+            //Debug.Log(activeStateOfGameObjects);
+        }
+    }
+
+    public Dictionary<string,bool> SaveActiveStateOfGameObjects()
+    {
+        ResetActiveStateOfGameObjects();
+        return activeStateOfGameObjects;
+    }
+
+    public void SetActiveStateOfGameObjects(Dictionary<string,bool> activeStates)
+    {
+        for (int i = 0; i < gameObjects.Count; i++)
+        {
+            GameObject child = gameObjects[i];
+            child.SetActive(activeStates[child.name]);
         }
     }
 
