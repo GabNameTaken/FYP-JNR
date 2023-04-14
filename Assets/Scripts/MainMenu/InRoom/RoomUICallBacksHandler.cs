@@ -12,7 +12,8 @@ public class RoomUICallBacksHandler : MonoBehaviourPunCallbacks
     [SerializeField] TextMeshProUGUI roomNameDisplay;
 
     [SerializeField] SessionManager sessionManager;
-    [SerializeField] NavigationPage navigationPage;
+    //[SerializeField] NavigationPage navigationPage;
+    [SerializeField] GameObject prevPage;
     public override void OnEnable()
     {
         base.OnEnable();
@@ -64,7 +65,9 @@ public class RoomUICallBacksHandler : MonoBehaviourPunCallbacks
 
     private void ChangePage()
     {
-        navigationPage.PopPage();
+        //navigationPage.PopPage();
+        prevPage.SetActive(true);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
 
     private void UpdateNameListUI()

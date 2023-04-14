@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Drawer : MonoBehaviour
 {
-
     [SerializeField] private Sprite[] img;
     [SerializeField] private GameObject image, screwdriver, note;
     private GameObject player;
@@ -28,15 +27,12 @@ public class Drawer : MonoBehaviour
     {
         image.GetComponent<Image>().sprite = img[1];
         player.GetComponent<SyncInventory>().CallPickupItem("Screwdriver");
-        //player.GetComponent<SyncInventory>().CallPickupItem("Note");
-        //screwdriver.SetActive(true);
-        //note.SetActive(true);
 
         hints.CompletedPuzzle();
     }
 
     public void BookPickup()
     {
-        player.GetComponent<SyncInventory>().CallPickupItem("morse");
+        player.GetComponent<SyncInventory>().CallPickupItem("Morse Book");
     }
 }

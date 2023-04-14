@@ -4,26 +4,10 @@ using UnityEngine;
 
 public class SceneNavigation : MonoBehaviour
 {
-    // ARRAY OF ROOMS, KEEP ADDING TO THE BACK
-    // 0 : reception room
-    // 1 : office entrance
-    // 2 : office left
-    // 3 : office mid
-    // 4 : office right 
-    // 5 : boss room
-    // 6 : lift lobby
     [SerializeField] GameObject[] rooms;
+    [SerializeField] GameObject[] items;
 
     private GameObject playercam;
-
-    // ARRAY OF ROOM ITEMS, KEEP ADDING TO THE BACK
-    // 0 : reception room items
-    // 1 : office entrance items
-    // 2 : office middle items
-    // 3 : office rear items
-    // 4 : office printer items
-    // 5 : boss room
-    [SerializeField] GameObject[] items;
 
     public void ChangeSceneWithSceneName(string name)
     {
@@ -63,6 +47,11 @@ public class SceneNavigation : MonoBehaviour
         {
             Debug.Log("Office room right");
             rooms[6].SetActive(true);
+        }
+        else if (name == "Arrow_OfficePantry1")
+        {
+            Debug.Log("Office pantry1");
+            rooms[7].SetActive(true);
         }
         else if (name == "Arrow_OfficePantry")
         {

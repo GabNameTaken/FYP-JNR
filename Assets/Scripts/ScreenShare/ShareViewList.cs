@@ -10,7 +10,7 @@ public class ShareViewList : MonoBehaviour
 {
     [SerializeField] private GameObject playerButton;
     private GameObject shareViewList;
-    private GameObject localPlayerList;
+
     private bool listOpen;
 
     [SerializeField] private SceneGameManager photonPlayer;
@@ -22,7 +22,7 @@ public class ShareViewList : MonoBehaviour
         listOpen = false;
         shareViewList = transform.parent.parent.gameObject;
         shareViewList.SetActive(false);
-        localPlayerList = GameObject.Find("Network");
+        
         photonView = photonPlayer.GetPlayerPhotonView();
     }
 
@@ -32,19 +32,22 @@ public class ShareViewList : MonoBehaviour
         {
             client = PhotonNetwork.LocalPlayer;
             photonView.RPC("UpdateShareList", RpcTarget.AllViaServer, client);
-            Debug.Log(client.NickName);
+            Debug.Log(client.NickName + "," + client.ActorNumber  + ":" + photonView.ViewID);
         }
     }
 
     public void ViewPlayerScreen(Player host)
     {
         Debug.Log("Viewing: " + host.NickName);
+        photonView.RPC("PreShareScreen", PhotonNetwork.LocalPlayer);
         photonView.RPC("CallShareScreen", host, PhotonNetwork.LocalPlayer);
+        photonView.RPC("ListViewer", host,PhotonNetwork.LocalPlayer);
     }
 
     public void CloseView(Player player)
     {
         photonView.RPC("CloseViewScreen", player);
+        photonView.RPC("RemoveViewer", RpcTarget.AllViaServer,PhotonNetwork.LocalPlayer);
         Debug.Log("Exiting view for " + player.NickName);
     }
 

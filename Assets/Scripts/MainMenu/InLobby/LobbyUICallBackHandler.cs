@@ -7,8 +7,9 @@ public class LobbyUICallBackHandler : MonoBehaviourPunCallbacks
 {
     [SerializeField] RoomScrollListUI roomScrollListUI;
 
-    [SerializeField] NavigationPage navigationPage;
-    [SerializeField] VideoBackgroundPage nextPage;
+    //[SerializeField] NavigationPage navigationPage;
+    //[SerializeField] VideoBackgroundPage nextPage;
+    [SerializeField] GameObject nextPage;
 
     [SerializeField] RoomCache roomCache;
 
@@ -38,7 +39,9 @@ public class LobbyUICallBackHandler : MonoBehaviourPunCallbacks
 
     private void ChangePage()
     {
-        navigationPage.PushPage(nextPage);
+        //navigationPage.PushPage(nextPage);
+        nextPage.SetActive(true);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
 
     private void UpdateScrollListUI()
