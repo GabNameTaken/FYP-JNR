@@ -8,25 +8,10 @@ public class Bookcase : InteractableObject
     [SerializeField] GameObject popupBG, roomItems, image, drawerItems, morsebook;
     [SerializeField] GameObject[] otherGOs;
     [SerializeField] Sprite[] img;
-    //private GameObject player;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //player = GameObject.FindGameObjectWithTag("Player");
-    }
 
     public void PickUpBook()
     {
-        //player.GetComponent<SyncInventory>().CallPickupItem("morse");
         image.GetComponent<Image>().sprite = img[1];
-        //morsebook.SetActive(true);
     }
 
     public void ClosePopup()
