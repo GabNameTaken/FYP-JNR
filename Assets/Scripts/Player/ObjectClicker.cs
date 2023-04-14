@@ -41,6 +41,7 @@ public class ObjectClicker : MonoBehaviour
         raycast = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(raycast, out raycastHit))
         {
+            RestoreItem();
             return raycastHit.transform.gameObject.GetComponent<CItem>();
         }
         return null;
