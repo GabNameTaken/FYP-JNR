@@ -34,7 +34,7 @@ public class SyncInventory : MonoBehaviour
                     PhotonView itemPV = item.gameObject.GetComponent<PhotonView>();
                     itemPV.RPC("setbIsPickedUp", RpcTarget.AllBufferedViaServer, true);
                     item.gameObject.GetComponent<CItem>().AddToInventory();
-
+                    item.gameObject.transform.SetParent(previewObject.transform, false);
                     QueuedNotification.NotificationInfo notificationInfo = new();
                     notificationInfo.title = "Item Received: ";
                     notificationInfo.message = item.GetComponent<CItem>().getGameObjectName();

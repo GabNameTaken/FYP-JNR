@@ -43,7 +43,6 @@ public class CItem : MonoBehaviour
     {
         gameObject.SetActive(false);
         setbIsPickedUp(true);
-        gameObject.transform.SetParent(previewObject.transform, false);
         previewObject.layer = INPSECT_LAYER;
         CInventoryItemButtons.instance.onAddInventoryCItem(gameObject.GetComponent<CItem>());
     }

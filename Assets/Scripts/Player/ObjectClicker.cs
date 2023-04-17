@@ -141,7 +141,8 @@ public class ObjectClicker : MonoBehaviour
         {
             if (interactableObject)
                 RestoreInteractable();
-            RestoreItem();
+            if (item)
+                RestoreItem();
         }
     }
 }
