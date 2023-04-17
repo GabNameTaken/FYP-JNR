@@ -59,10 +59,7 @@ public class ObjectClicker : MonoBehaviour
 
     private void HighlightItems()
     {
-        Renderer renderer = objectOnHover.GetComponent(typeof(Renderer)) as Renderer;
-        originalColor = renderer.material.GetColor("_Color");
-        Color newColor = highlightColor;
-        renderer.material.SetColor("_Color", newColor);
+        objectOnHover.transform.Find("HighlightBox").gameObject.SetActive(true);
     }
 
     private void HighlightInteractable()
@@ -86,8 +83,7 @@ public class ObjectClicker : MonoBehaviour
     {
         if (objectOnHover != null)
         {
-            Renderer renderer = objectOnHover.GetComponent(typeof(Renderer)) as Renderer;
-            renderer.material.SetColor("_Color", originalColor);
+            objectOnHover.transform.Find("HighlightBox").gameObject.SetActive(false);
             objectOnHover = null;
         }
     }
@@ -101,9 +97,9 @@ public class ObjectClicker : MonoBehaviour
             item = raycastHit.transform.gameObject.GetComponent<CItem>();
             if (objectOnHover == null)
             {
+                objectOnHover = raycastHit.transform.gameObject;
                 if (interactableObject) //check for interactable object/item
                 {
-                    objectOnHover = raycastHit.transform.gameObject;
                     Debug.Log(objectOnHover.transform.name);
                     HighlightInteractable();
                 }
@@ -111,12 +107,6 @@ public class ObjectClicker : MonoBehaviour
                 {
                     if (!item.getbIsPickedUp())
                     {
-                        if (raycastHit.transform.name == "Cheese Puzzle")
-                        {
-                            objectOnHover = raycastHit.transform.GetChild(1).transform.GetChild(0).gameObject;
-                        }
-                        else
-                            objectOnHover = raycastHit.transform.GetChild(0).gameObject;
                         Debug.Log(objectOnHover.transform.name);
                         HighlightItems();
                     }
@@ -134,18 +124,14 @@ public class ObjectClicker : MonoBehaviour
                 {
                     RestoreInteractable();
                     objectOnHover = raycastHit.transform.gameObject;
+                    HighlightInteractable();
                 }
                 else if (item)
                 {
                     RestoreItem();
                     if (!item.getbIsPickedUp())
                     {
-                        if (raycastHit.transform.name == "Cheese Puzzle")
-                        {
-                            objectOnHover = raycastHit.transform.GetChild(1).transform.GetChild(0).gameObject;
-                        }
-                        else
-                            objectOnHover = raycastHit.transform.GetChild(0).gameObject;
+                        objectOnHover = raycastHit.transform.gameObject;
                         HighlightItems();
                     }
                 }
@@ -155,8 +141,7 @@ public class ObjectClicker : MonoBehaviour
         {
             if (interactableObject)
                 RestoreInteractable();
-            else if (item)
-                RestoreItem();
+            RestoreItem();
         }
     }
 }

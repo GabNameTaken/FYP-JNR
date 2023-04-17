@@ -27,6 +27,32 @@ public class SceneGameManager : MonoBehaviourPunCallbacks
         photonView = thisPlayer.GetPhotonView();
     }
 
+    public void SyncItems()
+    {
+        CItem[] items = FindObjectsOfType<CItem>(true);
+        foreach(CItem item in items)
+        {
+            PhotonView view = item.GetComponent<PhotonView>();
+            if (view != null)
+            {
+                if (item.getbIsPickedUp())
+                {
+                    //item.AddToInventory();
+                    Debug.Log("added: " + item.getstrItemName());
+                }
+                else
+                {
+                    Debug.Log(item.getstrItemName() + " not picked up");
+                }
+            }
+            else
+            {
+                //item.gameObject.SetActive(!item.getbIsPickedUp());
+                Debug.Log(item.getstrItemName() + " not picked up");
+            }
+        }
+    }
+
 
     public PhotonView GetPlayerPhotonView()
     {
