@@ -59,13 +59,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorX: 1
+  anchorY: 1
+  constraintToAnchor: 0
   bIsRotatable: 1
   strItemName: Note
   previewSprite: {fileID: 0}
   previewObject: {fileID: 6805755910957797571}
   itemDescription: A note with a folder code.
-  V3Normal: {x: 0, y: 0, z: 0}
-  V3Up: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &6805755910957797571
 GameObject:
   m_ObjectHideFlags: 0
