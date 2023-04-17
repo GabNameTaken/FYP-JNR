@@ -17,7 +17,7 @@ public class SyncInventory : MonoBehaviour
 
     public void CallPickupItem(string itemName)
     {
-        photonView.RPC("PickupItem", RpcTarget.AllBufferedViaServer, itemName);
+        photonView.RPC("PickupItem", RpcTarget.AllViaServer, itemName);
     }
 
     [PunRPC]
@@ -32,11 +32,8 @@ public class SyncInventory : MonoBehaviour
                 if (item)
                 {
                     PhotonView itemPV = item.gameObject.GetComponent<PhotonView>();
-                    itemPV.RPC("AddToInventory", PhotonNetwork.LocalPlayer);
-                    //item.gameObject.GetComponent<CItem>().AddToInventory();
-                    item.gameObject.GetComponent<CItem>().setbIsPickedUp(true);
-                    item.SetParent(previewObject.transform, false);
-                    item.gameObject.GetComponent<CItem>().getPreviewGameObject().layer = INPSECT_LAYER;
+                    itemPV.RPC("setbIsPickedUp", RpcTarget.AllBufferedViaServer, true);
+                    item.gameObject.GetComponent<CItem>().AddToInventory();
 
                     QueuedNotification.NotificationInfo notificationInfo = new();
                     notificationInfo.title = "Item Received: ";

@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class CItem : MonoBehaviour
 {
+    private const int INPSECT_LAYER = 6;
     private bool bIsInspectable;
     private bool bIsPickedUp;
 
@@ -23,6 +24,8 @@ public class CItem : MonoBehaviour
     [SerializeField] public Vector3 inspectRotation;
 
     public void setbIsInspectable(bool toSet) { bIsInspectable = toSet; }
+
+    [PunRPC]
     public void setbIsPickedUp(bool toSet) { bIsPickedUp = toSet; }
     public bool getbIsInspectable() { return bIsInspectable; }
     public bool getbIsPickedUp() { return bIsPickedUp; }
@@ -38,7 +41,10 @@ public class CItem : MonoBehaviour
     [PunRPC]
     public void AddToInventory()
     {
-        CInventoryItemButtons.instance.onAddInventoryCItem(gameObject.GetComponent<CItem>());
         gameObject.SetActive(false);
+        setbIsPickedUp(true);
+        gameObject.transform.SetParent(previewObject.transform, false);
+        previewObject.layer = INPSECT_LAYER;
+        CInventoryItemButtons.instance.onAddInventoryCItem(gameObject.GetComponent<CItem>());
     }
 }
