@@ -100,6 +100,7 @@ public class SafeKeypad : MonoBehaviour
     {
         safe.GetComponent<Image>().sprite = img[2];
         player.GetComponent<SyncInventory>().CallPickupItem("Pager");
+        pagerButton.SetActive(false);
         safeItems.SetActive(true);
     }
 

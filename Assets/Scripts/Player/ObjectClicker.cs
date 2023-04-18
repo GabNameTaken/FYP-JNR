@@ -31,6 +31,7 @@ public class ObjectClicker : MonoBehaviour
             InteractableObject interactableObject = raycastHit.transform.gameObject.GetComponent<InteractableObject>();
             if (interactableObject)
             {
+                RestoreInteractable();
                 raycastHit.transform.gameObject.GetComponent<InteractableObject>().OnClick();
             }
         }
