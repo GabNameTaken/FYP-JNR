@@ -42,14 +42,15 @@ namespace Photon.Pun.UtilityScripts
         public const string CountdownStartTime = "StartTime";
 
         [Header("Countdown time in seconds")] 
-        public float Countdown = 5.0f;
+        public float Countdown = 10.0f;
 
         private bool isTimerRunning;
 
         private int startTime;
+        public int timer;
 
-        [Header("Reference to a Text component for visualizing the countdown")]
-        public Text Text;
+        //[Header("Reference to a Text component for visualizing the countdown")]
+        //public Text Text;
 
 
         /// <summary>
@@ -60,7 +61,8 @@ namespace Photon.Pun.UtilityScripts
 
         public void Start()
         {
-            if (this.Text == null) Debug.LogError("Reference to 'Text' is not set. Please set a valid reference.", this);
+            //if (this.Text == null) Debug.LogError("Reference to 'Text' is not set. Please set a valid reference.", this);
+            timer = (int)Countdown;
         }
 
         public override void OnEnable()
@@ -83,10 +85,11 @@ namespace Photon.Pun.UtilityScripts
         {
             if (!this.isTimerRunning) return;
 
-            float countdown = TimeRemaining();
-            this.Text.text = string.Format("Game starts in {0} seconds", countdown.ToString("n0"));
+            if (isTimerRunning)
+                timer = (int)TimeRemaining();
+            //this.Text.text = string.Format("Game starts in {0} seconds", countdown.ToString("n0"));
 
-            if (countdown > 0.0f) return;
+            if (timer > 0.0f) return;
 
             OnTimerEnds();
         }
@@ -103,8 +106,8 @@ namespace Photon.Pun.UtilityScripts
             this.isTimerRunning = false;
             //this.enabled = false;
 
-            Debug.Log("Emptying info text.", this.Text);
-            this.Text.text = string.Empty;
+            //Debug.Log("Emptying info text.", this.Text);
+            //this.Text.text = string.Empty;
 
             if (OnCountdownTimerHasExpired != null) OnCountdownTimerHasExpired();
         }
