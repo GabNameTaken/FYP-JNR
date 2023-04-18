@@ -30,7 +30,7 @@ public class LockedDoor : MonoBehaviourPun, ILockedDoor
         {
             otherGOs[i].SetActive(true);
         }
-        photonView.RPC("OpenDoorRPC", RpcTarget.All);
+        photonView.RPC("OpenDoorRPC", RpcTarget.AllBufferedViaServer);
     }
 
     [PunRPC]
@@ -38,6 +38,7 @@ public class LockedDoor : MonoBehaviourPun, ILockedDoor
     {
         receptionArrow.SetActive(true);
         isLocked = false;
+        gameObject.SetActive(false);
     }
 
     public void Close()

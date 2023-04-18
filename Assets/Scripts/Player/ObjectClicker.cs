@@ -59,7 +59,8 @@ public class ObjectClicker : MonoBehaviour
 
     private void HighlightItems()
     {
-        objectOnHover.transform.Find("HighlightBox").gameObject.SetActive(true);
+        if (objectOnHover.transform.Find("HighlightBox"))
+            objectOnHover.transform.Find("HighlightBox").gameObject.SetActive(true);
     }
 
     private void HighlightInteractable()
@@ -83,7 +84,10 @@ public class ObjectClicker : MonoBehaviour
     {
         if (objectOnHover != null)
         {
-            objectOnHover.transform.Find("HighlightBox").gameObject.SetActive(false);
+            if (objectOnHover.transform.Find("HighlightBox"))
+            {
+                objectOnHover.transform.Find("HighlightBox").gameObject.SetActive(false);
+            }
             objectOnHover = null;
         }
     }
@@ -141,7 +145,8 @@ public class ObjectClicker : MonoBehaviour
         {
             if (interactableObject)
                 RestoreInteractable();
-            RestoreItem();
+            if (item)
+                RestoreItem();
         }
     }
 }

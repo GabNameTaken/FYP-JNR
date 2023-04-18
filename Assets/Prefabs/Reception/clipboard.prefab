@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 2447685826097097944}
   - component: {fileID: 5966826425739107915}
   - component: {fileID: 6346968728107463128}
-  - component: {fileID: 1611255621447951733}
   m_Layer: 0
   m_Name: HighlightBox
   m_TagString: Untagged
@@ -167,19 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1611255621447951733
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842590584962743411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: -0.0000019073486, y: 0, z: 0.0000076293945}
 --- !u!1 &8158549640143568446
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +235,7 @@ MonoBehaviour:
   previewSprite: {fileID: 0}
   previewObject: {fileID: 8158549640143568446}
   itemDescription: A clipboard with all the employee names.
-  inspectRotation: {x: 0, y: 0, z: 0}
+  inspectRotation: {x: 0, y: -90, z: 90}
 --- !u!114 &16355977459737362
 MonoBehaviour:
   m_ObjectHideFlags: 0
