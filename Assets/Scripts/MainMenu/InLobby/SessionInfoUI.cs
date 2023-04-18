@@ -6,8 +6,6 @@ using TMPro;
 public class SessionInfoUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI size;
-    [SerializeField] TextMeshProUGUI startTime;
-    [SerializeField] TextMeshProUGUI endTime;
 
     [SerializeField] SessionManager sessionManager;
     [SerializeField] SessionSize sessionSize;
@@ -25,8 +23,6 @@ public class SessionInfoUI : MonoBehaviour
 
     private void Start()
     {
-        startTime.text = "Start time: " + sessionManager.GetSessionInfo().StartTime.DayOfWeek.ToString() + " " + sessionManager.GetSessionInfo().StartTime.ToShortTimeString();
-        endTime.text = "Expire time: " + sessionManager.GetSessionInfo().ExpireTime.DayOfWeek.ToString() + " " + sessionManager.GetSessionInfo().ExpireTime.ToShortTimeString();
 
         maxPlayers = sessionManager.GetSessionInfo().MaxPlayers;
 
