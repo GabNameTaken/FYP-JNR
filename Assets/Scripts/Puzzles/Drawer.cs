@@ -6,7 +6,7 @@ using UnityEngine;
 public class Drawer : MonoBehaviour
 {
     [SerializeField] private Sprite[] img;
-    [SerializeField] private GameObject image, screwdriver, note;
+    [SerializeField] private GameObject image, screwdriver;
     private GameObject player;
 
     Hints hints;
@@ -27,6 +27,7 @@ public class Drawer : MonoBehaviour
     {
         image.GetComponent<Image>().sprite = img[1];
         player.GetComponent<SyncInventory>().CallPickupItem("Screwdriver");
+        transform.Find("ButtonMask").gameObject.SetActive(false);
 
         hints.CompletedPuzzle();
     }

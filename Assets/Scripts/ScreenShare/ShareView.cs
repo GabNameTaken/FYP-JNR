@@ -34,7 +34,7 @@ public class ShareView : MonoBehaviour
             cam = gameObject.transform.Find("Camera").gameObject.GetComponent<Camera>();
         localPlayerList = GameObject.Find("Network").GetComponent<LocalPlayerList>();
         shareScreenCanvas = GameObject.FindGameObjectWithTag("ShareScreenCanvas");
-        shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("Viewport").transform.Find("Content").gameObject;
+        shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("List").transform.Find("Viewport").transform.Find("Content").gameObject;
 
         shareScreenController = GameObject.Find("ShareScreenController");
     }
