@@ -52,8 +52,28 @@ public class ShareView : MonoBehaviour
     public void UpdateShareList(Player host)
     {
         GameObject go = Instantiate(playerButton, shareViewList.transform);
+        go.name = host.ActorNumber.ToString();
         go.GetComponentInChildren<TextMeshProUGUI>().text = host.NickName.ToUpper();
         go.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().ViewPlayerScreen(host); });
+    }
+
+    [PunRPC]
+    public void DestroyShareList(Player host)
+    {
+        if (shareViewList.transform.Find(host.ActorNumber.ToString()))
+        {
+            GameObject hostListing = shareViewList.transform.Find(host.ActorNumber.ToString()).gameObject;
+            Destroy(hostListing);
+        }
+    }
+
+    [PunRPC]
+    public void RemoveAllViewers()
+    {
+        foreach (Player viewer in listOfViewers)
+        {
+            shareViewList.GetComponent<ShareViewList>().CloseView(viewer);
+        }
     }
 
     [PunRPC]

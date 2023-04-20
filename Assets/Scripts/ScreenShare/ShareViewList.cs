@@ -20,7 +20,7 @@ public class ShareViewList : MonoBehaviour
     void Start()
     {
         listOpen = false;
-        shareViewList = transform.parent.parent.gameObject;
+        shareViewList = transform.parent.parent.parent.gameObject;
         shareViewList.SetActive(false);
         
         photonView = photonPlayer.GetPlayerPhotonView();
@@ -36,6 +36,16 @@ public class ShareViewList : MonoBehaviour
         }
     }
 
+    public void StopShareScreen()
+    {
+        if (PhotonNetwork.LocalPlayer.IsLocal)
+        {
+            client = PhotonNetwork.LocalPlayer;
+            photonView.RPC("DestroyShareList", RpcTarget.AllViaServer, client);
+            photonView.RPC("RemoveAllViewers", client);
+        }
+    }
+
     public void ViewPlayerScreen(Player host)
     {
         Debug.Log("Viewing: " + host.NickName);
@@ -47,7 +57,7 @@ public class ShareViewList : MonoBehaviour
     public void CloseView(Player player)
     {
         photonView.RPC("CloseViewScreen", player);
-        photonView.RPC("RemoveViewer", RpcTarget.AllViaServer,PhotonNetwork.LocalPlayer);
+        photonView.RPC("RemoveViewer", RpcTarget.AllViaServer, player);
         Debug.Log("Exiting view for " + player.NickName);
     }
 
