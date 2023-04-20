@@ -10,7 +10,7 @@ using Photon.Pun.UtilityScripts;
 public class RoomTimer : MonoBehaviour
 {
     [SerializeField] CountdownTimer countdownTimer;
-    //[SerializeField] Text countdownText;
+    [SerializeField] Text countdownText;
     [SerializeField] TextMeshProUGUI timerText;
 
     [SerializeField] private float countdownInSeconds;
@@ -19,7 +19,6 @@ public class RoomTimer : MonoBehaviour
     public event CountdownTimerHasExpired OnCountdownTimerHasExpired;
 
     private bool isStopped = true;
-    private int timer;
 
     private void OnEnable()
     {
@@ -39,21 +38,13 @@ public class RoomTimer : MonoBehaviour
     }
     public void StartTimer()
     {
-        Debug.Log("ENABLE TIMER");     
+        Debug.Log("ENABLE TIMER");
+        timerText.gameObject.SetActive(true);
         countdownTimer.Countdown = countdownInSeconds;
         isStopped = false;
 
         CountdownTimer.SetStartTime();
-        timerText.gameObject.SetActive(true);
     }
-
-    private void Update()
-    {
-        if (!isStopped)
-            timer = countdownTimer.timer;
-        timerText.text = "Game starting in " + timer.ToString();
-    }
-
     public void StopTimer()
     {
         timerText.gameObject.SetActive(false);
