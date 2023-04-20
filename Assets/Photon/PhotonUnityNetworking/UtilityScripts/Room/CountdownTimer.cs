@@ -41,16 +41,15 @@ namespace Photon.Pun.UtilityScripts
 
         public const string CountdownStartTime = "StartTime";
 
-        [Header("Countdown time in seconds")] 
-        public float Countdown = 10.0f;
+        [Header("Countdown time in seconds")]
+        public float Countdown = 5.0f;
 
         private bool isTimerRunning;
 
         private int startTime;
-        public int timer;
 
-        //[Header("Reference to a Text component for visualizing the countdown")]
-        //public Text Text;
+        [Header("Reference to a Text component for visualizing the countdown")]
+        public Text Text;
 
 
         /// <summary>
@@ -61,8 +60,7 @@ namespace Photon.Pun.UtilityScripts
 
         public void Start()
         {
-            //if (this.Text == null) Debug.LogError("Reference to 'Text' is not set. Please set a valid reference.", this);
-            timer = (int)Countdown;
+            if (this.Text == null) Debug.LogError("Reference to 'Text' is not set. Please set a valid reference.", this);
         }
 
         public override void OnEnable()
@@ -85,11 +83,10 @@ namespace Photon.Pun.UtilityScripts
         {
             if (!this.isTimerRunning) return;
 
-            if (isTimerRunning)
-                timer = (int)TimeRemaining();
-            //this.Text.text = string.Format("Game starts in {0} seconds", countdown.ToString("n0"));
+            float countdown = TimeRemaining();
+            this.Text.text = string.Format("Game starts in {0} seconds", countdown.ToString("n0"));
 
-            if (timer > 0.0f) return;
+            if (countdown > 0.0f) return;
 
             OnTimerEnds();
         }
@@ -106,8 +103,8 @@ namespace Photon.Pun.UtilityScripts
             this.isTimerRunning = false;
             //this.enabled = false;
 
-            //Debug.Log("Emptying info text.", this.Text);
-            //this.Text.text = string.Empty;
+            Debug.Log("Emptying info text.", this.Text);
+            this.Text.text = string.Empty;
 
             if (OnCountdownTimerHasExpired != null) OnCountdownTimerHasExpired();
         }
@@ -173,7 +170,7 @@ namespace Photon.Pun.UtilityScripts
             PhotonNetwork.CurrentRoom.SetCustomProperties(props);
 
 
-            Debug.Log("Set Custom Props for Time: "+ props.ToStringFull() + " wasSet: "+wasSet);
+            Debug.Log("Set Custom Props for Time: " + props.ToStringFull() + " wasSet: " + wasSet);
         }
     }
 }
