@@ -9,6 +9,12 @@ public class LockedDoor : MonoBehaviourPun, ILockedDoor
 
     bool isLocked = true;
 
+    private void OnEnable()
+    {
+        if (!isLocked)
+            gameObject.SetActive(false);
+    }
+
     public void AttemptOpenDoor()
     {
         if (isLocked)
