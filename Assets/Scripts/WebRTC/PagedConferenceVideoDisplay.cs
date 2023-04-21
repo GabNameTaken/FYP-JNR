@@ -68,7 +68,7 @@ public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutput
     {
         for (int i = 0; i < rawImages.Count; i++)
         {
-            rawImages[i].gameObject.SetActive(SmallestIdIndexInView + i < idList.Count);
+            //rawImages[i].gameObject.SetActive(SmallestIdIndexInView + i < idList.Count);
         }   
     }
 
@@ -82,8 +82,8 @@ public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutput
             if (rawImages[slotIndex].texture == noImgTexture)
                 rawImages[slotIndex].texture = null;
 
-            rawImages[slotIndex].color = Color.white;   //Set Image on webcam to white to make webcam visible
-            rawImages[slotIndex].transform.Find("Icon").gameObject.SetActive(false);    //Set the icon in the child to false
+            //rawImages[slotIndex].color = new Color(255,255,255,1);   //Set Image on webcam to white to make webcam visible
+            //rawImages[slotIndex].transform.Find("Icon").gameObject.SetActive(false);    //Set the icon in the child to false
             bool mirror = args.IsRemote == false;
             //bool mirror = true;
             UnityMediaHelper.UpdateRawImageTransform(rawImages[slotIndex], args.Frame, mirror);
