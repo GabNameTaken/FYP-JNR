@@ -1410,7 +1410,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 198.28125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &317721761
 MonoBehaviour:
@@ -4579,7 +4579,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 198.28125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1110758928
 MonoBehaviour:
@@ -7582,7 +7582,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 198.28125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013867682
 MonoBehaviour:
@@ -8903,7 +8903,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 6077509549350367366}
   toggleTransition: 0
-  graphic: {fileID: 6077509549350367366}
+  graphic: {fileID: 4118947317042017974}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
@@ -9048,7 +9048,7 @@ MonoBehaviour:
   - {fileID: 317721762}
   - {fileID: 2013867683}
   - {fileID: 1110758929}
-  noImgTexture: {fileID: 2800000, guid: fc17e994006b23a439ccf1f468c1792e, type: 3}
+  noImgTexture: {fileID: 2800000, guid: 90a567c8c1b5b9c43a9ef61f5058c87e, type: 3}
   leftArrow: {fileID: 656872818934926240}
   rightArrow: {fileID: 4923017540760822083}
 --- !u!222 &3880196652902789518
@@ -11813,7 +11813,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 198.28125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8864190757266740841
 CanvasRenderer:
