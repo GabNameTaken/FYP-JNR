@@ -12,9 +12,7 @@ public class ObjectClicker : MonoBehaviour
     CItem item;
 
     GameObject objectOnHover;
-    Color originalColor;
     Material originalMaterial;
-    float highlightFactor = 0.3f;
     public Material highlightMaterial;
     public Color highlightColor;
 

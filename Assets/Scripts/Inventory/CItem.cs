@@ -6,13 +6,15 @@ using Photon.Pun;
 public class CItem : MonoBehaviour
 {
     private const int INPSECT_LAYER = 6;
-    private bool bIsInspectable;
-    private bool bIsPickedUp;
+    public bool bIsInspectable;
+    public bool bIsPickedUp;
 
     //  Variables for inspection menu
     public float anchorX = 1.0f;
     public float anchorY = 1.0f;
     public bool constraintToAnchor = false; //Constraint or no constraint for inspection menu
+
+    private GameObject inventoryGO;
 
     [SerializeField] private bool bIsRotatable;
 
@@ -25,7 +27,6 @@ public class CItem : MonoBehaviour
 
     public void setbIsInspectable(bool toSet) { bIsInspectable = toSet; }
 
-    [PunRPC]
     public void setbIsPickedUp(bool toSet) { bIsPickedUp = toSet; }
     public bool getbIsInspectable() { return bIsInspectable; }
     public bool getbIsPickedUp() { return bIsPickedUp; }
@@ -38,6 +39,11 @@ public class CItem : MonoBehaviour
     public Sprite getpreviewSprite() { return previewSprite; }
     public GameObject getPreviewGameObject() { return previewObject; }
 
+    private void Start()
+    {
+        inventoryGO = GameObject.FindWithTag("PreviewObject");
+    }
+
     [PunRPC]
     public void AddToInventory()
     {
@@ -45,5 +51,13 @@ public class CItem : MonoBehaviour
         setbIsPickedUp(true);
         previewObject.layer = INPSECT_LAYER;
         CInventoryItemButtons.instance.onAddInventoryCItem(gameObject.GetComponent<CItem>());
+    }
+
+    [PunRPC]
+
+    public void MoveItemToInventory()
+    {
+        setbIsPickedUp(true);
+        transform.SetParent(inventoryGO.transform, false);
     }
 }
