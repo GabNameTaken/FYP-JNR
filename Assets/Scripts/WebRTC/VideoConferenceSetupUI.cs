@@ -62,7 +62,7 @@ public class VideoConferenceSetupUI : MonoBehaviour
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         //Additional settings to change if needed after changing scenes
-        
+
     }
 
     private void OnJoinedConference()
@@ -108,5 +108,9 @@ public class VideoConferenceSetupUI : MonoBehaviour
     public void OnPressed_MuteInCall(bool state)
     {
         videoConferenceSetupController.MuteInCall(state);
+    }
+    public void OnPressed_ToggleVideoInCall(bool state)
+    {
+        videoConferenceSetupController.ToggleVideoInCall(state);
     }
 }

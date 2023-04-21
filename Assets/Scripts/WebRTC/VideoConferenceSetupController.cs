@@ -92,4 +92,9 @@ public class VideoConferenceSetupController : MonoBehaviourPunCallbacks
     {
         videoConferenceUIHandler.ToggleMute(state);
     }
+
+    public void ToggleVideoInCall(bool state)
+    {
+        videoConferenceUIHandler.ToggleVideo(state);
+    }
 }
