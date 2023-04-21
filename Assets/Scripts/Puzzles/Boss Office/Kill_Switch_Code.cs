@@ -12,7 +12,7 @@ public class Kill_Switch_Code : MonoBehaviour
 
     public void check_code()
     {
-        if (input_field.text == decrypted_code)
+        if (input_field.text.ToUpper() == decrypted_code)
         {
             // Game Ending stuff here
             Debug.Log("ESCAPE ROOM COMPLETED!");
