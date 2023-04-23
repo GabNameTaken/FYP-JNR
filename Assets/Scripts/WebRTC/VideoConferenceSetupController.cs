@@ -64,7 +64,7 @@ public class VideoConferenceSetupController : MonoBehaviourPunCallbacks
 
     private void SetupFields()
     {
-        videoConference.SetUsername(PhotonNetwork.LocalPlayer.UserId);
+        videoConference.SetUsername(PhotonNetwork.LocalPlayer.NickName);
         videoConference.SetRoomName(PhotonNetwork.CurrentRoom.Name);
     }
 
@@ -95,6 +95,8 @@ public class VideoConferenceSetupController : MonoBehaviourPunCallbacks
 
     public void ToggleVideoInCall(bool state)
     {
+        videoConference.LeaveConference();
         videoConferenceUIHandler.ToggleVideo(state);
+        videoConference.JoinConference();
     }
 }

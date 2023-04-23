@@ -3,6 +3,8 @@ using Byn.Awrtc.Unity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using TMPro;
 
 public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutputHandler
 {
@@ -11,6 +13,8 @@ public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutput
 
     [SerializeField] GameObject leftArrow;
     [SerializeField] GameObject rightArrow;
+
+    public VideoConference videoConference;
 
     private readonly List<ConnectionId> idList = new();
 
@@ -87,6 +91,8 @@ public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutput
 
             //rawImages[slotIndex].color = new Color(255,255,255,1);   //Set Image on webcam to white to make webcam visible
             rawImages[slotIndex].transform.Find("Icon").gameObject.SetActive(false);    //Set the icon in the child to false
+            //rawImages[slotIndex].transform.Find("Username").GetComponent<TMP_Text>().text = videoConference.GetUsername(args.ConnectionId); //Set Username
+            //Debug.Log(videoConference.GetUsername(args.ConnectionId));
             bool mirror = args.IsRemote == false;
             //bool mirror = true;
             UnityMediaHelper.UpdateRawImageTransform(rawImages[slotIndex], args.Frame, mirror);
