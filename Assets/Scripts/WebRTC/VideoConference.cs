@@ -30,6 +30,8 @@ public class VideoConference : MonoBehaviour, IVideoConferenceUIHandler
     public NetworkConfig NetConfig { get => netConfig; set => netConfig = value; }
 
     readonly Dictionary<ConnectionId, string> idToUsername = new();
+
+    public Dictionary<ConnectionId, string> callIDToUsername = new();
     public int ConnectionCount { get => idToUsername.Count; }
 
 
@@ -265,6 +267,11 @@ public class VideoConference : MonoBehaviour, IVideoConferenceUIHandler
     public void SetUsername(string username)
     {
         ownUsername = username;
+    }
+
+    public string GetUsername(ConnectionId id)
+    {
+        return ownUsername;
     }
 
     public void SetRoomName(string roomName)
