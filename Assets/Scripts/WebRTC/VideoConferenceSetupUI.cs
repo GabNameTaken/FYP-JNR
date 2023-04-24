@@ -113,6 +113,7 @@ public class VideoConferenceSetupUI : MonoBehaviour
     }
     public void OnPressed_ToggleVideoInCall(bool state)
     {
+        videoConferenceSetupController.VideoOnJoin = state;
         videoConferenceSetupController.ToggleVideoInCall(state);
     }
 }
