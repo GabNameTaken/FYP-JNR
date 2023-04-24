@@ -93,7 +93,8 @@ public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutput
             rawImages[slotIndex].transform.Find("Icon").gameObject.SetActive(false);    //Set the icon in the child to false
             rawImages[slotIndex].color = new Color(255, 255, 255, 1);
             rawImages[slotIndex].transform.Find("Username").GetComponent<TMP_Text>().text = videoConference.GetUsername(args.ConnectionId); //Set Username
-            
+            rawImages[slotIndex].transform.Find("Username").localScale = new Vector3(-1, -1, -1);
+
             //Debug.Log(videoConference.GetUsername(args.ConnectionId));
             bool mirror = args.IsRemote == false;
             //bool mirror = true;
