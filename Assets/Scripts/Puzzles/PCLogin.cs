@@ -6,6 +6,8 @@ public class PCLogin : MonoBehaviour
 {
     SyncedPuzzle syncedPuzzle;
 
+    [SerializeField] string pcName;
+
     public TMP_InputField passwordInput;
     public string password;
     [SerializeField] GameObject pcScreen, printer;
@@ -42,7 +44,7 @@ public class PCLogin : MonoBehaviour
     {
         pcScreen.SetActive(true);
         toDisable.SetActive(false);
-        hints.CompletedPuzzle();
+        hints.CompletedPuzzle(pcName);
         if (hasTip)
         {
             tips.SetTipActive(tipNum);

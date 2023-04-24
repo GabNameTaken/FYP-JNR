@@ -11,13 +11,12 @@ public class UseItemUnlock: MonoBehaviour
     [SerializeField] private GameObject unlockedObject, closedObject, QRPrinter;
     Hints hints;
     public bool noHint, isScanner;
-    // Start is called before the first frame update
+
     void Start()
     {
         hints = FindObjectOfType<Hints>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -49,7 +48,7 @@ public class UseItemUnlock: MonoBehaviour
                 }
                 if (noHint = false)
                 {
-                    hints.CompletedPuzzle();
+                    hints.CompletedPuzzle(itemToUse);
                 }
             }
             else

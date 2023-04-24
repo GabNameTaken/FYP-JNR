@@ -9,13 +9,12 @@ public class UseItemUnlock2_BobPC : MonoBehaviour
     [SerializeField] private string textBefore, textAfter;
     [SerializeField] private GameObject unlockedObject, unlockedObject2, closedObject, closedObject2;
     Hints hints;
-    // Start is called before the first frame update
+
     void Start()
     {
         hints = FindObjectOfType<Hints>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -31,7 +30,7 @@ public class UseItemUnlock2_BobPC : MonoBehaviour
             closedObject.SetActive(false);
             closedObject2.SetActive(false);
             this.gameObject.SetActive(false);
-            hints.CompletedPuzzle();
+            hints.CompletedPuzzle("PcCase");
         }
         else
         {
