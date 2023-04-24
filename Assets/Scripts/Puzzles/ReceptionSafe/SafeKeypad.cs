@@ -126,7 +126,7 @@ public class SafeKeypad : MonoBehaviour
         keypad.SetActive(false);
         numberDisplay.SetActive(false);
         wall.GetComponent<ReceptionSafe>().OpenSafe(true);
-        hints.CompletedPuzzle();
+        hints.CompletedPuzzle("ReceptionSafe");
     }
 
     void ChangeImageColorRed()

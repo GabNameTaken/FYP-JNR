@@ -9,11 +9,12 @@ public class safe_puzzles_check : MonoBehaviour
     [SerializeField] TMP_Text dial1_letter, dial2_letter, dial3_letter, dial4_letter;
     [SerializeField] GameObject Keypad_lock, canvas_to_close, opened_safe_canvas;
     Hints hints;
-    // Start is called before the first frame update
+
     private void Awake()
     {
         hints = FindObjectOfType<Hints>();
     }
+
     public void on_click_check()
     {
         if (dial_lock_code == (dial1_letter.text 
@@ -24,7 +25,7 @@ public class safe_puzzles_check : MonoBehaviour
         {
             opened_safe_canvas.SetActive(true);
             canvas_to_close.SetActive(false);
-            hints.CompletedPuzzle();
+            hints.CompletedPuzzle("BossCypher");
         }
         else
         {

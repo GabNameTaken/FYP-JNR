@@ -29,7 +29,7 @@ public class Drawer : MonoBehaviour
         player.GetComponent<SyncInventory>().CallPickupItem("Screwdriver");
         transform.Find("ButtonMask").gameObject.SetActive(false);
 
-        hints.CompletedPuzzle();
+        hints.CompletedPuzzle("Drawer");
     }
 
     public void BookPickup()

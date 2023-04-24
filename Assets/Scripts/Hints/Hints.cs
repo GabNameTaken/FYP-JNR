@@ -6,22 +6,23 @@ using TMPro;
 
 public class Hints : MonoBehaviour
 {
-    [SerializeField] GameObject[] hint;
+    [SerializeField] List<string> hintNames;
     [SerializeField] TextMeshProUGUI counter;
 
     [SerializeField] GameObject Confirmation, NoHints, HintPage;
 
     [SerializeField] Slider progressBar;
 
+    Dictionary<string, GameObject> hints;
+
     int playerHints = 100;
-    int currentHint = 0;
     bool hintUsed = false;
 
     void Start()
     {
         counter.text = "You have " + playerHints + " hints left";
         progressBar.value = 0;
-        progressBar.maxValue = hint.Length;
+        progressBar.maxValue = hints.Count;
     }
 
     public void HintButtonPress()
@@ -32,7 +33,7 @@ public class Hints : MonoBehaviour
         }
         else if (hintUsed == true)
         {
-            hint[currentHint].SetActive(true);
+            hints[hintNames[0]].SetActive(true);
             HintPage.SetActive(true);
         }
         else
@@ -46,21 +47,21 @@ public class Hints : MonoBehaviour
         Confirmation.SetActive(false);
         playerHints--;
         counter.text = "You have " + playerHints + " hints left";
-        hint[currentHint].SetActive(true);
+        hints[hintNames[0]].SetActive(true);
         HintPage.SetActive(true);
     }
 
     public void CloseHintPress()
     {
-        hint[currentHint].SetActive(false);
+        hints[hintNames[0]].SetActive(false);
         HintPage.SetActive(false);
         hintUsed = true;
     }
 
-    public void CompletedPuzzle()
+    public void CompletedPuzzle(string puzzleName)
     {
         hintUsed = false;
-        currentHint++;
+        hintNames.Remove(puzzleName);
         StartCoroutine(UpdateProgressBar());
     }
 
@@ -71,7 +72,8 @@ public class Hints : MonoBehaviour
         while (elapsedTime < 1.0f)
         {
             elapsedTime += Time.deltaTime;
-            progressBar.value = Mathf.Lerp(currentHint - 1, currentHint, elapsedTime);
+            float currentValue = Mathf.FloorToInt(progressBar.value);
+            progressBar.value = Mathf.Lerp(currentValue, currentValue + 1, elapsedTime);
             yield return null;
         }
     }

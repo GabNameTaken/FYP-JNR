@@ -150,11 +150,12 @@ public class Keypad : MonoBehaviour
         clearKeypadInput();
         changeImageColorOrigin();
     }
+
     IEnumerator rightCode()
     {
         changeImageColorGreen();
         yield return new WaitForSeconds(1f);
-        hints.CompletedPuzzle();
+        hints.CompletedPuzzle("ReceptionSafe");
         clearKeypadInput();
         changeImageColorOrigin();
         QueuedNotification.NotificationInfo notificationInfo = new();
@@ -162,10 +163,10 @@ public class Keypad : MonoBehaviour
         notificationInfo.message = "Unlocked";
         notificationInfo.durationSeconds = 2;
         QueuedNotification.instance.QueueNotification(notificationInfo);
-        //VarOverScenes.door_receptionUnlocked = true;
         lockedDoor.UnlockDoor();
         this.gameObject.SetActive(false);
     }
+
     IEnumerator rightCode_boss_Safe()
     {
         changeImageColorGreen();
@@ -175,7 +176,7 @@ public class Keypad : MonoBehaviour
         notificationInfo.message = "Solved";
         notificationInfo.durationSeconds = 2;
         QueuedNotification.instance.QueueNotification(notificationInfo);
-        hints.CompletedPuzzle();
+        hints.CompletedPuzzle("BossKeypad");
         boss_safe_keypad_solved = true;
         safe.GetComponent<BoxCollider>().enabled = true;
         this.gameObject.SetActive(false);
