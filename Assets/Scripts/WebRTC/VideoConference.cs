@@ -31,7 +31,6 @@ public class VideoConference : MonoBehaviour, IVideoConferenceUIHandler
 
     readonly Dictionary<ConnectionId, string> idToUsername = new();
 
-    public Dictionary<ConnectionId, string> callIDToUsername = new();
     public int ConnectionCount { get => idToUsername.Count; }
 
 
@@ -271,6 +270,8 @@ public class VideoConference : MonoBehaviour, IVideoConferenceUIHandler
 
     public string GetUsername(ConnectionId id)
     {
+        if (idToUsername.ContainsKey(id))
+            return idToUsername[id];
         return ownUsername;
     }
 

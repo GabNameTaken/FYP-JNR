@@ -19,6 +19,7 @@ public class VideoConferenceSetupUI : MonoBehaviour
     [Header("Dropdown Conference panel")]
     [SerializeField] GameObject inConferencePanel;
     [SerializeField] Toggle muteToggleInConference;
+    [SerializeField] Toggle videoToggleInConference;
 
     private VideoConferenceSetupController videoConferenceSetupController;
 
@@ -70,6 +71,7 @@ public class VideoConferenceSetupUI : MonoBehaviour
         setupPanel.SetActive(false);
         inConferencePanel.SetActive(true);
         muteToggleInConference.isOn = videoConferenceSetupController.MuteOnJoin;
+        videoToggleInConference.isOn = videoConferenceSetupController.VideoOnJoin;
     }
     private void OnLeftConference()
     {
@@ -111,6 +113,7 @@ public class VideoConferenceSetupUI : MonoBehaviour
     }
     public void OnPressed_ToggleVideoInCall(bool state)
     {
+        videoConferenceSetupController.VideoOnJoin = state;
         videoConferenceSetupController.ToggleVideoInCall(state);
     }
 }
