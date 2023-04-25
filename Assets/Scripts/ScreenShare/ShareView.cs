@@ -76,7 +76,7 @@ public class ShareView : MonoBehaviour
     [PunRPC]
     public void PreShareScreen()
     {
-        savedActiveCanvas = shareScreenCanvas.GetComponent<ShareCanvas>().SaveActiveStateOfGameObjects();
+        savedActiveCanvas = shareScreenCanvas.GetComponent<ShareCanvas>().SaveActiveStateOfCanvases();
         //savedActiveScenes = shareScreenCanvas.GetComponent<ShareScene>().SaveActiveScenes("scenes");
         //savedActiveItems = shareScreenCanvas.GetComponent<ShareScene>().SaveActiveScenes("items");
     }
