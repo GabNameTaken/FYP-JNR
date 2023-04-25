@@ -19,7 +19,13 @@ public class CInventoryItemButtons : MonoSingletonTemplate<CInventoryItemButtons
 
     public void onAddInventoryCItem(CItem item)
     {
+        foreach (Transform items in inventoryContent.transform)
+        {
+            if (items.name == item.transform.name)
+                return;
+        }
         GameObject go = Instantiate(inv, inventoryContent.transform);
+        go.transform.name = item.transform.name;
         ItemButton button = go.GetComponent<ItemButton>();
         button.AddItemButton(item);
     }

@@ -5053,7 +5053,7 @@ GameObject:
   - component: {fileID: 1268030242}
   - component: {fileID: 1268030241}
   m_Layer: 5
-  m_Name: ShareScreen
+  m_Name: ShareScreenToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
