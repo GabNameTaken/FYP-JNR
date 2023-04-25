@@ -2911,7 +2911,7 @@ GameObject:
   - component: {fileID: 241813146}
   - component: {fileID: 241813145}
   m_Layer: 5
-  m_Name: Hint10
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2930,7 +2930,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4296,6 +4296,158 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333732709}
   m_CullTransparentMesh: 1
+--- !u!1 &338187099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 338187100}
+  - component: {fileID: 338187103}
+  - component: {fileID: 338187102}
+  - component: {fileID: 338187101}
+  m_Layer: 5
+  m_Name: Hint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &338187100
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338187099}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1377757490}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -40}
+  m_SizeDelta: {x: 950, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &338187101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338187099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc2b9178a5a8c443af7385208dd2837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 2FAkey
+  folder: /Hints/
+  recallTextObject: {fileID: 338187102}
+--- !u!114 &338187102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338187099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 2-factor authentication is required for the PC. I can probably find the
+    authentication key somewhere.
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
+  m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 8
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 1
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &338187103
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338187099}
+  m_CullTransparentMesh: 1
 --- !u!1 &338702406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5256,7 +5408,7 @@ GameObject:
   - component: {fileID: 386370027}
   - component: {fileID: 386370026}
   m_Layer: 5
-  m_Name: Hint8
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9804,6 +9956,157 @@ Transform:
   m_Father: {fileID: 213314859}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &731856523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 731856524}
+  - component: {fileID: 731856527}
+  - component: {fileID: 731856526}
+  - component: {fileID: 731856525}
+  m_Layer: 5
+  m_Name: Hint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &731856524
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731856523}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1377757490}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -40}
+  m_SizeDelta: {x: 950, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &731856525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731856523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc2b9178a5a8c443af7385208dd2837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: QRcode
+  folder: /Hints/
+  recallTextObject: {fileID: 731856526}
+--- !u!114 &731856526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731856523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: It seems I need a QR code from somewhere to open the boss' room.
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
+  m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 8
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 1
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &731856527
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731856523}
+  m_CullTransparentMesh: 1
 --- !u!1 &737030686
 GameObject:
   m_ObjectHideFlags: 0
@@ -10359,7 +10662,7 @@ GameObject:
   - component: {fileID: 793773711}
   - component: {fileID: 793773710}
   m_Layer: 5
-  m_Name: Hint12
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10378,7 +10681,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10397,7 +10700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc2b9178a5a8c443af7385208dd2837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: ceasarTool
+  content: caesarTool
   folder: /Hints/
   recallTextObject: {fileID: 793773711}
 --- !u!114 &793773711
@@ -10420,8 +10723,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The boss safe password seems to be an encrypted code of some kind. I think
-    the ceasar tool will come in handy for this.
+  m_text: The boss's safe password seems to be an encrypted code of some kind. I
+    think the caesar tool will come in handy for this.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
   m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
@@ -10601,7 +10904,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe23842c2a91214781481d85e723d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintNames: []
+  hintNames:
+  - ReceptionPcLogin
+  - ReceptionSafe
+  - ReceptionPcAuth
+  - ReceptionDoor
+  - Key
+  - Screwdriver
+  - RAM
+  - Pc1
+  - Pc3
+  - Pc6
+  - Pc8
+  - QRCode
+  - BossPc
+  - BossCypher
+  - BossKeypad
+  - Kill Switch
+  hintObjects:
+  - {fileID: 1191433930}
+  - {fileID: 1353128021}
+  - {fileID: 338187099}
+  - {fileID: 1449008311}
+  - {fileID: 1213792100}
+  - {fileID: 1673224754}
+  - {fileID: 1070271748}
+  - {fileID: 386370024}
+  - {fileID: 1393140266}
+  - {fileID: 944544779}
+  - {fileID: 241813143}
+  - {fileID: 731856523}
+  - {fileID: 1729395665}
+  - {fileID: 793773708}
+  - {fileID: 2052191122}
+  - {fileID: 1656299105}
   counter: {fileID: 360716233}
   Confirmation: {fileID: 1900357680}
   NoHints: {fileID: 1288369272}
@@ -10925,7 +11261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2821067922046284892fbcd0004ded08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pcName: 
+  pcName: ReceptionPcAuth
   passwordInput: {fileID: 1996776990}
   password: 895478
   pcScreen: {fileID: 5852715753245151799}
@@ -11695,6 +12031,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7968304405376804743, guid: aabb417f2c6d5ad42921a33ac9efd88a, type: 3}
+      propertyPath: strItemName
+      value: Caeser Cypher Tool
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aabb417f2c6d5ad42921a33ac9efd88a, type: 3}
 --- !u!1 &910250992
@@ -11988,7 +12328,7 @@ GameObject:
   - component: {fileID: 944544782}
   - component: {fileID: 944544781}
   m_Layer: 5
-  m_Name: Hint9
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12007,7 +12347,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -13846,7 +14186,7 @@ GameObject:
   - component: {fileID: 1070271751}
   - component: {fileID: 1070271750}
   m_Layer: 5
-  m_Name: Hint6
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13865,7 +14205,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15803,7 +16143,7 @@ GameObject:
   - component: {fileID: 1191433933}
   - component: {fileID: 1191433932}
   m_Layer: 5
-  m_Name: Hint1
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15865,7 +16205,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: I remember seeing a date somewhere in the lift lobby. Maybe its related
-    to the receptionist computer?
+    to the receptionist's computer?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
   m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
@@ -16088,7 +16428,7 @@ GameObject:
   - component: {fileID: 1213792103}
   - component: {fileID: 1213792102}
   m_Layer: 5
-  m_Name: Hint4
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16107,7 +16447,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -18185,7 +18525,6 @@ MonoBehaviour:
   unlockedObject: {fileID: 1273406592}
   closedObject: {fileID: 1351567934}
   QRPrinter: {fileID: 0}
-  noHint: 0
   isScanner: 0
 --- !u!114 &1351567937
 MonoBehaviour:
@@ -18294,7 +18633,7 @@ GameObject:
   - component: {fileID: 1353128024}
   - component: {fileID: 1353128023}
   m_Layer: 5
-  m_Name: Hint2
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19153,14 +19492,16 @@ RectTransform:
   m_Children:
   - {fileID: 1191433931}
   - {fileID: 1353128022}
+  - {fileID: 338187100}
   - {fileID: 1449008312}
   - {fileID: 1213792101}
   - {fileID: 1673224755}
   - {fileID: 1070271749}
-  - {fileID: 1393140267}
   - {fileID: 386370025}
+  - {fileID: 1393140267}
   - {fileID: 944544780}
   - {fileID: 241813144}
+  - {fileID: 731856524}
   - {fileID: 1729395666}
   - {fileID: 793773709}
   - {fileID: 2052191123}
@@ -19321,7 +19662,7 @@ GameObject:
   - component: {fileID: 1393140269}
   - component: {fileID: 1393140268}
   m_Layer: 5
-  m_Name: Hint7
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19340,7 +19681,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -19645,7 +19986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2821067922046284892fbcd0004ded08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pcName: 
+  pcName: BossPc
   passwordInput: {fileID: 1471368400}
   password: DP915E
   pcScreen: {fileID: 5852715752950955636}
@@ -20024,7 +20365,7 @@ GameObject:
   - component: {fileID: 1449008314}
   - component: {fileID: 1449008313}
   m_Layer: 5
-  m_Name: Hint3
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20043,7 +20384,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -23317,7 +23658,7 @@ GameObject:
   - component: {fileID: 1656299108}
   - component: {fileID: 1656299107}
   m_Layer: 5
-  m_Name: Hint14
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23336,7 +23677,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -23378,8 +23719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I should plug the kill switch into the boss' PC. The code seems to be of
-    letters again. The ceasar tool will be useful.
+  m_text: I should plug the kill switch into the boss's PC.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
   m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
@@ -23690,7 +24030,7 @@ GameObject:
   - component: {fileID: 1673224757}
   - component: {fileID: 1673224756}
   m_Layer: 5
-  m_Name: Hint5
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23709,7 +24049,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -24331,7 +24671,6 @@ MonoBehaviour:
   unlockedObject: {fileID: 526887087}
   closedObject: {fileID: 47124875}
   QRPrinter: {fileID: 0}
-  noHint: 0
   isScanner: 0
 --- !u!1 &1700005460
 GameObject:
@@ -24817,7 +25156,7 @@ GameObject:
   - component: {fileID: 1729395668}
   - component: {fileID: 1729395667}
   m_Layer: 5
-  m_Name: Hint11
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24836,7 +25175,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -24878,8 +25217,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The boss seems to have poor cyber security practices. Maybe he didn't change
-    the password form the receptionist's email.
+  m_text: I think I remember seeing the password for the boss's computer somewhere
+    a while back.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
   m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
@@ -25386,7 +25725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567782493975268109, guid: aa35cfe5338a7ad41b88219e18c27ea7, type: 3}
       propertyPath: strItemName
-      value: ram
+      value: RAM
       objectReference: {fileID: 0}
     - target: {fileID: 5567782493975268109, guid: aa35cfe5338a7ad41b88219e18c27ea7, type: 3}
       propertyPath: previewObject
@@ -30299,7 +30638,7 @@ GameObject:
   - component: {fileID: 2052191125}
   - component: {fileID: 2052191124}
   m_Layer: 5
-  m_Name: Hint13
+  m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30318,7 +30657,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377757490}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -30360,8 +30699,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The safe password seems to be connected to the employees' somehow. I should
-    take a look at their PC's for a clue.
+  m_text: The safe keypad seems to be connected to the employees' wallpaper somehow.
+    I should probably take a look at their PCs for a clue.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
   m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
@@ -38563,7 +38902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2294183445896298888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40303,7 +40642,6 @@ MonoBehaviour:
   unlockedObject: {fileID: 5360024764239047466}
   closedObject: {fileID: 2930631951894282380}
   QRPrinter: {fileID: 2930631951894282380}
-  noHint: 1
   isScanner: 1
 --- !u!1 &2930631951446363865
 GameObject:
@@ -40438,7 +40776,6 @@ MonoBehaviour:
   unlockedObject: {fileID: 1569492002}
   closedObject: {fileID: 2930631951957858157}
   QRPrinter: {fileID: 2930631951957858157}
-  noHint: 1
   isScanner: 1
 --- !u!224 &2930631951466682663
 RectTransform:
@@ -41222,7 +41559,6 @@ MonoBehaviour:
   unlockedObject: {fileID: 1661872388}
   closedObject: {fileID: 2930631951546494228}
   QRPrinter: {fileID: 2930631951546494228}
-  noHint: 1
   isScanner: 1
 --- !u!1 &2930631951894282380
 GameObject:
@@ -48714,7 +49050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2821067922046284892fbcd0004ded08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pcName: ReceptionPc
+  pcName: ReceptionPcLogin
   passwordInput: {fileID: 5852715752377539833}
   password: 201213
   pcScreen: {fileID: 841463822}
@@ -60863,7 +61199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &7759983745273476295
 CanvasRenderer:
   m_ObjectHideFlags: 0

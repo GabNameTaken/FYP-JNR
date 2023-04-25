@@ -155,7 +155,7 @@ public class Keypad : MonoBehaviour
     {
         changeImageColorGreen();
         yield return new WaitForSeconds(1f);
-        hints.CompletedPuzzle("ReceptionSafe");
+        hints.CompletedPuzzle("ReceptionDoor");
         clearKeypadInput();
         changeImageColorOrigin();
         QueuedNotification.NotificationInfo notificationInfo = new();
