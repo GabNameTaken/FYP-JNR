@@ -5,12 +5,11 @@ using TMPro;
 
 public class UseItemUnlock: MonoBehaviour
 {
-
     public string itemToUse;
     [SerializeField] private string textBefore, textAfter, title;
     [SerializeField] private GameObject unlockedObject, closedObject, QRPrinter;
     Hints hints;
-    public bool noHint, isScanner;
+    public bool isScanner;
 
     void Start()
     {
@@ -46,10 +45,8 @@ public class UseItemUnlock: MonoBehaviour
                 {
                     QRPrinter.GetComponent<ScannerClicked>().close();
                 }
-                if (noHint = false)
-                {
-                    hints.CompletedPuzzle(itemToUse);
-                }
+
+                hints.CompletedPuzzle(itemToUse);
             }
             else
             {

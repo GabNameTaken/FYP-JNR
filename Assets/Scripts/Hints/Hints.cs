@@ -7,13 +7,14 @@ using TMPro;
 public class Hints : MonoBehaviour
 {
     [SerializeField] List<string> hintNames;
+    [SerializeField] GameObject[] hintObjects;
     [SerializeField] TextMeshProUGUI counter;
 
     [SerializeField] GameObject Confirmation, NoHints, HintPage;
 
     [SerializeField] Slider progressBar;
 
-    Dictionary<string, GameObject> hints;
+    Dictionary<string, GameObject> hints = new();
 
     int playerHints = 100;
     bool hintUsed = false;
@@ -22,6 +23,11 @@ public class Hints : MonoBehaviour
     {
         counter.text = "You have " + playerHints + " hints left";
         progressBar.value = 0;
+
+        for (int i = 0; i < hintNames.Count; ++i)
+        {
+            hints.Add(hintNames[i], hintObjects[i]);
+        }
         progressBar.maxValue = hints.Count;
     }
 

@@ -10,6 +10,8 @@ public class safe_puzzles_check : MonoBehaviour
     [SerializeField] GameObject Keypad_lock, canvas_to_close, opened_safe_canvas;
     Hints hints;
 
+    bool isCyperUnlocked = false;
+
     private void Awake()
     {
         hints = FindObjectOfType<Hints>();
@@ -17,15 +19,10 @@ public class safe_puzzles_check : MonoBehaviour
 
     public void on_click_check()
     {
-        if (dial_lock_code == (dial1_letter.text 
-            + dial2_letter.text 
-            + dial3_letter.text 
-            + dial4_letter.text) && 
-            Keypad_lock.GetComponent<Keypad>().boss_safe_keypad_solved)
+        if (isCyperUnlocked && Keypad_lock.GetComponent<Keypad>().boss_safe_keypad_solved)
         {
             opened_safe_canvas.SetActive(true);
             canvas_to_close.SetActive(false);
-            hints.CompletedPuzzle("BossCypher");
         }
         else
         {
@@ -44,6 +41,8 @@ public class safe_puzzles_check : MonoBehaviour
             + dial3_letter.text
             + dial4_letter.text))
         {
+            isCyperUnlocked = true;
+            hints.CompletedPuzzle("BossCypher");
             QueuedNotification.NotificationInfo notificationInfo = new();
             notificationInfo.title = "Boss Safe Dials";
             notificationInfo.message = "Solved";

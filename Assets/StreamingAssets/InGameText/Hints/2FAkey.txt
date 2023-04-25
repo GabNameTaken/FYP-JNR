@@ -1,1 +1,1 @@
-The 2FA key needed is with the user. I can probably make a new one using the software on the receptionist's PC.
+2-factor authentication is required for the PC. I can probably find the authentication key somewhere.
