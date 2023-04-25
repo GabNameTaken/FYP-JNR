@@ -41,7 +41,7 @@ public class ShareView : MonoBehaviour
         if (listOfViewers.Count > 0)
         {
             shareScreenCanvas.GetComponent<ShareCanvas>().Share(listOfViewers);
-            shareScreenCanvas.GetComponent<ShareScene>().Share(listOfViewers);
+            //shareScreenCanvas.GetComponent<ShareScene>().Share(listOfViewers);
         }
     }
 

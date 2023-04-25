@@ -26298,6 +26298,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -17
       objectReference: {fileID: 0}
+    - target: {fileID: 2054505957875691880, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2184492690306463068, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -26391,6 +26395,10 @@ PrefabInstance:
       value: ShareScreenCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 5463482090086873832, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714999093689159534, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -41017,7 +41025,7 @@ GameObject:
   - component: {fileID: 2930631951533487416}
   - component: {fileID: 2930631951533487419}
   m_Layer: 7
-  m_Name: QRCanvas
+  m_Name: QRCanvas3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

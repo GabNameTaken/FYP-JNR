@@ -18,7 +18,7 @@ public class ShareCanvas : MonoBehaviour
         canvases.AddRange(FindObjectsOfType<Canvas>(true));
         foreach (Canvas canvas in canvases)
         {
-            if (canvas.gameObject.layer != LayerMask.NameToLayer("UI"))
+            if (canvas.gameObject.layer != LayerMask.NameToLayer("UI") && !shareableCanvases.Contains(canvas))
                 shareableCanvases.Add(canvas);
         }
         ResetActiveStateOfGameObjects();
