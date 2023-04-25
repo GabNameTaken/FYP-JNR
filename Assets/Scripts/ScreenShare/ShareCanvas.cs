@@ -21,7 +21,7 @@ public class ShareCanvas : MonoBehaviour
             if (canvas.gameObject.layer != LayerMask.NameToLayer("UI") && !shareableCanvases.Contains(canvas))
                 shareableCanvases.Add(canvas);
         }
-        ResetActiveStateOfGameObjects();
+        //ResetActiveStateOfGameObjects();
     }
 
     private void ResetActiveStateOfGameObjects()

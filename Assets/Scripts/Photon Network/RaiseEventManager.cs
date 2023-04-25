@@ -30,6 +30,10 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
             for (int i = 0; i < canvas.shareableCanvases.Count; i++)
             {
                 canvas.shareableCanvases[i].gameObject.SetActive(activeStateOfCanvases[canvas.shareableCanvases[i].name]);
+                foreach (string canvasName in activeStateOfCanvases.Keys)
+                {
+                    Debug.Log(canvasName + " : " + activeStateOfCanvases[canvasName]);
+                }
             }
             Debug.Log("Canvas sent");
         }
