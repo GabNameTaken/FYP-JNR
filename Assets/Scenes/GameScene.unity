@@ -26394,12 +26394,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8367657270142934132, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8598814113172819718, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8598814113172819718, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598814113172819718, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8680028245713191244, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
@@ -61566,6 +61574,14 @@ PrefabInstance:
     - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
       propertyPath: itemDescription
       value: A painting of a landscape with trees, apples, and birds.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
+      propertyPath: inspectRotation.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
+      propertyPath: inspectRotation.z
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7809440066006838934, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
       propertyPath: m_Enabled
