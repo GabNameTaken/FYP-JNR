@@ -912,11 +912,13 @@ MonoBehaviour:
     Right-click - move camera
 
 
+    Middle-click
+    - reset inspection window
 
 
 
-    Input
-    codes/passwords'
+
+    Input codes/passwords'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
   m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
@@ -3526,7 +3528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: -80}
+  m_AnchoredPosition: {x: -40, y: -100}
   m_SizeDelta: {x: 840, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &259739174
@@ -61495,10 +61497,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3658289753346725230, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2428b636aa51b2e4e8cf3d1af186855d, type: 2}
     - target: {fileID: 6963090095495140291, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
       propertyPath: m_Name
       value: Painting
@@ -61566,14 +61564,6 @@ PrefabInstance:
     - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
       propertyPath: V3Normal.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
-      propertyPath: previewObject
-      value: 
-      objectReference: {fileID: 208892785}
-    - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
-      propertyPath: itemDescription
-      value: A painting of a landscape with trees, apples, and birds.
       objectReference: {fileID: 0}
     - target: {fileID: 7809440066006838934, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
       propertyPath: m_Enabled
