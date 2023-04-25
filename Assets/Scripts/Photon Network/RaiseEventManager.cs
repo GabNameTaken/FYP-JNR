@@ -25,11 +25,11 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
         if (eventData.Code == sendCanvas)
         {
             object[] data = (object[])eventData.CustomData;
-            Dictionary<string,bool> activeStateOfGameObjects = (Dictionary<string,bool>)data[0];
-            ShareCanvas canvas = GameObject.Find("ShareScreenController").GetComponent<ShareCanvas>();
-            for (int i = 0; i < canvas.gameObjects.Count; i++)
+            Dictionary<string,bool> activeStateOfCanvases = (Dictionary<string,bool>)data[0];
+            ShareCanvas canvas = GameObject.Find("ShareScreenCanvas").GetComponent<ShareCanvas>();
+            for (int i = 0; i < canvas.shareableCanvases.Count; i++)
             {
-                canvas.gameObjects[i].SetActive(activeStateOfGameObjects[canvas.gameObjects[i].name]);
+                canvas.shareableCanvases[i].gameObject.SetActive(activeStateOfCanvases[canvas.shareableCanvases[i].name]);
             }
             Debug.Log("Canvas sent");
         }

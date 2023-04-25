@@ -16,7 +16,6 @@ public class ShareView : MonoBehaviour
     private LocalPlayerList localPlayerList;
     GameObject host;
     GameObject shareViewCloseButton;
-    private GameObject shareScreenController;
     [SerializeField] private GameObject playerButton;
     [SerializeField] GameObject shareViewClosePrefab;
 
@@ -35,16 +34,14 @@ public class ShareView : MonoBehaviour
         localPlayerList = GameObject.Find("Network").GetComponent<LocalPlayerList>();
         shareScreenCanvas = GameObject.FindGameObjectWithTag("ShareScreenCanvas");
         shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("List").transform.Find("Viewport").transform.Find("Content").gameObject;
-
-        shareScreenController = GameObject.Find("ShareScreenController");
     }
 
     private void Update()
     {
         if (listOfViewers.Count > 0)
         {
-            shareScreenController.GetComponent<ShareCanvas>().Share(listOfViewers);
-            shareScreenController.GetComponent<ShareScene>().Share(listOfViewers);
+            shareScreenCanvas.GetComponent<ShareCanvas>().Share(listOfViewers);
+            shareScreenCanvas.GetComponent<ShareScene>().Share(listOfViewers);
         }
     }
 
@@ -79,9 +76,9 @@ public class ShareView : MonoBehaviour
     [PunRPC]
     public void PreShareScreen()
     {
-        savedActiveCanvas = shareScreenController.GetComponent<ShareCanvas>().SaveActiveStateOfGameObjects();
-        savedActiveScenes = shareScreenController.GetComponent<ShareScene>().SaveActiveScenes("scenes");
-        savedActiveItems = shareScreenController.GetComponent<ShareScene>().SaveActiveScenes("items");
+        savedActiveCanvas = shareScreenCanvas.GetComponent<ShareCanvas>().SaveActiveStateOfCanvases();
+        //savedActiveScenes = shareScreenCanvas.GetComponent<ShareScene>().SaveActiveScenes("scenes");
+        //savedActiveItems = shareScreenCanvas.GetComponent<ShareScene>().SaveActiveScenes("items");
     }
 
     [PunRPC]
@@ -104,28 +101,40 @@ public class ShareView : MonoBehaviour
             hostCam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
             hostCam.depth = 1;
             myCam.depth = -1;
-            shareViewCloseButton = Instantiate(shareViewClosePrefab,shareScreenCanvas.transform);
+            //shareViewCloseButton = Instantiate(shareViewClosePrefab,shareScreenCanvas.transform);
+            //shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
+            shareViewCloseButton = shareScreenCanvas.transform.Find("CloseViewButton").gameObject;
             shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
+            shareViewCloseButton.SetActive(true);
             Debug.Log("share success");
 
-            foreach(GameObject child in shareScreenController.GetComponent<ShareCanvas>().gameObjects)
+            //foreach(GameObject child in shareScreenController.GetComponent<ShareCanvas>().gameObjects)
+            //{
+            //    if (child.GetComponent<Canvas>())
+            //    {
+            //        child.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+            //        child.GetComponent<Canvas>().worldCamera = hostCam;
+            //        child.GetComponent<Canvas>().sortingOrder = 1;
+            //    }
+            //    else if (child.transform.GetChild(0).GetComponent<Canvas>())
+            //    {
+            //        for (int i = 0; i < child.transform.childCount; i++)
+            //        {
+            //            child.transform.GetChild(i).GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+            //            child.transform.GetChild(i).GetComponent<Canvas>().worldCamera = hostCam;
+            //            child.transform.GetChild(i).GetComponent<Canvas>().sortingOrder = 1;
+            //        }
+            //    }
+            //}
+
+            foreach (Canvas canvas in shareScreenCanvas.GetComponent<ShareCanvas>().shareableCanvases)
             {
-                if (child.GetComponent<Canvas>())
-                {
-                    child.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
-                    child.GetComponent<Canvas>().worldCamera = hostCam;
-                    child.GetComponent<Canvas>().sortingOrder = 1;
-                }
-                else if (child.transform.GetChild(0).GetComponent<Canvas>())
-                {
-                    for (int i = 0; i < child.transform.childCount; i++)
-                    {
-                        child.transform.GetChild(i).GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
-                        child.transform.GetChild(i).GetComponent<Canvas>().worldCamera = hostCam;
-                        child.transform.GetChild(i).GetComponent<Canvas>().sortingOrder = 1;
-                    }
-                }
+                canvas.renderMode = RenderMode.ScreenSpaceCamera;
+                canvas.worldCamera = hostCam;
+                canvas.sortingOrder = 1;
             }
+
+
             Debug.Log("Canvas cam change success");
         }
     }
@@ -139,21 +148,30 @@ public class ShareView : MonoBehaviour
             hostCam.rect = new Rect(0f,0f,1f,1f);
             hostCam.depth = -1;
             myCam.depth = 0;
-            foreach (GameObject child in shareScreenController.GetComponent<ShareCanvas>().gameObjects)
+            //foreach (GameObject child in shareScreenController.GetComponent<ShareCanvas>().gameObjects)
+            //{
+            //    if (child.GetComponent<Canvas>())
+            //        child.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+            //    else if (child.transform.GetChild(0).GetComponent<Canvas>())
+            //    {
+            //        for (int i = 0; i < child.transform.childCount; i++)
+            //        {
+            //            child.transform.GetChild(i).GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+            //        }
+            //    }
+            //}
+           
+
+            foreach (Canvas canvas in shareScreenCanvas.GetComponent<ShareCanvas>().shareableCanvases)
             {
-                if (child.GetComponent<Canvas>())
-                    child.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
-                else if (child.transform.GetChild(0).GetComponent<Canvas>())
-                {
-                    for (int i = 0; i < child.transform.childCount; i++)
-                    {
-                        child.transform.GetChild(i).GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
-                    }
-                }
+                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             }
-            shareScreenController.GetComponent<ShareCanvas>().SetActiveStateOfGameObjects(savedActiveCanvas);
-            shareScreenController.GetComponent<ShareScene>().SetActiveScenes(savedActiveScenes,savedActiveItems);
-            Destroy(shareViewCloseButton);
+
+            shareScreenCanvas.GetComponent<ShareCanvas>().SetActiveStateOfCanvases(savedActiveCanvas);
+            //shareScreenCanvas.GetComponent<ShareScene>().SetActiveScenes(savedActiveScenes, savedActiveItems);
+
+            shareViewCloseButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            shareViewCloseButton.SetActive(false);
         }
         Debug.Log("Quit viewing");
     }
