@@ -1,1 +1,1 @@
-Setting up a 2 factor authentication will help ensure your account is much more secured. This can be done with the use of a phone using apps such as Google authenticator while in this case, the pager.
+Setting up a 2-factor authentication will help ensure your account is much more secured. This can be done with the use of a phone using apps such as Google authenticator while in this case, the pager.
