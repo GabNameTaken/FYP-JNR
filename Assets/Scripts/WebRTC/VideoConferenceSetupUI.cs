@@ -71,7 +71,7 @@ public class VideoConferenceSetupUI : MonoBehaviour
         setupPanel.SetActive(false);
         inConferencePanel.SetActive(true);
         muteToggleInConference.isOn = videoConferenceSetupController.MuteOnJoin;
-        videoToggleInConference.isOn = videoConferenceSetupController.VideoOnJoin;
+        videoToggleInConference.isOn = !videoConferenceSetupController.VideoOnJoin;
     }
     private void OnLeftConference()
     {
@@ -113,7 +113,7 @@ public class VideoConferenceSetupUI : MonoBehaviour
     }
     public void OnPressed_ToggleVideoInCall(bool state)
     {
-        videoConferenceSetupController.VideoOnJoin = state;
-        videoConferenceSetupController.ToggleVideoInCall(state);
+        videoConferenceSetupController.VideoOnJoin = !state;
+        videoConferenceSetupController.ToggleVideoInCall(!state);
     }
 }

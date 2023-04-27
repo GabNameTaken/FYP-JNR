@@ -21,7 +21,8 @@ public class ShareCanvas : MonoBehaviour
             if (canvas.gameObject.layer != LayerMask.NameToLayer("UI") && !shareableCanvases.Contains(canvas))
                 shareableCanvases.Add(canvas);
         }
-        ResetActiveStateOfGameObjects();
+        ResetActiveStateOfCanvases();
+        //ResetActiveStateOfGameObjects();
     }
 
     private void ResetActiveStateOfGameObjects()
@@ -86,6 +87,8 @@ public class ShareCanvas : MonoBehaviour
             ResetActiveStateOfCanvases();
             Debug.Log("Raising event for sending canvas");
             object[] content = new object[] { activeStateOfCanvases };
+            //foreach (string name in activeStateOfCanvases.Keys)
+            //    Debug.Log(name);
             PhotonNetwork.RaiseEvent(RaiseEventManager.sendCanvas, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
         }
         else

@@ -16,7 +16,7 @@ public class Hints : MonoBehaviour
 
     Dictionary<string, GameObject> hints = new();
 
-    int playerHints = 100;
+    int playerHints = 5;
     bool hintUsed = false;
 
     void Start()

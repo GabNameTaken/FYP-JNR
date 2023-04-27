@@ -101,37 +101,18 @@ public class ShareView : MonoBehaviour
             hostCam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
             hostCam.depth = 1;
             myCam.depth = -1;
-            //shareViewCloseButton = Instantiate(shareViewClosePrefab,shareScreenCanvas.transform);
-            //shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
+
             shareViewCloseButton = shareScreenCanvas.transform.Find("CloseViewButton").gameObject;
             shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
             shareViewCloseButton.SetActive(true);
             Debug.Log("share success");
-
-            //foreach(GameObject child in shareScreenController.GetComponent<ShareCanvas>().gameObjects)
-            //{
-            //    if (child.GetComponent<Canvas>())
-            //    {
-            //        child.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
-            //        child.GetComponent<Canvas>().worldCamera = hostCam;
-            //        child.GetComponent<Canvas>().sortingOrder = 1;
-            //    }
-            //    else if (child.transform.GetChild(0).GetComponent<Canvas>())
-            //    {
-            //        for (int i = 0; i < child.transform.childCount; i++)
-            //        {
-            //            child.transform.GetChild(i).GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
-            //            child.transform.GetChild(i).GetComponent<Canvas>().worldCamera = hostCam;
-            //            child.transform.GetChild(i).GetComponent<Canvas>().sortingOrder = 1;
-            //        }
-            //    }
-            //}
 
             foreach (Canvas canvas in shareScreenCanvas.GetComponent<ShareCanvas>().shareableCanvases)
             {
                 canvas.renderMode = RenderMode.ScreenSpaceCamera;
                 canvas.worldCamera = hostCam;
                 canvas.sortingOrder = 1;
+                canvas.planeDistance = 1;
             }
 
 

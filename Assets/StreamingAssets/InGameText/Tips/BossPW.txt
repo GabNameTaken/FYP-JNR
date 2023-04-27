@@ -1,1 +1,1 @@
-This is an amazing example of what not to use as a password. Using your email address that is easily known by people makes it very easy to get hacked.
+Using your email address that is easily known by people makes it very easy to get hacked.
