@@ -13,21 +13,29 @@ public class ShareCanvas : MonoBehaviour
     public List<GameObject> gameObjects;
     [SerializeField] private List<Canvas> canvases;
     public List<Canvas> shareableCanvases;
-    [SerializeField] private List<CItem> items;
 
     private GameObject scenes;
+    private GameObject itemHolder;
     private void Start()
     {
         scenes = GameObject.Find("Scene");
-        
+        itemHolder = GameObject.Find("ItemHolder");
+
+        foreach (Transform scene in scenes.transform)
+        {
+            gameObjects.Add(scene.gameObject);
+        }
+        foreach (Transform item in itemHolder.transform)
+        {
+            gameObjects.Add(item.gameObject);
+        }
+
         canvases.AddRange(FindObjectsOfType<Canvas>(true));
         foreach (Canvas canvas in canvases)
         {
             if (canvas.gameObject.layer != LayerMask.NameToLayer("UI") && !shareableCanvases.Contains(canvas))
                 shareableCanvases.Add(canvas);
         }
-
-        items.AddRange(FindObjectsOfType<CItem>(true));
 
         ResetActiveStateOfCanvases();
         ResetActiveStateOfGameObjects();
@@ -41,10 +49,7 @@ public class ShareCanvas : MonoBehaviour
             GameObject child = gameObjects[i];
             activeStateOfGameObjects.Add(child.name, child.activeSelf);
         }
-        foreach (Transform scene in scenes.transform)
-        {
-            activeStateOfGameObjects.Add(scene.name, scene.gameObject.activeSelf);
-        }
+        
     }
 
     public Dictionary<string, bool> SaveActiveStateOfGameObjects()
