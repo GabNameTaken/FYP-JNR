@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class RaiseEventManager : MonoBehaviour,IOnEventCallback
 {
     public const byte sendCanvas = 1;
-    public const byte sendScene = 2;
+    public const byte sendGO = 2;
+    public const byte sendScene = 3;
     public void Start()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -33,6 +34,17 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
                 Debug.Log(canvas.shareableCanvases[i].name + " : " + canvas.shareableCanvases[i].gameObject.activeSelf);
             }
             Debug.Log("Canvas sent");
+        }
+        else if (eventData.Code == sendGO)
+        {
+            object[] data = (object[])eventData.CustomData;
+            Dictionary<string, bool> activeStateOfGameObjects = (Dictionary<string, bool>)data[0];
+            ShareCanvas canvas = GameObject.Find("ShareScreenCanvas").GetComponent<ShareCanvas>();
+            for (int i = 0; i < canvas.gameObjects.Count; i++)
+            {
+                canvas.gameObjects[i].SetActive(activeStateOfGameObjects[canvas.gameObjects[i].name]);
+            }
+            Debug.Log("GameObjects sent");
         }
         else if (eventData.Code == sendScene)
         {

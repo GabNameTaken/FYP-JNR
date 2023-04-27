@@ -11,18 +11,26 @@ public class ShareCanvas : MonoBehaviour
     public Dictionary<string,bool> activeStateOfGameObjects = new();
     public Dictionary<string, bool> activeStateOfCanvases = new();
     public List<GameObject> gameObjects;
-    public List<Canvas> canvases;
+    [SerializeField] private List<Canvas> canvases;
     public List<Canvas> shareableCanvases;
+    [SerializeField] private List<CItem> items;
+
+    private GameObject scenes;
     private void Start()
-    {   
+    {
+        scenes = GameObject.Find("Scene");
+        
         canvases.AddRange(FindObjectsOfType<Canvas>(true));
         foreach (Canvas canvas in canvases)
         {
             if (canvas.gameObject.layer != LayerMask.NameToLayer("UI") && !shareableCanvases.Contains(canvas))
                 shareableCanvases.Add(canvas);
         }
+
+        items.AddRange(FindObjectsOfType<CItem>(true));
+
         ResetActiveStateOfCanvases();
-        //ResetActiveStateOfGameObjects();
+        ResetActiveStateOfGameObjects();
     }
 
     private void ResetActiveStateOfGameObjects()
@@ -32,7 +40,10 @@ public class ShareCanvas : MonoBehaviour
         {
             GameObject child = gameObjects[i];
             activeStateOfGameObjects.Add(child.name, child.activeSelf);
-            //Debug.Log(activeStateOfGameObjects);
+        }
+        foreach (GameObject child in scenes.transform)
+        {
+            activeStateOfGameObjects.Add(child.name, child.activeSelf);
         }
     }
 
@@ -87,12 +98,15 @@ public class ShareCanvas : MonoBehaviour
             ResetActiveStateOfCanvases();
             Debug.Log("Raising event for sending canvas");
             object[] content = new object[] { activeStateOfCanvases };
-            //foreach (string name in activeStateOfCanvases.Keys)
-            //    Debug.Log(name);
             PhotonNetwork.RaiseEvent(RaiseEventManager.sendCanvas, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
         }
-        else
-            Debug.Log("No canvas changes");
+        if (CompareActiveStates(activeStateOfGameObjects, "GameObject"))
+        {
+            ResetActiveStateOfGameObjects();
+            Debug.Log("Raising event for sending gameobjects");
+            object[] content = new object[] { activeStateOfGameObjects };
+            PhotonNetwork.RaiseEvent(RaiseEventManager.sendGO, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
+        }
     }
 
     bool CompareActiveStates(Dictionary<string,bool> list, string source)   //check for child objects that had a change in their active
