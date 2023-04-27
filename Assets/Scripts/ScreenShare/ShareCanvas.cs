@@ -41,9 +41,9 @@ public class ShareCanvas : MonoBehaviour
             GameObject child = gameObjects[i];
             activeStateOfGameObjects.Add(child.name, child.activeSelf);
         }
-        foreach (GameObject child in scenes.transform)
+        foreach (Transform scene in scenes.transform)
         {
-            activeStateOfGameObjects.Add(child.name, child.activeSelf);
+            activeStateOfGameObjects.Add(scene.name, scene.gameObject.activeSelf);
         }
     }
 
