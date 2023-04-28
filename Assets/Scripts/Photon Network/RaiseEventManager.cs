@@ -5,12 +5,14 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using TMPro;
 
 public class RaiseEventManager : MonoBehaviour,IOnEventCallback
 {
     public const byte sendCanvas = 1;
     public const byte sendGO = 2;
     public const byte sendScene = 3;
+    public const byte sendInput = 4;
     public void Start()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -61,6 +63,14 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
                 scene.items.transform.GetChild(i).gameObject.SetActive(activeItems[scene.items.transform.GetChild(i).name]);
             }
             Debug.Log("Scene sent");
+        }
+        else if (eventData.Code == sendInput)
+        {
+            object[] data = (object[])eventData.CustomData;
+            Dictionary<int, string> inputFields = (Dictionary<int, string>)data[0];
+            ShareCanvas canvas = GameObject.Find("ShareScreenCanvas").GetComponent<ShareCanvas>();
+            canvas.SetInputFields(inputFields);
+            Debug.Log("InputFields sent");
         }
     }
 }
