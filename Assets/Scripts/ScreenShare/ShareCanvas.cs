@@ -9,15 +9,18 @@ using TMPro;
 
 public class ShareCanvas : MonoBehaviour
 {
-    public Dictionary<string,bool> activeStateOfGameObjects = new();
-    public Dictionary<string, bool> activeStateOfCanvases = new();
-    public Dictionary<int, string> inputTexts = new();
+    private Dictionary<string,bool> activeStateOfGameObjects = new();
+    private Dictionary<string, bool> activeStateOfCanvases = new();
+    private Dictionary<int, string> inputTexts = new();
+    private Dictionary<int, string> textFields = new();
 
     public List<GameObject> gameObjects;
     public List<Canvas> shareableCanvases;
     public List<TMP_InputField> inputFields;
+    public List<TMP_Text> puzzleTextFieldsList;
 
     [SerializeField] private List<Canvas> canvases;
+    [SerializeField] private List<TMP_Text> textList;
     private GameObject scenes;
     private GameObject itemHolder;
     private void Start()
@@ -40,11 +43,19 @@ public class ShareCanvas : MonoBehaviour
             if (canvas.gameObject.layer != LayerMask.NameToLayer("UI") && !shareableCanvases.Contains(canvas))
                 shareableCanvases.Add(canvas);
         }
+
         inputFields.AddRange(FindObjectsOfType<TMP_InputField>(true));
+        textList.AddRange(FindObjectsOfType<TMP_Text>(true));
+        foreach (TMP_Text field in textList)
+        {
+            if (field.gameObject.layer == LayerMask.NameToLayer("PuzzleUI"))
+                puzzleTextFieldsList.Add(field);
+        }
 
         ResetActiveStateOfCanvases();
         ResetActiveStateOfGameObjects();
         ResetInputFields();
+        ResetTextFields();
     }
 
     private void ResetActiveStateOfGameObjects()
@@ -120,6 +131,30 @@ public class ShareCanvas : MonoBehaviour
         }
     }
 
+    private void ResetTextFields()
+    {
+        textFields.Clear();
+        for (int i = 0; i < puzzleTextFieldsList.Count;i++)
+        {
+            textFields.Add(i, puzzleTextFieldsList[i].text);
+        }
+    }
+
+    public Dictionary<int,string> SaveTextFields()
+    {
+        ResetTextFields();
+        return textFields;
+    }
+
+    public void SetTextFields(Dictionary<int,string> texts)
+    {
+        textFields = texts;
+        for (int i = 0; i < puzzleTextFieldsList.Count; i++)
+        {
+            puzzleTextFieldsList[i].text = texts[i];
+        }
+    }
+
     public void Share(List<Player> listOfViewers)
     {
         int[] receivers = new int[listOfViewers.Count];
@@ -142,12 +177,19 @@ public class ShareCanvas : MonoBehaviour
             object[] content = new object[] { activeStateOfGameObjects };
             PhotonNetwork.RaiseEvent(RaiseEventManager.sendGO, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
         }
-        if (CompareInputFields(inputTexts))
+        if (CompareTMPFields(inputTexts, "Inputs"))
         {
             ResetInputFields();
             Debug.Log("Raising event for sending inputs");
             object[] content = new object[] { inputTexts };
             PhotonNetwork.RaiseEvent(RaiseEventManager.sendInput, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
+        }
+        if (CompareTMPFields(textFields, "Texts"))
+        {
+            ResetTextFields();
+            Debug.Log("Raising event for sending texts");
+            object[] content = new object[] { textFields };
+            PhotonNetwork.RaiseEvent(RaiseEventManager.sendText, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
         }
     }
 
@@ -185,18 +227,40 @@ public class ShareCanvas : MonoBehaviour
         return false;
     }
 
-    bool CompareInputFields(Dictionary<int,string> inputFieldsAndInputs)
+    bool CompareTMPFields(Dictionary<int,string> fields, string source)
     {
-        for (int i = 0; i < inputFields.Count; i++)
+        switch (source)
         {
-            string input = inputFieldsAndInputs[i];
-            string tempInput = inputFields[i].text;
+            case "Inputs":
+                {
+                    for (int i = 0; i < inputFields.Count; i++)
+                    {
+                        string input = fields[i];
+                        string tempInput = inputFields[i].text;
 
-            if (input != tempInput)
-            {
-                Debug.Log("InputFields change detected");
-                return true;
-            }
+                        if (input != tempInput)
+                        {
+                            Debug.Log("InputFields change detected");
+                            return true;
+                        }
+                    }
+                    break;
+                }
+            case "Texts":
+                {
+                    for (int i = 0; i < puzzleTextFieldsList.Count; i++)
+                    {
+                        string text = fields[i];
+                        string tempText = puzzleTextFieldsList[i].text;
+
+                        if (text != tempText)
+                        {
+                            Debug.Log("TextFields change detected");
+                            return true;
+                        }
+                    }
+                    break;
+                }
         }
         return false;
     }

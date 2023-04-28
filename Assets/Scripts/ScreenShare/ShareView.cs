@@ -20,9 +20,10 @@ public class ShareView : MonoBehaviour
     [SerializeField] GameObject shareViewClosePrefab;
 
     public List<Player> listOfViewers = new();
-    public Dictionary<string, bool> savedActiveCanvas;
-    public Dictionary<string, bool> savedActiveGameObjects;
-    public Dictionary<int, string> savedInputFields;
+    private Dictionary<string, bool> savedActiveCanvas;
+    private Dictionary<string, bool> savedActiveGameObjects;
+    private Dictionary<int, string> savedInputFields;
+    private Dictionary<int, string> savedTextFields;
 
     // Start is called before the first frame update
     private void Start()
@@ -41,7 +42,6 @@ public class ShareView : MonoBehaviour
         if (listOfViewers.Count > 0)
         {
             shareScreenCanvas.GetComponent<ShareCanvas>().Share(listOfViewers);
-            //shareScreenCanvas.GetComponent<ShareScene>().Share(listOfViewers);
         }
     }
 
@@ -79,6 +79,7 @@ public class ShareView : MonoBehaviour
         savedActiveCanvas = shareScreenCanvas.GetComponent<ShareCanvas>().SaveActiveStateOfCanvases();
         savedActiveGameObjects = shareScreenCanvas.GetComponent<ShareCanvas>().SaveActiveStateOfGameObjects();
         savedInputFields = shareScreenCanvas.GetComponent<ShareCanvas>().SaveInputFields();
+        savedTextFields = shareScreenCanvas.GetComponent<ShareCanvas>().SaveTextFields();
     }
 
     [PunRPC]
@@ -137,6 +138,7 @@ public class ShareView : MonoBehaviour
             shareScreenCanvas.GetComponent<ShareCanvas>().SetActiveStateOfCanvases(savedActiveCanvas);
             shareScreenCanvas.GetComponent<ShareCanvas>().SetActiveStateOfGameObjects(savedActiveGameObjects);
             shareScreenCanvas.GetComponent<ShareCanvas>().SetInputFields(savedInputFields);
+            shareScreenCanvas.GetComponent<ShareCanvas>().SetTextFields(savedTextFields);
 
             shareViewCloseButton.GetComponent<Button>().onClick.RemoveAllListeners();
             shareViewCloseButton.SetActive(false);
