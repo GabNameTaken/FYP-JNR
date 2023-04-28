@@ -16,6 +16,7 @@ public class ShareViewList : MonoBehaviour
     [SerializeField] private SceneGameManager photonPlayer;
     private PhotonView photonView;
     private Player client;
+    private GameObject toggle;
 
     void Start()
     {
@@ -28,8 +29,9 @@ public class ShareViewList : MonoBehaviour
 
     private void Awake()
     {
-        GameObject toggle = GameObject.Find("ConferenceCanvas").transform.Find("DropDownPanel").transform.Find("HorizontalVideoView").transform.Find("ShareScreenToggle").gameObject;
+        toggle = GameObject.Find("ConferenceCanvas").transform.Find("DropDownPanel").transform.Find("HorizontalVideoView").transform.Find("ShareScreenToggle").gameObject;
         toggle.GetComponent<Button>().onClick.AddListener(delegate { ListShareScreen(); });
+        toggle.SetActive(true);
     }
 
     public void ListShareScreen()
@@ -38,6 +40,12 @@ public class ShareViewList : MonoBehaviour
         {
             client = PhotonNetwork.LocalPlayer;
             photonView.RPC("UpdateShareList", RpcTarget.AllViaServer, client);
+
+            toggle.transform.GetChild(0).gameObject.SetActive(false);
+            toggle.transform.GetChild(1).gameObject.SetActive(true);
+            toggle.GetComponent<Button>().onClick.RemoveAllListeners();
+            toggle.GetComponent<Button>().onClick.AddListener(delegate { StopShareScreen(); });
+
             Debug.Log(client.NickName + "," + client.ActorNumber  + ":" + photonView.ViewID);
         }
     }
@@ -49,6 +57,11 @@ public class ShareViewList : MonoBehaviour
             client = PhotonNetwork.LocalPlayer;
             photonView.RPC("DestroyShareList", RpcTarget.AllViaServer, client);
             photonView.RPC("RemoveAllViewers", client);
+
+            toggle.transform.GetChild(0).gameObject.SetActive(true);
+            toggle.transform.GetChild(1).gameObject.SetActive(false);
+            toggle.GetComponent<Button>().onClick.RemoveAllListeners();
+            toggle.GetComponent<Button>().onClick.AddListener(delegate { ListShareScreen(); });
         }
     }
 

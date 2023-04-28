@@ -161,7 +161,6 @@ public class ShareCanvas : MonoBehaviour
         for (int i =0; i < listOfViewers.Count; i++)
         {
             receivers[i] = listOfViewers[i].ActorNumber;
-            Debug.Log("Sharing to " + receivers[i]);
         }
         if (CompareActiveStates(activeStateOfCanvases,"Canvas")) //Check for changes in the list of gameobjects under the canvas child
         {

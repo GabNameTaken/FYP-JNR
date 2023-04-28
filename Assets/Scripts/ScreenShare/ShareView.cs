@@ -103,7 +103,7 @@ public class ShareView : MonoBehaviour
             hostCam.depth = 1;
             myCam.depth = -1;
 
-            shareViewCloseButton = shareScreenCanvas.transform.Find("CloseViewButton").gameObject;
+            shareViewCloseButton = shareScreenCanvas.transform.Find("SharedList").transform.Find("CloseViewButton").gameObject;
             shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
             shareViewCloseButton.SetActive(true);
             Debug.Log("share success");
