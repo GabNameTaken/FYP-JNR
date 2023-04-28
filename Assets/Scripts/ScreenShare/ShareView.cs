@@ -37,6 +37,20 @@ public class ShareView : MonoBehaviour
         shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("List").transform.Find("Viewport").transform.Find("Content").gameObject;
     }
 
+    public static Rect RectTransformToCameraViewport(RectTransform rectTransform)
+    {
+        float leftDownCornerX = (rectTransform.anchoredPosition.x - rectTransform.sizeDelta.x / 2);
+        float leftDownCornerY = (rectTransform.anchoredPosition.y - rectTransform.sizeDelta.y / 2);
+
+        Vector3 leftCorner = new Vector3(leftDownCornerX, leftDownCornerY, 0);
+        Vector3 viewPortLeftCorner = new Vector3(leftCorner.x / Screen.width, leftCorner.y / Screen.height, 0);
+
+        float viewportWidth = Mathf.Abs(rectTransform.sizeDelta.x / Screen.width);
+        float viewportHeight = Mathf.Abs(rectTransform.sizeDelta.y / Screen.height);
+
+        return new Rect(0.5f + viewPortLeftCorner.x, 0.5f + viewPortLeftCorner.y, viewportWidth, viewportHeight);
+    }
+
     private void Update()
     {
         if (listOfViewers.Count > 0)
@@ -99,7 +113,9 @@ public class ShareView : MonoBehaviour
         if (host != null)
         {
             Camera hostCam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
-            hostCam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
+            RectTransform screen = (RectTransform)shareScreenCanvas.transform.Find("ShareScreen").Find("Screen").transform;
+            hostCam.rect = RectTransformToCameraViewport(screen);
+            //hostCam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
             hostCam.depth = 1;
             myCam.depth = -1;
 
