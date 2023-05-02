@@ -36,9 +36,6 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
                 cam.depth = 1;
                 cam.gameObject.AddComponent(typeof(AudioListener));
             }
-            //GameObject canvas = transform.Find("Canvas").gameObject;
-            //canvas.SetActive(true);
-            //canvas.GetComponent<Canvas>().worldCamera = cam;
             if (photonView.ViewID % 1000 == 1 && !PhotonNetwork.IsMasterClient)
             {
                 PhotonNetwork.Destroy(photonView);

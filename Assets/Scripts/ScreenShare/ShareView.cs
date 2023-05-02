@@ -20,10 +20,10 @@ public class ShareView : MonoBehaviour
     [SerializeField] GameObject shareViewClosePrefab;
 
     public List<Player> listOfViewers = new();
-    public Dictionary<string, bool> savedActiveScenes;
-    public Dictionary<string, bool> savedActiveItems;
-    public Dictionary<string, bool> savedActiveCanvas;
-    public Dictionary<string, bool> savedActiveGameObjects;
+    private Dictionary<string, bool> savedActiveCanvas;
+    private Dictionary<string, bool> savedActiveGameObjects;
+    private Dictionary<int, string> savedInputFields;
+    private Dictionary<int, string> savedTextFields;
 
     // Start is called before the first frame update
     private void Start()
@@ -37,12 +37,25 @@ public class ShareView : MonoBehaviour
         shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("List").transform.Find("Viewport").transform.Find("Content").gameObject;
     }
 
+    public static Rect RectTransformToCameraViewport(RectTransform rectTransform)
+    {
+        float leftDownCornerX = (rectTransform.anchoredPosition.x - rectTransform.sizeDelta.x / 2);
+        float leftDownCornerY = (rectTransform.anchoredPosition.y - rectTransform.sizeDelta.y / 2);
+
+        Vector3 leftCorner = new Vector3(leftDownCornerX, leftDownCornerY, 0);
+        Vector3 viewPortLeftCorner = new Vector3(leftCorner.x / Screen.width, leftCorner.y / Screen.height, 0);
+
+        float viewportWidth = Mathf.Abs(rectTransform.sizeDelta.x / Screen.width);
+        float viewportHeight = Mathf.Abs(rectTransform.sizeDelta.y / Screen.height);
+
+        return new Rect(0.5f + viewPortLeftCorner.x, 0.5f + viewPortLeftCorner.y, viewportWidth, viewportHeight);
+    }
+
     private void Update()
     {
         if (listOfViewers.Count > 0)
         {
             shareScreenCanvas.GetComponent<ShareCanvas>().Share(listOfViewers);
-            //shareScreenCanvas.GetComponent<ShareScene>().Share(listOfViewers);
         }
     }
 
@@ -79,20 +92,20 @@ public class ShareView : MonoBehaviour
     {
         savedActiveCanvas = shareScreenCanvas.GetComponent<ShareCanvas>().SaveActiveStateOfCanvases();
         savedActiveGameObjects = shareScreenCanvas.GetComponent<ShareCanvas>().SaveActiveStateOfGameObjects();
-        //savedActiveScenes = shareScreenCanvas.GetComponent<ShareScene>().SaveActiveScenes("scenes");
-        //savedActiveItems = shareScreenCanvas.GetComponent<ShareScene>().SaveActiveScenes("items");
+        savedInputFields = shareScreenCanvas.GetComponent<ShareCanvas>().SaveInputFields();
+        savedTextFields = shareScreenCanvas.GetComponent<ShareCanvas>().SaveTextFields();
     }
 
     [PunRPC]
     public void CallShareScreen(Player viewer)
     {
         Debug.Log(viewer.NickName + " is viewing");
-        photonView.RPC("ShareScreen", viewer, PhotonNetwork.LocalPlayer.ActorNumber);
+        photonView.RPC("ShareScreen", viewer, PhotonNetwork.LocalPlayer.ActorNumber, PhotonNetwork.LocalPlayer.NickName);
         Debug.Log("calling share screen now");
     }
 
     [PunRPC]
-    public void ShareScreen(int hostPlayerNum)
+    public void ShareScreen(int hostPlayerNum, string hostName)
     {
         Debug.Log(hostPlayerNum);
         Debug.Log(hostPlayerNum + " sharing to " + PhotonNetwork.LocalPlayer.ActorNumber);
@@ -100,11 +113,14 @@ public class ShareView : MonoBehaviour
         if (host != null)
         {
             Camera hostCam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
-            hostCam.rect = new Rect(0.05f, 0.05f, 0.9f, 0.9f);
+            //RectTransform screen = (RectTransform)shareScreenCanvas.transform.Find("ShareScreen").Find("Screen").transform;
+            //hostCam.rect = RectTransformToCameraViewport(screen);
+            shareScreenCanvas.transform.Find("ShareScreen").Find("Name").GetChild(0).GetComponent<TMP_Text>().text = hostName.ToUpper();
+            hostCam.rect = new Rect(0.02f, 0.12f, 0.96f, 0.77f);
             hostCam.depth = 1;
             myCam.depth = -1;
 
-            shareViewCloseButton = shareScreenCanvas.transform.Find("CloseViewButton").gameObject;
+            shareViewCloseButton = shareScreenCanvas.transform.Find("SharedList").transform.Find("CloseViewButton").gameObject;
             shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
             shareViewCloseButton.SetActive(true);
             Debug.Log("share success");
@@ -138,7 +154,8 @@ public class ShareView : MonoBehaviour
 
             shareScreenCanvas.GetComponent<ShareCanvas>().SetActiveStateOfCanvases(savedActiveCanvas);
             shareScreenCanvas.GetComponent<ShareCanvas>().SetActiveStateOfGameObjects(savedActiveGameObjects);
-            //shareScreenCanvas.GetComponent<ShareScene>().SetActiveScenes(savedActiveScenes, savedActiveItems);
+            shareScreenCanvas.GetComponent<ShareCanvas>().SetInputFields(savedInputFields);
+            shareScreenCanvas.GetComponent<ShareCanvas>().SetTextFields(savedTextFields);
 
             shareViewCloseButton.GetComponent<Button>().onClick.RemoveAllListeners();
             shareViewCloseButton.SetActive(false);

@@ -5,12 +5,14 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using TMPro;
 
 public class RaiseEventManager : MonoBehaviour,IOnEventCallback
 {
     public const byte sendCanvas = 1;
     public const byte sendGO = 2;
-    public const byte sendScene = 3;
+    public const byte sendText = 3;
+    public const byte sendInput = 4;
     public void Start()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -31,7 +33,6 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
             for (int i = 0; i < canvas.shareableCanvases.Count; i++)
             {
                 canvas.shareableCanvases[i].gameObject.SetActive(activeStateOfCanvases[canvas.shareableCanvases[i].name]);
-                Debug.Log(canvas.shareableCanvases[i].name + " : " + canvas.shareableCanvases[i].gameObject.activeSelf);
             }
             Debug.Log("Canvas sent");
         }
@@ -46,21 +47,21 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
             }
             Debug.Log("GameObjects sent");
         }
-        else if (eventData.Code == sendScene)
+        else if (eventData.Code == sendText)
         {
             object[] data = (object[])eventData.CustomData;
-            Dictionary<string, bool> activeScenes = (Dictionary<string, bool>)data[0];
-            Dictionary<string, bool> activeItems = (Dictionary<string, bool>)data[1];
-            ShareScene scene = GameObject.Find("ShareScreenController").GetComponent<ShareScene>();
-            for (int i = 0; i < scene.activeScenes.Count; i++)
-            {
-                scene.scenes.transform.GetChild(i).gameObject.SetActive(activeScenes[scene.scenes.transform.GetChild(i).name]);
-            }
-            for (int i = 0; i < scene.activeItems.Count; i++)
-            {
-                scene.items.transform.GetChild(i).gameObject.SetActive(activeItems[scene.items.transform.GetChild(i).name]);
-            }
-            Debug.Log("Scene sent");
+            Dictionary<int, string> textFields = (Dictionary<int, string>)data[0];
+            ShareCanvas canvas = GameObject.Find("ShareScreenCanvas").GetComponent<ShareCanvas>();
+            canvas.SetTextFields(textFields);
+            Debug.Log("TextFields sent");
+        }
+        else if (eventData.Code == sendInput)
+        {
+            object[] data = (object[])eventData.CustomData;
+            Dictionary<int, string> inputFields = (Dictionary<int, string>)data[0];
+            ShareCanvas canvas = GameObject.Find("ShareScreenCanvas").GetComponent<ShareCanvas>();
+            canvas.SetInputFields(inputFields);
+            Debug.Log("InputFields sent");
         }
     }
 }

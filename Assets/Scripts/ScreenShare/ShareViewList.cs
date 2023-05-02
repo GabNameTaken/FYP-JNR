@@ -14,8 +14,11 @@ public class ShareViewList : MonoBehaviour
     private bool listOpen;
 
     [SerializeField] private SceneGameManager photonPlayer;
+    [SerializeField] private GameObject shareScreen;
+    [SerializeField] List<GameObject> disableGOs;
     private PhotonView photonView;
     private Player client;
+    private GameObject toggle;
 
     void Start()
     {
@@ -28,8 +31,9 @@ public class ShareViewList : MonoBehaviour
 
     private void Awake()
     {
-        GameObject toggle = GameObject.Find("ConferenceCanvas").transform.Find("DropDownPanel").transform.Find("HorizontalVideoView").transform.Find("ShareScreenToggle").gameObject;
+        toggle = GameObject.Find("ConferenceCanvas").transform.Find("DropDownPanel").transform.Find("HorizontalVideoView").transform.Find("ShareScreenToggle").gameObject;
         toggle.GetComponent<Button>().onClick.AddListener(delegate { ListShareScreen(); });
+        toggle.SetActive(true);
     }
 
     public void ListShareScreen()
@@ -38,6 +42,12 @@ public class ShareViewList : MonoBehaviour
         {
             client = PhotonNetwork.LocalPlayer;
             photonView.RPC("UpdateShareList", RpcTarget.AllViaServer, client);
+
+            toggle.transform.GetChild(0).gameObject.SetActive(false);
+            toggle.transform.GetChild(1).gameObject.SetActive(true);
+            toggle.GetComponent<Button>().onClick.RemoveAllListeners();
+            toggle.GetComponent<Button>().onClick.AddListener(delegate { StopShareScreen(); });
+
             Debug.Log(client.NickName + "," + client.ActorNumber  + ":" + photonView.ViewID);
         }
     }
@@ -49,6 +59,11 @@ public class ShareViewList : MonoBehaviour
             client = PhotonNetwork.LocalPlayer;
             photonView.RPC("DestroyShareList", RpcTarget.AllViaServer, client);
             photonView.RPC("RemoveAllViewers", client);
+
+            toggle.transform.GetChild(0).gameObject.SetActive(true);
+            toggle.transform.GetChild(1).gameObject.SetActive(false);
+            toggle.GetComponent<Button>().onClick.RemoveAllListeners();
+            toggle.GetComponent<Button>().onClick.AddListener(delegate { ListShareScreen(); });
         }
     }
 
@@ -58,12 +73,22 @@ public class ShareViewList : MonoBehaviour
         photonView.RPC("PreShareScreen", PhotonNetwork.LocalPlayer);
         photonView.RPC("CallShareScreen", host, PhotonNetwork.LocalPlayer);
         photonView.RPC("ListViewer", host,PhotonNetwork.LocalPlayer);
+        shareScreen.SetActive(true);
+        foreach (GameObject go in disableGOs)
+        {
+            go.SetActive(false);
+        }
     }
 
     public void CloseView(Player player)
     {
         photonView.RPC("CloseViewScreen", player);
         photonView.RPC("RemoveViewer", RpcTarget.AllViaServer, player);
+        shareScreen.SetActive(false);
+        foreach (GameObject go in disableGOs)
+        {
+            go.SetActive(true);
+        }
         Debug.Log("Exiting view for " + player.NickName);
     }
 
