@@ -35,7 +35,6 @@ public class ShareView : MonoBehaviour
         localPlayerList = GameObject.Find("Network").GetComponent<LocalPlayerList>();
         shareScreenCanvas = GameObject.FindGameObjectWithTag("ShareScreenCanvas");
         shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("List").transform.Find("Viewport").transform.Find("Content").gameObject;
-        myCam.rect = new Rect(0.027f, 0.13f, 0.94f, 0.74f);
     }
 
     public static Rect RectTransformToCameraViewport(RectTransform rectTransform)
@@ -116,8 +115,8 @@ public class ShareView : MonoBehaviour
             Camera hostCam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
             //RectTransform screen = (RectTransform)shareScreenCanvas.transform.Find("ShareScreen").Find("Screen").transform;
             //hostCam.rect = RectTransformToCameraViewport(screen);
-            shareScreenCanvas.transform.Find("ShareScreen").Find("Name").GetChild(0).GetComponent<TMP_Text>().text = hostName;
-            hostCam.rect = new Rect(0.027f, 0.13f, 0.94f, 0.74f);
+            shareScreenCanvas.transform.Find("ShareScreen").Find("Name").GetChild(0).GetComponent<TMP_Text>().text = hostName.ToUpper();
+            hostCam.rect = new Rect(0.02f, 0.12f, 0.96f, 0.77f);
             hostCam.depth = 1;
             myCam.depth = -1;
 
