@@ -101,12 +101,12 @@ public class ShareView : MonoBehaviour
     public void CallShareScreen(Player viewer)
     {
         Debug.Log(viewer.NickName + " is viewing");
-        photonView.RPC("ShareScreen", viewer, PhotonNetwork.LocalPlayer.ActorNumber);
+        photonView.RPC("ShareScreen", viewer, PhotonNetwork.LocalPlayer.ActorNumber, PhotonNetwork.LocalPlayer.NickName);
         Debug.Log("calling share screen now");
     }
 
     [PunRPC]
-    public void ShareScreen(int hostPlayerNum)
+    public void ShareScreen(int hostPlayerNum, string hostName)
     {
         Debug.Log(hostPlayerNum);
         Debug.Log(hostPlayerNum + " sharing to " + PhotonNetwork.LocalPlayer.ActorNumber);
@@ -116,6 +116,7 @@ public class ShareView : MonoBehaviour
             Camera hostCam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
             //RectTransform screen = (RectTransform)shareScreenCanvas.transform.Find("ShareScreen").Find("Screen").transform;
             //hostCam.rect = RectTransformToCameraViewport(screen);
+            shareScreenCanvas.transform.Find("ShareScreen").Find("Name").GetChild(0).GetComponent<TMP_Text>().text = hostName;
             hostCam.rect = new Rect(0.03f, 0.12f, 0.94f, 0.78f);
             hostCam.depth = 1;
             myCam.depth = -1;
