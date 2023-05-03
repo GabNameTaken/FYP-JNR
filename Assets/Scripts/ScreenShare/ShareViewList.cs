@@ -15,7 +15,7 @@ public class ShareViewList : MonoBehaviour
 
     [SerializeField] private SceneGameManager photonPlayer;
     [SerializeField] private GameObject shareScreen;
-    [SerializeField] List<GameObject> disableGOs;
+    public List<GameObject> disableGOs;
     private PhotonView photonView;
     private Player client;
     private GameObject toggle;
@@ -84,12 +84,7 @@ public class ShareViewList : MonoBehaviour
     {
         photonView.RPC("CloseViewScreen", player);
         photonView.RPC("RemoveViewer", RpcTarget.AllViaServer, player);
-        shareScreen.SetActive(false);
-        foreach (GameObject go in disableGOs)
-        {
-            go.SetActive(true);
-        }
-        Debug.Log("Exiting view for " + player.NickName);
+        Debug.Log("Exiting view for " + PhotonNetwork.LocalPlayer.NickName);
     }
 
     public void ShareButtonHandler()

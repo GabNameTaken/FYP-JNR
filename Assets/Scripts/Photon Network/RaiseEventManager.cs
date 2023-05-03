@@ -13,6 +13,7 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
     public const byte sendGO = 2;
     public const byte sendText = 3;
     public const byte sendInput = 4;
+    public const byte stopShare = 5;
     public void Start()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -62,6 +63,12 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
             ShareCanvas canvas = GameObject.Find("ShareScreenCanvas").GetComponent<ShareCanvas>();
             canvas.SetInputFields(inputFields);
             Debug.Log("InputFields sent");
+        }
+        else if (eventData.Code == stopShare)
+        {
+            object[] data = (object[])eventData.CustomData;
+            GameObject shareViewList = GameObject.FindGameObjectWithTag("ShareScreenCanvas").transform.Find("SharedList").transform.Find("List").transform.Find("Viewport").transform.Find("Content").gameObject;
+            shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer);
         }
     }
 }
