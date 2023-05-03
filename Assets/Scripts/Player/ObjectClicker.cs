@@ -103,14 +103,12 @@ public class ObjectClicker : MonoBehaviour
                 objectOnHover = raycastHit.transform.gameObject;
                 if (interactableObject) //check for interactable object/item
                 {
-                    Debug.Log(objectOnHover.transform.name);
                     HighlightInteractable();
                 }
                 else if (item)
                 {
                     if (!item.getbIsPickedUp())
                     {
-                        Debug.Log(objectOnHover.transform.name);
                         HighlightItems();
                     }
                 }

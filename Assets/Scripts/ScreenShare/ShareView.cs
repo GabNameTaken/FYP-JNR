@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
+using ExitGames.Client.Photon;
 
 public class ShareView : MonoBehaviour
 {
@@ -81,10 +82,14 @@ public class ShareView : MonoBehaviour
     [PunRPC]
     public void RemoveAllViewers()
     {
-        foreach (Player viewer in listOfViewers)
+        int[] receivers = new int[listOfViewers.Count];
+        for (int i = 0; i < listOfViewers.Count; i++)
         {
-            shareViewList.GetComponent<ShareViewList>().CloseView(viewer);
+            receivers[i] = listOfViewers[i].ActorNumber;
         }
+        Debug.Log("Raising event for stop share");
+        object[] content = new object[] { };
+        PhotonNetwork.RaiseEvent(RaiseEventManager.stopShare, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
     }
 
     [PunRPC]
@@ -116,7 +121,7 @@ public class ShareView : MonoBehaviour
             //RectTransform screen = (RectTransform)shareScreenCanvas.transform.Find("ShareScreen").Find("Screen").transform;
             //hostCam.rect = RectTransformToCameraViewport(screen);
             shareScreenCanvas.transform.Find("ShareScreen").Find("Name").GetChild(0).GetComponent<TMP_Text>().text = hostName.ToUpper();
-            hostCam.rect = new Rect(0.02f, 0.12f, 0.96f, 0.77f);
+            hostCam.rect = new Rect(0.115f, 0.119f, 0.77f, 0.767f);
             hostCam.depth = 1;
             myCam.depth = -1;
 
@@ -159,6 +164,13 @@ public class ShareView : MonoBehaviour
 
             shareViewCloseButton.GetComponent<Button>().onClick.RemoveAllListeners();
             shareViewCloseButton.SetActive(false);
+
+            GameObject shareScreen = shareScreenCanvas.transform.GetChild(0).gameObject;
+            shareScreen.SetActive(false);
+            foreach (GameObject goToDisable in shareViewList.GetComponent<ShareViewList>().disableGOs)
+            {
+                goToDisable.SetActive(true);
+            }
         }
         Debug.Log("Quit viewing");
     }
