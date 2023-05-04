@@ -115,7 +115,7 @@ public class GameTimer : MonoBehaviourPunCallbacks
         {
             timerText.text = "GAME OVER";
 
-            object[] content = new object[] { true };
+            object[] content = new object[] { false };
             PhotonNetwork.RaiseEvent(RaiseEventManager.endGame, content, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
         }
     }

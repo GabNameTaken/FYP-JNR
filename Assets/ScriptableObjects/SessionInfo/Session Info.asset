@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   voucherCode: V001
   maxPlayers: 100
-  gameDurationMinutes: 1
+  gameDurationMinutes: 90
   voucherDurationMinutes: 360

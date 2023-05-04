@@ -41,4 +41,12 @@ public class SceneGameManager : MonoBehaviourPunCallbacks
             GameOverCanvas.GetComponent<CanvasToggle>().SetCanvasToActive();
         }
     }
+
+    public void LeaveGame()
+    {
+        VideoConferenceSetupController videoConferenceSetupController = FindObjectOfType<VideoConferenceSetupController>();
+        videoConferenceSetupController.LeaveConference();
+        PhotonNetwork.LeaveRoom(true);
+        PhotonNetwork.LoadLevel((int)SceneLoader.SceneBuildIndexes.startScene);
+    }
 }
