@@ -3,6 +3,8 @@ using Photon.Pun;
 using TMPro;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using System.Collections;
+using ExitGames.Client.Photon;
+using Photon.Realtime;
 
 public class GameTimer : MonoBehaviourPunCallbacks
 {
@@ -43,7 +45,8 @@ public class GameTimer : MonoBehaviourPunCallbacks
 
         GetTotalGameTime();
 
-        StartCoroutine(TimerCountdown());
+        if (PhotonNetwork.IsMasterClient)
+            StartCoroutine(TimerCountdown());
     }
 
     public void StopTimer()
@@ -77,8 +80,6 @@ public class GameTimer : MonoBehaviourPunCallbacks
 
     IEnumerator TimerCountdown()
     {
-        if (!PhotonNetwork.IsMasterClient)
-            yield return null;
         isTimerRunning = true;
 
         currentTimeSeconds = gameDurationSeconds;
@@ -89,6 +90,9 @@ public class GameTimer : MonoBehaviourPunCallbacks
             currentTimeSeconds = gameDurationSeconds - timeElapsedMilliSeconds / 1000;
 
             //DisplayTime(currentTimeSeconds);
+            object[] content = new object[] { currentTimeSeconds };
+            PhotonNetwork.RaiseEvent(RaiseEventManager.syncTimer, content, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
+
 
             yield return new WaitForSeconds(1);
         }
@@ -98,17 +102,16 @@ public class GameTimer : MonoBehaviourPunCallbacks
         isTimerRunning = false;
     }
 
-    [PunRPC]
-    void DisplayTime(float timeToDisplay)
+    public void DisplayTime(float timeToDisplay)
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timerText.text = "";
-        if (currentTimeSeconds > 0)
+        if (timeToDisplay > 0)
         {
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
-        else if (currentTimeSeconds <= 0)
+        else if (timeToDisplay <= 0)
         {
             timerText.text = "GAME OVER";
         }
