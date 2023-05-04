@@ -155,7 +155,7 @@ public class ShareCanvas : MonoBehaviour
         }
     }
 
-    public void Share(List<Player> listOfViewers)
+    public void UpdateShare(List<Player> listOfViewers)
     {
         int[] receivers = new int[listOfViewers.Count];
         for (int i =0; i < listOfViewers.Count; i++)
@@ -190,6 +190,32 @@ public class ShareCanvas : MonoBehaviour
             object[] content = new object[] { textFields };
             PhotonNetwork.RaiseEvent(RaiseEventManager.sendText, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
         }
+    }
+
+    public void Share(Player target)
+    {
+        int[] receiver = new int[1];
+        receiver[0] = target.ActorNumber;
+
+        ResetActiveStateOfCanvases();
+        Debug.Log("Raising event for sending canvas");
+        object[] content = new object[] { activeStateOfCanvases };
+        PhotonNetwork.RaiseEvent(RaiseEventManager.sendCanvas, content, new RaiseEventOptions { TargetActors = receiver }, SendOptions.SendReliable);
+
+        ResetActiveStateOfGameObjects();
+        Debug.Log("Raising event for sending gameobjects");
+        content = new object[] { activeStateOfGameObjects };
+        PhotonNetwork.RaiseEvent(RaiseEventManager.sendGO, content, new RaiseEventOptions { TargetActors = receiver }, SendOptions.SendReliable);
+
+        ResetInputFields();
+        Debug.Log("Raising event for sending inputs");
+        content = new object[] { inputTexts };
+        PhotonNetwork.RaiseEvent(RaiseEventManager.sendInput, content, new RaiseEventOptions { TargetActors = receiver }, SendOptions.SendReliable);
+
+        ResetTextFields();
+        Debug.Log("Raising event for sending texts");
+        content = new object[] { textFields };
+        PhotonNetwork.RaiseEvent(RaiseEventManager.sendText, content, new RaiseEventOptions { TargetActors = receiver }, SendOptions.SendReliable);
     }
 
     bool CompareActiveStates(Dictionary<string,bool> list, string source)   //check for child objects that had a change in their active

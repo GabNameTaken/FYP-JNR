@@ -14,6 +14,7 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
     public const byte sendText = 3;
     public const byte sendInput = 4;
     public const byte stopShare = 5;
+    public const byte syncTimer = 6;
     public void Start()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -69,6 +70,13 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
             object[] data = (object[])eventData.CustomData;
             GameObject shareViewList = GameObject.FindGameObjectWithTag("ShareScreenCanvas").transform.Find("SharedList").transform.Find("List").transform.Find("Viewport").transform.Find("Content").gameObject;
             shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer);
+        }
+        else if (eventData.Code == syncTimer)
+        {
+            object[] data = (object[])eventData.CustomData;
+            float time = (float)data[0];
+            GameTimer gameTimer = FindObjectOfType<GameTimer>();
+            gameTimer.DisplayTime(time);
         }
     }
 }

@@ -72,7 +72,6 @@ public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutput
     {
         for (int i = 0; i < rawImages.Count; i++)
         {
-            //rawImages[i].gameObject.SetActive(SmallestIdIndexInView + i < idList.Count);
             rawImages[i].transform.Find("Icon").gameObject.SetActive(SmallestIdIndexInView + i < idList.Count);
             if (SmallestIdIndexInView + i > idList.Count)
                 rawImages[i].color = new Color(255, 255, 255, 0);
@@ -89,15 +88,13 @@ public class PagedConferenceVideoDisplay : MonoBehaviour, IConferenceVideoOutput
             if (rawImages[slotIndex].texture == noImgTexture)
                 rawImages[slotIndex].texture = null;
 
-            //rawImages[slotIndex].color = new Color(255,255,255,1);   //Set Image on webcam to white to make webcam visible
             rawImages[slotIndex].transform.Find("Icon").gameObject.SetActive(false);    //Set the icon in the child to false
-            rawImages[slotIndex].color = new Color(255, 255, 255, 1);
+            rawImages[slotIndex].color = new Color(255, 255, 255, 1);   //White to make webcam visible
             //rawImages[slotIndex].transform.Find("Username").GetComponent<TMP_Text>().text = videoConference.GetUsername(args.ConnectionId); //Set Username
             //rawImages[slotIndex].transform.Find("Username").localScale = new Vector3(-1, -1, -1);
 
             //Debug.Log(videoConference.GetUsername(args.ConnectionId));
             bool mirror = args.IsRemote == false;
-            //bool mirror = true;
             UnityMediaHelper.UpdateRawImageTransform(rawImages[slotIndex], args.Frame, mirror);
 
             if (rawImages[slotIndex].texture == null)
