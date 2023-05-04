@@ -15,6 +15,7 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
     public const byte sendInput = 4;
     public const byte stopShare = 5;
     public const byte syncTimer = 6;
+    public const byte endGame = 7;
     public void Start()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -77,6 +78,13 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
             float time = (float)data[0];
             GameTimer gameTimer = FindObjectOfType<GameTimer>();
             gameTimer.DisplayTime(time);
+        }
+        else if (eventData.Code == endGame)
+        {
+            object[] data = (object[])eventData.CustomData;
+            bool state = (bool)data[0];
+            SceneGameManager sceneGameManager = GameObject.Find("GameManager").GetComponent<SceneGameManager>();
+            sceneGameManager.EndGame(state);
         }
     }
 }

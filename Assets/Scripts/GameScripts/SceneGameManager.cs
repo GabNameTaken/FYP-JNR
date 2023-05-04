@@ -8,6 +8,7 @@ public class SceneGameManager : MonoBehaviourPunCallbacks
     private PhotonView photonView;
     private GameObject thisPlayer;
     [SerializeField] GameObject previewObject;
+    [SerializeField] GameObject GameOverCanvas;
     public override void OnEnable()
     {
         base.OnEnable();
@@ -26,42 +27,18 @@ public class SceneGameManager : MonoBehaviourPunCallbacks
     {
         thisPlayer = PhotonNetwork.Instantiate("Player", new Vector3(0, 0, 0), Quaternion.identity);
         photonView = thisPlayer.GetPhotonView();
-        //SyncItems();
     }
-
-    public void SyncItems()
-    {
-        foreach (Transform items in previewObject.transform)
-        {
-            Debug.Log(items.name);
-        }
-        //CItem[] items = FindObjectsOfType<CItem>(true);
-        //foreach(CItem item in items)
-        //{
-        //    PhotonView view = item.GetComponent<PhotonView>();
-        //    if (view != null)
-        //    {
-        //        if (item.getbIsPickedUp())
-        //        {
-        //            //item.AddToInventory();
-        //            Debug.Log("added: " + item.getstrItemName());
-        //        }
-        //        else
-        //        {
-        //            Debug.Log(item.getstrItemName() + " not picked up");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        //item.gameObject.SetActive(!item.getbIsPickedUp());
-        //        Debug.Log(item.getstrItemName() + " not picked up");
-        //    }
-        //}
-    }
-
 
     public PhotonView GetPlayerPhotonView()
     {
         return photonView;
+    }
+
+    public void EndGame(bool win)
+    {
+        if (!win)
+        {
+            GameOverCanvas.GetComponent<CanvasToggle>().SetCanvasToActive();
+        }
     }
 }

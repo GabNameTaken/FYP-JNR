@@ -18,7 +18,6 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
     int PFPIndex = 0;
     int MAX_PFPsprites = 6;
 
-    public SceneGameManager sceneGameManager;
     public int CurrentSprite { get { return PFPIndex; } }
 
     private void Awake()
@@ -26,7 +25,6 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
         objectClicker = gameObject.GetComponentInChildren<ObjectClicker>();
         syncInventory = GetComponent<SyncInventory>();
         GameObject Network = GameObject.Find("Network");
-        sceneGameManager = FindObjectOfType<SceneGameManager>();
 
         if (photonView.IsMine)
         {
@@ -40,7 +38,6 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
             {
                 PhotonNetwork.Destroy(photonView);
             }
-            sceneGameManager.SyncItems();
         }
         if (!Network.GetComponent<LocalPlayerList>().PlayerList.Contains(gameObject))
             Network.GetComponent<LocalPlayerList>().AddPlayer(gameObject);

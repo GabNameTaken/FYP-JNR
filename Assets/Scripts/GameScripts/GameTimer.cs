@@ -114,6 +114,9 @@ public class GameTimer : MonoBehaviourPunCallbacks
         else if (timeToDisplay <= 0)
         {
             timerText.text = "GAME OVER";
+
+            object[] content = new object[] { true };
+            PhotonNetwork.RaiseEvent(RaiseEventManager.endGame, content, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
         }
     }
 
