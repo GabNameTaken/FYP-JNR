@@ -56,7 +56,7 @@ public class ShareView : MonoBehaviour
     {
         if (listOfViewers.Count > 0)
         {
-            shareScreenCanvas.GetComponent<ShareCanvas>().Share(listOfViewers);
+            shareScreenCanvas.GetComponent<ShareCanvas>().UpdateShare(listOfViewers);
         }
     }
 
@@ -104,9 +104,14 @@ public class ShareView : MonoBehaviour
     [PunRPC]
     public void CallShareScreen(Player viewer)
     {
+        listOfViewers.Add(viewer);
+        Debug.Log(viewer.NickName + " added to the viewerList");
+        
         Debug.Log(viewer.NickName + " is viewing");
         photonView.RPC("ShareScreen", viewer, PhotonNetwork.LocalPlayer.ActorNumber, PhotonNetwork.LocalPlayer.NickName);
         Debug.Log("calling share screen now");
+
+        shareScreenCanvas.GetComponent<ShareCanvas>().Share(viewer);
     }
 
     [PunRPC]
@@ -173,13 +178,6 @@ public class ShareView : MonoBehaviour
             }
         }
         Debug.Log("Quit viewing");
-    }
-
-    [PunRPC]
-    public void ListViewer(Player viewer)
-    {
-        listOfViewers.Add(viewer);
-        Debug.Log(viewer.NickName + " added to the viewerList");
     }
 
     [PunRPC]
