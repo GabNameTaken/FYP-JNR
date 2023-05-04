@@ -7627,18 +7627,18 @@ MonoBehaviour:
   m_text: 'You work in a CyCo under a cybersecurity team. One day, CyCo is under
     a lockdown as it has been compromised by an anonymous hacker. Your manager''s
     workstation is currently being hacked. You are from the cybersecurity team and
-    it is your job to intercept the hack before it''s too late and unlock the building
-    from the lockdown.
+    it is your job to intercept the hack before it''s too late.
 
 
 
-    Find clues and solve puzzles to get to the manager''s
-    workstation and stop the hack before time runs out and escape.
+    Find clues
+    and solve puzzles to get to the manager''s workstation and stop the hack before
+    time runs out and escape.
 
 
 
-    You will
-    also learn some cyber security tips whilst going through the office.'
+    You will also learn some cyber security tips
+    whilst going through the office.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
   m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}

@@ -77,6 +77,8 @@ public class GameTimer : MonoBehaviourPunCallbacks
 
     IEnumerator TimerCountdown()
     {
+        if (!PhotonNetwork.IsMasterClient)
+            yield return null;
         isTimerRunning = true;
 
         currentTimeSeconds = gameDurationSeconds;
@@ -86,7 +88,7 @@ public class GameTimer : MonoBehaviourPunCallbacks
             timeElapsedMilliSeconds = PhotonNetwork.ServerTimestamp - gameStartTimeMilliSeconds;
             currentTimeSeconds = gameDurationSeconds - timeElapsedMilliSeconds / 1000;
 
-            DisplayTime(currentTimeSeconds);
+            //DisplayTime(currentTimeSeconds);
 
             yield return new WaitForSeconds(1);
         }
@@ -96,6 +98,7 @@ public class GameTimer : MonoBehaviourPunCallbacks
         isTimerRunning = false;
     }
 
+    [PunRPC]
     void DisplayTime(float timeToDisplay)
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
