@@ -30,7 +30,7 @@ public class UseItemUnlock2_BobPC : MonoBehaviour
             closedObject.SetActive(false);
             closedObject2.SetActive(false);
             this.gameObject.SetActive(false);
-            hints.CompletedPuzzle("PcCase");
+            hints.CompletedPuzzle(itemToUse);
         }
         else
         {
