@@ -52,11 +52,13 @@ public class SceneNavigation : MonoBehaviour
         {
             Debug.Log("Office pantry1");
             rooms[7].SetActive(true);
+            items[6].SetActive(true);
         }
         else if (name == "Arrow_OfficePantry")
         {
             Debug.Log("Office room right");
             rooms[8].SetActive(true);
+            items[7].SetActive(true);
         }
         else if (name == "Arrow_BossRoom")
         {
