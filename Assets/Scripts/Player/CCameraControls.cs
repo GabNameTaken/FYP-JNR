@@ -6,6 +6,7 @@ using Photon.Pun;
 public class CCameraControls : MonoBehaviourPun
 {
     [SerializeField] ObjectInspector previewObj;
+    [SerializeField] GameObject player;
 
     private float yaw, pitch;
     private float startYaw, startPitch;
@@ -21,7 +22,7 @@ public class CCameraControls : MonoBehaviourPun
     private void Update()   
     {
         //looking
-        if (!previewObj.IsViewing)
+        if (!previewObj.IsViewing && player.GetComponent<PhotonView>().IsMine)
         {
             if (Input.GetMouseButton(1))
             {

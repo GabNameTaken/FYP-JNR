@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previewObj: {fileID: 4851046784194656993}
+  player: {fileID: 6846847999501653002}
 --- !u!114 &409626300516410224
 MonoBehaviour:
   m_ObjectHideFlags: 0
