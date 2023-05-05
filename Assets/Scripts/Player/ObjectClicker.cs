@@ -64,14 +64,17 @@ public class ObjectClicker : MonoBehaviour
 
     private void HighlightInteractable()
     {
-        Renderer renderer = objectOnHover.GetComponent(typeof(Renderer)) as Renderer;
-        originalMaterial = renderer.material;
-        renderer.material = highlightMaterial;
+        if (objectOnHover != null && objectOnHover.GetComponent(typeof(Renderer)))
+        {
+            Renderer renderer = objectOnHover.GetComponent(typeof(Renderer)) as Renderer;
+            originalMaterial = renderer.material;
+            renderer.material = highlightMaterial;
+        }
     }
 
     private void RestoreInteractable()
     {
-        if (objectOnHover != null)
+        if (objectOnHover != null && objectOnHover.GetComponent(typeof(Renderer)))
         {
             Renderer renderer = objectOnHover.GetComponent(typeof(Renderer)) as Renderer;
             renderer.material = originalMaterial;
