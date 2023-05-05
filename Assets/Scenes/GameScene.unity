@@ -329,7 +329,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Failed to start game.
 
-    Please check your internet connectionor clear
+    Please check your internet connection or clear
     up your brower cookies and cache.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3134,6 +3134,7 @@ MonoBehaviour:
   - {fileID: 133545922}
   - {fileID: 6387564858562204353}
   - {fileID: 1311033256}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
   - {fileID: 6250334679545392348}
@@ -3287,6 +3288,7 @@ MonoBehaviour:
   - {fileID: 1037306033}
   - {fileID: 2930631951546494228}
   - {fileID: 707922299}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
   - {fileID: 6250334679545392348}
@@ -6496,8 +6498,10 @@ MonoBehaviour:
   - {fileID: 1589405020}
   - {fileID: 1271074233}
   - {fileID: 1269576381}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
+  - {fileID: 6250334679545392348}
 --- !u!1 &408462256
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,6 +7797,7 @@ MonoBehaviour:
   - {fileID: 1628910067}
   - {fileID: 510870512}
   - {fileID: 2930631951957858157}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
   - {fileID: 6250334679545392348}
@@ -9195,6 +9200,7 @@ MonoBehaviour:
   - {fileID: 225901442}
   - {fileID: 2930631951546494228}
   - {fileID: 707922299}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
   - {fileID: 6250334679545392348}
@@ -19217,6 +19223,7 @@ MonoBehaviour:
   - {fileID: 397167321}
   - {fileID: 1987301644}
   - {fileID: 1269576381}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
   - {fileID: 6250334679545392348}
@@ -25730,6 +25737,7 @@ MonoBehaviour:
   - {fileID: 1628910067}
   - {fileID: 2930631951957858157}
   - {fileID: 510870512}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
   - {fileID: 6250334679545392348}
@@ -25865,6 +25873,7 @@ MonoBehaviour:
   - {fileID: 679972997}
   - {fileID: 2930631951957858157}
   - {fileID: 510870512}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
   - {fileID: 6250334679545392348}
@@ -26916,6 +26925,7 @@ MonoBehaviour:
   - {fileID: 1628910067}
   - {fileID: 2930631951957858157}
   - {fileID: 510870512}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
   - {fileID: 6250334679545392348}
@@ -57682,6 +57692,7 @@ MonoBehaviour:
   - {fileID: 919132149068791134}
   - {fileID: 45792556}
   - {fileID: 1118553705}
+  - {fileID: 1864945739}
   - {fileID: 1876886523}
   - {fileID: 1725223675}
   - {fileID: 6250334679545392348}
