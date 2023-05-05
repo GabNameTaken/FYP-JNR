@@ -144,14 +144,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsInspectable: 0
+  bIsPickedUp: 0
   anchorX: 1
   anchorY: 1
   constraintToAnchor: 0
   bIsRotatable: 1
-  strItemName: pager
+  strItemName: Pager
   previewSprite: {fileID: 21300000, guid: 306adb35b9aa0854f9572c8b3b3d8c20, type: 3}
-  previewObject: {fileID: 5803531520997093657}
-  itemDescription: A pager found inside the reception safe.
+  previewObject: {fileID: 5545619856524394191}
+  itemDescription: A pager found inside the reception safe. Left-click to rotate.
+    Right-click to move. Scroll to zoom.
   inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &246060774686858699
 MonoBehaviour:

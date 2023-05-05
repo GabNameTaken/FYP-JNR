@@ -236,7 +236,8 @@ MonoBehaviour:
   strItemName: Painting
   previewSprite: {fileID: 21300000, guid: 973264ecac8646747a43c33de02baa75, type: 3}
   previewObject: {fileID: 3009573700354798779}
-  itemDescription: A painting of a landscape with trees, apples, and birds.
+  itemDescription: A painting of a landscape with trees, apples, and birds. Left-click
+    to rotate. Right-click to move. Scroll to zoom.
   inspectRotation: {x: 180, y: 0, z: 180}
 --- !u!114 &9100114772392889560
 MonoBehaviour:

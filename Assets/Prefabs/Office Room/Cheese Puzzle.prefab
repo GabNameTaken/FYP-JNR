@@ -240,6 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsInspectable: 0
+  bIsPickedUp: 0
   anchorX: 1
   anchorY: 1
   constraintToAnchor: 0
@@ -247,7 +249,8 @@ MonoBehaviour:
   strItemName: Cheese
   previewSprite: {fileID: 21300000, guid: 4bfc2bc2b3a29c94e8cfe4855664458a, type: 3}
   previewObject: {fileID: 5295890100272348899}
-  itemDescription: I wonder why there's a piece of paper with cheese on it.
+  itemDescription: I wonder why there's a piece of paper with cheese on it. Left-click
+    to rotate. Right-click to move. Scroll to zoom. Use arrow keys to move the cheese.
   inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &5295890100272348903
 MonoBehaviour:

@@ -8977,7 +8977,8 @@ MonoBehaviour:
   strItemName: morse
   previewSprite: {fileID: 21300000, guid: ba8a2fce9b37a8e42a346396f46de2ad, type: 3}
   previewObject: {fileID: 562307155}
-  itemDescription: A book with info about morse code.
+  itemDescription: A book with info about morse code. Left-click to rotate. Right-click
+    to move. Scroll to zoom.
   inspectRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &562307162
 MonoBehaviour:
@@ -13405,10 +13406,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7968304405376804743, guid: aabb417f2c6d5ad42921a33ac9efd88a, type: 3}
-      propertyPath: strItemName
-      value: Caeser Cypher Tool
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aabb417f2c6d5ad42921a33ac9efd88a, type: 3}
 --- !u!1 &910250992
@@ -15381,11 +15378,6 @@ MonoBehaviour:
   sceneViewId: 18
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!1 &1041889033 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 527295011691096217, guid: 4a9762b04b4d0b04abf95672d1feef8a, type: 3}
-  m_PrefabInstance: {fileID: 1785041188}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1057702168
 GameObject:
   m_ObjectHideFlags: 0
@@ -24653,35 +24645,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594c4cc85f415f74eb2f86d156e66b4e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594c4cc85f415f74eb2f86d156e66b4e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594c4cc85f415f74eb2f86d156e66b4e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.17216249
+      value: -0.25881898
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594c4cc85f415f74eb2f86d156e66b4e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.022665616
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594c4cc85f415f74eb2f86d156e66b4e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9763826
+      value: 0.9659259
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594c4cc85f415f74eb2f86d156e66b4e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.12854317
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594c4cc85f415f74eb2f86d156e66b4e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594c4cc85f415f74eb2f86d156e66b4e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 200
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594c4cc85f415f74eb2f86d156e66b4e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -29264,14 +29256,6 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9077449776104522604, guid: 4a9762b04b4d0b04abf95672d1feef8a, type: 3}
-      propertyPath: previewObject
-      value: 
-      objectReference: {fileID: 1041889033}
-    - target: {fileID: 9077449776104522604, guid: 4a9762b04b4d0b04abf95672d1feef8a, type: 3}
-      propertyPath: previewSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ccf5581c8dd5fe4488978bb5eab81ac3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a9762b04b4d0b04abf95672d1feef8a, type: 3}
 --- !u!4 &1785041189 stripped
@@ -32507,11 +32491,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900357680}
   m_CullTransparentMesh: 1
---- !u!1 &1903748973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5545619856524394191, guid: 0998c962b4791a945b54cd87cce1369f, type: 3}
-  m_PrefabInstance: {fileID: 6650445535196698558}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1907951586
 GameObject:
   m_ObjectHideFlags: 0
@@ -46548,14 +46527,6 @@ PrefabInstance:
     - target: {fileID: 2799535402857461992, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3033345100349425060, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
-      propertyPath: previewObject
-      value: 
-      objectReference: {fileID: 435533554}
-    - target: {fileID: 3033345100349425060, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
-      propertyPath: itemDescription
-      value: A food magazine containing an ingredient list to make honey baklava.
       objectReference: {fileID: 0}
     - target: {fileID: 3283724673728291410, guid: 4dd1102bbebbee84193298be04e717d5, type: 3}
       propertyPath: m_RootOrder
@@ -63014,14 +62985,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.48
       objectReference: {fileID: 0}
-    - target: {fileID: 6650445535471553607, guid: 0998c962b4791a945b54cd87cce1369f, type: 3}
-      propertyPath: strItemName
-      value: Pager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650445535471553607, guid: 0998c962b4791a945b54cd87cce1369f, type: 3}
-      propertyPath: previewObject
-      value: 
-      objectReference: {fileID: 1903748973}
     - target: {fileID: 8635256265330365921, guid: 0998c962b4791a945b54cd87cce1369f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -65431,10 +65394,6 @@ PrefabInstance:
     - target: {fileID: 7809440066006838933, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
       propertyPath: V3Normal.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7809440066006838934, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9100114772392889560, guid: 331309887c80d2a4c8cc7cd5bed1c462, type: 3}
       propertyPath: sceneViewId
@@ -69108,6 +69067,10 @@ PrefabInstance:
     - target: {fileID: 9096710718571363242, guid: 93a3c517d14ccc64ba5f6a4b841f60b7, type: 3}
       propertyPath: sceneViewId
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096710718571363244, guid: 93a3c517d14ccc64ba5f6a4b841f60b7, type: 3}
+      propertyPath: inspectRotation.y
+      value: 270
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93a3c517d14ccc64ba5f6a4b841f60b7, type: 3}

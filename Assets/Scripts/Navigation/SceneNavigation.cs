@@ -23,7 +23,7 @@ public class SceneNavigation : MonoBehaviour
             playercam = GameObject.FindGameObjectWithTag("MainCamera");
             rooms[2].SetActive(true);
             items[1].SetActive(true);
-            playercam.GetComponent<CCameraControls>().Office1Cam();
+            //playercam.GetComponent<CCameraControls>().Office1Cam();
         }
         else if (name == "Arrow_Office2")
         {
@@ -66,7 +66,7 @@ public class SceneNavigation : MonoBehaviour
             Debug.Log("Office room right");
             rooms[9].SetActive(true);
             items[5].SetActive(true);
-            playercam.GetComponent<CCameraControls>().BossCam();
+            //playercam.GetComponent<CCameraControls>().BossCam();
         }
         else if (name == "Arrow_Reception")
         {
@@ -74,14 +74,14 @@ public class SceneNavigation : MonoBehaviour
             Debug.Log("reception");
             rooms[0].SetActive(true);
             items[0].SetActive(true);
-            playercam.GetComponent<CCameraControls>().ReceptionCam();
+            //playercam.GetComponent<CCameraControls>().ReceptionCam();
         }
         else if (name == "Arrow_Lobby")
         {
             playercam = GameObject.FindGameObjectWithTag("MainCamera");
             Debug.Log("Lift Lobby");
             rooms[1].SetActive(true);
-            playercam.GetComponent<CCameraControls>().Office1Cam();
+            //playercam.GetComponent<CCameraControls>().Office1Cam();
         }
     }
 }

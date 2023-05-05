@@ -32,23 +32,4 @@ public class CCameraControls : MonoBehaviourPun
             }
         }
     }
-
-    public void Office1Cam()
-    {
-        pitch = 0;
-        yaw = 90;
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-    }
-    public void ReceptionCam()
-    {
-        pitch = 0;
-        yaw = 0;
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-    }
-    public void BossCam()
-    {
-        pitch = 0;
-        yaw = 0;
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-    }
 }

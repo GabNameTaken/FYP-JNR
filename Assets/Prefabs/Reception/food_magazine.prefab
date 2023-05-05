@@ -144,14 +144,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsInspectable: 0
+  bIsPickedUp: 0
   anchorX: 0
   anchorY: 1
   constraintToAnchor: 0
   bIsRotatable: 1
   strItemName: Food Magazine
   previewSprite: {fileID: 21300000, guid: 56bb5628fc508e74aa3c1b54a1ad8e70, type: 3}
-  previewObject: {fileID: 2799535402857461992}
-  itemDescription: 
+  previewObject: {fileID: 5224228669850485627}
+  itemDescription: A food magazine containing an ingredient list to make honey baklava.
+    Left-click to rotate. Right-click to move. Scroll to zoom.
   inspectRotation: {x: -90, y: 0, z: 0}
 --- !u!114 &3742257365507553939
 MonoBehaviour:

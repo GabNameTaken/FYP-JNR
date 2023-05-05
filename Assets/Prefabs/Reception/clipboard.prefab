@@ -227,14 +227,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c093ee651e3c8142b68217942a9bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bIsInspectable: 0
+  bIsPickedUp: 0
   anchorX: 1
   anchorY: 1
   constraintToAnchor: 0
   bIsRotatable: 1
   strItemName: Clipboard
-  previewSprite: {fileID: 0}
-  previewObject: {fileID: 8158549640143568446}
-  itemDescription: A clipboard with all the employee names.
+  previewSprite: {fileID: 21300000, guid: ccf5581c8dd5fe4488978bb5eab81ac3, type: 3}
+  previewObject: {fileID: 527295011691096217}
+  itemDescription: A clipboard with all the employee names. Left-click to rotate.
+    Right-click to move. Scroll to zoom.
   inspectRotation: {x: 0, y: -90, z: 90}
 --- !u!114 &16355977459737362
 MonoBehaviour:
