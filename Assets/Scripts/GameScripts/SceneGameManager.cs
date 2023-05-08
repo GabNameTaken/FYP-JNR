@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using TMPro;
 
 public class SceneGameManager : MonoBehaviourPunCallbacks
 {
@@ -9,6 +10,10 @@ public class SceneGameManager : MonoBehaviourPunCallbacks
     private GameObject thisPlayer;
     [SerializeField] GameObject previewObject;
     [SerializeField] GameObject GameOverCanvas;
+    [SerializeField] GameObject WinScreenCanvas;
+    [SerializeField] GameTimer timer;
+
+    public bool winState;
     public override void OnEnable()
     {
         base.OnEnable();
@@ -36,9 +41,16 @@ public class SceneGameManager : MonoBehaviourPunCallbacks
 
     public void EndGame(bool win)
     {
-        if (!win)
+        winState = win;
+
+        if (!winState)
         {
             GameOverCanvas.GetComponent<CanvasToggle>().SetCanvasToActive();
+        }
+        else
+        {
+            WinScreenCanvas.GetComponent<CanvasToggle>().SetCanvasToActive();
+            WinScreenCanvas.transform.GetChild(0).Find("Time").GetComponent<TMP_Text>().text = "Time taken: " + timer.GetComponent<TMP_Text>().text;
         }
     }
 

@@ -109,6 +109,13 @@ public class QueuedVideoPlayerController : MonoBehaviour
         return (videoPlayer.frame > 0 && !videoPlayer.isPlaying);
     }
 
+    public bool VideoPlayState()
+    {
+        if (VideoHasEnded(currentVideoPlayer))
+            return false;
+        return true;
+    }
+
     private void PlayVideo(VideoPlayer videoPlayer)
     {
         videoPlayer.targetTexture = renderTexture;

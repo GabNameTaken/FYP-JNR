@@ -10,6 +10,7 @@ public class GameTimer : MonoBehaviourPunCallbacks
 {
     [SerializeField] SessionInfo sessionInfo;
     [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] SceneGameManager sceneGameManager;
 
     private const string START_TIME_KEY = "GameStartTime";
 
@@ -84,7 +85,7 @@ public class GameTimer : MonoBehaviourPunCallbacks
 
         currentTimeSeconds = gameDurationSeconds;
 
-        while(currentTimeSeconds > 0)
+        while(currentTimeSeconds > 0 && !sceneGameManager.winState)
         {
             timeElapsedMilliSeconds = PhotonNetwork.ServerTimestamp - gameStartTimeMilliSeconds;
             currentTimeSeconds = gameDurationSeconds - timeElapsedMilliSeconds / 1000;
@@ -111,7 +112,7 @@ public class GameTimer : MonoBehaviourPunCallbacks
         {
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
-        else if (timeToDisplay <= 0)
+        else if (timeToDisplay <= 0 && !sceneGameManager.winState)
         {
             timerText.text = "GAME OVER";
 
