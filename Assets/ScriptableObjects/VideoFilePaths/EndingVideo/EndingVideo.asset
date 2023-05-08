@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EndingVideo
   m_EditorClassIdentifier: 
   startVideoPath: EndingVideo/Ending_Scene_Start.mp4
-  loopVideoPath: EndingVideo/Ending_Scene_Loop.mp4
+  loopVideoPath: 
   endVideoPath: 
