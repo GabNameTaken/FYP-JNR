@@ -83,7 +83,7 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
         {
             object[] data = (object[])eventData.CustomData;
             bool state = (bool)data[0];
-            SceneGameManager sceneGameManager = GameObject.Find("GameManager").GetComponent<SceneGameManager>();
+            SceneGameManager sceneGameManager = GetComponent<SceneGameManager>();
             sceneGameManager.EndGame(state);
         }
     }
