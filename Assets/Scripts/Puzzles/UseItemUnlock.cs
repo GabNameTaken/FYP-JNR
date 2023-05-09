@@ -11,14 +11,11 @@ public class UseItemUnlock: MonoBehaviour
     Hints hints;
     public bool isScanner;
 
+    public string soundName;
+
     void Start()
     {
         hints = FindObjectOfType<Hints>();
-    }
-
-    void Update()
-    {
-        
     }
 
     public void CheckUse()
@@ -45,6 +42,8 @@ public class UseItemUnlock: MonoBehaviour
                 {
                     QRPrinter.GetComponent<ScannerClicked>().close();
                 }
+
+                GameSoundManager.PlaySound(soundName);
 
                 hints.CompletedPuzzle(itemToUse);
             }
