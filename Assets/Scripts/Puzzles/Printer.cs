@@ -69,8 +69,10 @@ public class Printer : InteractableObject
             QueuedNotification.NotificationInfo notificationInfo = new();
             notificationInfo.title = "Printer";
             notificationInfo.message = "Something is getting printed";
-            notificationInfo.durationSeconds = 5;
+            notificationInfo.durationSeconds = 8;
             QueuedNotification.instance.QueueNotification(notificationInfo);
+
+            GameSoundManager.PlaySound("Printer");
         }
     }
 }

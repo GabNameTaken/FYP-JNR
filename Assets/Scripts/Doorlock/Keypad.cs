@@ -145,6 +145,7 @@ public class Keypad : MonoBehaviour
 
     IEnumerator wrongCode()
     {
+        GameSoundManager.PlaySound("SafeError");
         changeImageColorRed();
         yield return new WaitForSeconds(1f);
         clearKeypadInput();
@@ -153,6 +154,7 @@ public class Keypad : MonoBehaviour
 
     IEnumerator rightCode()
     {
+        GameSoundManager.PlaySound("LockSuccess");
         changeImageColorGreen();
         yield return new WaitForSeconds(1f);
         hints.CompletedPuzzle("ReceptionDoor");
