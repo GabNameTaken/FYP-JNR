@@ -9,6 +9,7 @@ TagManager:
   - PopupNotif
   - ShareScreenCanvas
   - SharedCamera
+  - SharedMouseCursor
   layers:
   - Default
   - TransparentFX

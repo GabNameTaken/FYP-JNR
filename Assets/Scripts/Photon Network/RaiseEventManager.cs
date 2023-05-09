@@ -16,6 +16,7 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
     public const byte stopShare = 5;
     public const byte syncTimer = 6;
     public const byte endGame = 7;
+    public const byte syncCursor = 8;
     public void Start()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -85,6 +86,13 @@ public class RaiseEventManager : MonoBehaviour,IOnEventCallback
             bool state = (bool)data[0];
             SceneGameManager sceneGameManager = GetComponent<SceneGameManager>();
             sceneGameManager.EndGame(state);
+        }
+        else if (eventData.Code == syncCursor)
+        {
+            object[] data = (object[])eventData.CustomData;
+            Vector2 pos = (Vector2)data[0];
+            GameObject cursor = GameObject.FindGameObjectWithTag("SharedMouseCursor");
+            cursor.transform.position = new Vector3(pos.x, pos.y, 0);
         }
     }
 }
