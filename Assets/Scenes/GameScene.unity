@@ -10750,7 +10750,7 @@ MonoBehaviour:
   textAfter: Kill Switch inserted.
   title: Malware
   unlockedObject: {fileID: 1273406592}
-  closedObject: {fileID: 0}
+  closedObject: {fileID: 700469552}
   QRPrinter: {fileID: 0}
   isScanner: 0
   soundName: USBInsert
