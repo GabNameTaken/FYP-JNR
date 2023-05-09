@@ -4,84 +4,128 @@ using UnityEngine;
 
 public class SceneNavigation : MonoBehaviour
 {
-    [SerializeField] GameObject[] rooms;
-    [SerializeField] GameObject[] items;
+    [SerializeField] private Dictionary<string,GameObject> items = new();
+    [SerializeField] private Dictionary<string,GameObject> scenes = new();
 
-    private GameObject playercam;
+    private void Start()
+    {
+        GameObject scene = GameObject.Find("Scene");
+        for (byte i = 0; i < scene.transform.childCount; i++)
+        {
+            scenes.Add(scene.transform.GetChild(i).name, scene.transform.GetChild(i).gameObject);
+        }
 
+        GameObject itemHolder = GameObject.Find("ItemHolder");
+        for (byte i = 0; i < itemHolder.transform.childCount; i++)
+        {
+            items.Add(itemHolder.transform.GetChild(i).name, itemHolder.transform.GetChild(i).gameObject);
+        }
+    }
     public void ChangeSceneWithSceneName(string name)
     {
-        //disables the rooms first
-        foreach (GameObject room in rooms) { room.SetActive(false); }
-        foreach (GameObject item in items) { item.SetActive(false); }
+        //disables the scenes first
+        foreach (GameObject room in scenes.Values) { room.SetActive(false); }
+        foreach (GameObject item in items.Values) { item.SetActive(false); }
 
         //enables the room that needs to be enabled
 
         if (name == "Arrow_Office1")
         {
             Debug.Log("Office room 1");
-            playercam = GameObject.FindGameObjectWithTag("MainCamera");
-            rooms[2].SetActive(true);
-            items[1].SetActive(true);
-            //playercam.GetComponent<CCameraControls>().Office1Cam();
+            scenes["Office1"].SetActive(true);
+            items["OfficeItems1"].SetActive(true);
         }
         else if (name == "Arrow_Office2")
         {
             Debug.Log("Office room 2");
-            rooms[3].SetActive(true);
-            items[2].SetActive(true);
+            scenes["Office2"].SetActive(true);
+            items["OfficeItems2"].SetActive(true);
         }
         else if (name == "Arrow_Office3")
         {
             Debug.Log("Office room 3");
-            rooms[4].SetActive(true);
-            items[3].SetActive(true);
+            scenes["Office3"].SetActive(true);
+            items["OfficeItems3"].SetActive(true);
         }
         else if (name == "Arrow_OfficePrinter")
         {
             Debug.Log("Office Printer");
-            rooms[5].SetActive(true);
-            items[4].SetActive(true);
+            scenes["OfficePrinter"].SetActive(true);
+            items["OfficeItemsPrinter"].SetActive(true);
         }
         else if (name == "Arrow_OfficeMeetingRoom")
         {
             Debug.Log("Office room right");
-            rooms[6].SetActive(true);
+            scenes["OfficeMeetingRoom"].SetActive(true);
         }
         else if (name == "Arrow_OfficePantry1")
         {
             Debug.Log("Office pantry1");
-            rooms[7].SetActive(true);
-            items[6].SetActive(true);
+            scenes["OfficePantry (1)"].SetActive(true);
+            items["OfficePantry1Items"].SetActive(true);
         }
         else if (name == "Arrow_OfficePantry")
         {
             Debug.Log("Office room right");
-            rooms[8].SetActive(true);
-            items[7].SetActive(true);
+            scenes["OfficePantry"].SetActive(true);
+            items["OfficePantryItems"].SetActive(true);
         }
         else if (name == "Arrow_BossRoom")
         {
-            playercam = GameObject.FindGameObjectWithTag("MainCamera");
             Debug.Log("Office room right");
-            rooms[9].SetActive(true);
-            items[5].SetActive(true);
-            //playercam.GetComponent<CCameraControls>().BossCam();
+            scenes["BossRoom"].SetActive(true);
+            items["BossItems"].SetActive(true);
         }
         else if (name == "Arrow_Reception")
         {
-            playercam = GameObject.FindGameObjectWithTag("MainCamera");
             Debug.Log("reception");
-            rooms[0].SetActive(true);
-            items[0].SetActive(true);
-            //playercam.GetComponent<CCameraControls>().ReceptionCam();
+            scenes["Reception"].SetActive(true);
+            items["ReceptionItems"].SetActive(true);
         }
         else if (name == "Arrow_Lobby")
         {
-            playercam = GameObject.FindGameObjectWithTag("MainCamera");
             Debug.Log("Lift Lobby");
-            rooms[1].SetActive(true);
-            //playercam.GetComponent<CCameraControls>().Office1Cam();
+            scenes["LiftLobby"].SetActive(true);
+        }
+        else if (name == "Arrow_Floor1Lobby")
+        {
+            scenes["Lobby"].SetActive(true);
+        }
+        else if (name == "Arrow_Lift")
+        {
+            scenes["Lift"].SetActive(true);
+        }
+        else if (name == "Arrow_EntranceLobby1")
+        {
+            scenes["EntranceLobby1"].SetActive(true);
+        }
+        else if (name == "Arrow_EntranceLobby2")
+        {
+            scenes["EntranceLobby2"].SetActive(true);
+        }
+        else if (name == "Arrow_EntranceLobby3")
+        {
+            scenes["EntranceLobby3"].SetActive(true);
+        }
+        else if (name == "Arrow_LoungeHall")
+        {
+            scenes["LoungeHall"].SetActive(true);
+        }
+        else if (name == "Arrow_Lounge")
+        {
+            scenes["Lounge"].SetActive(true);
+        }
+        else if (name == "Arrow_LoungeKitchen")
+        {
+            scenes["LoungeKitchen"].SetActive(true);
+        }
+        else if (name == "Arrow_LobbyMeetingRoom1")
+        {
+            scenes["LobbyMeetingRoom1"].SetActive(true);
+        }
+        else if (name == "Arrow_LobbyMeetingRoom2")
+        {
+            scenes["LobbyMeetingRoom2"].SetActive(true);
         }
     }
 }
