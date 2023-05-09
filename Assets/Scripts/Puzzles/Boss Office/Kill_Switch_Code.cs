@@ -16,6 +16,7 @@ public class Kill_Switch_Code : MonoBehaviour
         {
             // Game Ending stuff here
             Debug.Log("ESCAPE ROOM COMPLETED!");
+            GameSoundManager.PlaySound("PCLogin");
             parent_canvas.SetActive(false);
             ending_video_player.SetActive(true);
         }
