@@ -17,8 +17,10 @@ public class ShareView : MonoBehaviour
     private LocalPlayerList localPlayerList;
     GameObject host;
     GameObject shareViewCloseButton;
+    GameObject mouseCursor;
     [SerializeField] private GameObject playerButton;
     [SerializeField] GameObject shareViewClosePrefab;
+    [SerializeField] GameObject mouseCursorPrefab;
 
     public List<Player> listOfViewers = new();
     private Dictionary<string, bool> savedActiveCanvas;
@@ -57,6 +59,19 @@ public class ShareView : MonoBehaviour
         if (listOfViewers.Count > 0)
         {
             shareScreenCanvas.GetComponent<ShareCanvas>().UpdateShare(listOfViewers);
+            //Vector2 mousePos = Input.mousePosition;
+
+            //int[] receivers = new int[listOfViewers.Count];
+            //for (int i = 0; i < listOfViewers.Count; i++)
+            //{
+            //    receivers[i] = listOfViewers[i].ActorNumber;
+            //}
+
+            //foreach (Player viewer in listOfViewers)
+            //{
+            //    object[] content = new object[] { mousePos };
+            //    PhotonNetwork.RaiseEvent(RaiseEventManager.syncCursor, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
+            //}
         }
     }
 
@@ -143,6 +158,8 @@ public class ShareView : MonoBehaviour
                 canvas.planeDistance = 1;
             }
 
+            //mouseCursor = Instantiate(mouseCursorPrefab);
+
             Debug.Log("Canvas cam change success");
         }
     }
@@ -161,6 +178,8 @@ public class ShareView : MonoBehaviour
             {
                 canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             }
+
+            //Destroy(mouseCursor);
 
             shareScreenCanvas.GetComponent<ShareCanvas>().SetActiveStateOfCanvases(savedActiveCanvas);
             shareScreenCanvas.GetComponent<ShareCanvas>().SetActiveStateOfGameObjects(savedActiveGameObjects);

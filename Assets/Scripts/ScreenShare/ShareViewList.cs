@@ -70,6 +70,7 @@ public class ShareViewList : MonoBehaviour
     public void ViewPlayerScreen(Player host)
     {
         Debug.Log("Viewing: " + host.NickName);
+        CloseView(PhotonNetwork.LocalPlayer);
         photonView.RPC("PreShareScreen", PhotonNetwork.LocalPlayer);
         photonView.RPC("CallShareScreen", host, PhotonNetwork.LocalPlayer);
         shareScreen.SetActive(true);
