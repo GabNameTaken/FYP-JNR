@@ -46211,7 +46211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 2930631951533487421}
-  roomItems: {fileID: 0}
+  roomItems: {fileID: 1296390650}
   otherGOs:
   - {fileID: 6387564856992210792}
   - {fileID: 2930631951674573818}
@@ -50149,7 +50149,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8889810722241224098}
         m_TargetAssemblyTypeName: Take_Kill_Switch, Assembly-CSharp
-        m_MethodName: objecttaken
+        m_MethodName: ObjectTaken
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

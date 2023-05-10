@@ -40,7 +40,8 @@ public class UseItemUnlock: MonoBehaviour
                 QueuedNotification.instance.QueueNotification(notificationInfo);
                 if (isScanner)
                 {
-                    QRPrinter.GetComponent<ScannerClicked>().close();
+                    //QRPrinter.GetComponent<ScannerClicked>().close();
+                    QRPrinter.GetComponent<CanvasToggle>().Close();
                 }
 
                 GameSoundManager.PlaySound(soundName);
