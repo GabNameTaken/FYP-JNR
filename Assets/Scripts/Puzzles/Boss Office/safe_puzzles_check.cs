@@ -21,6 +21,7 @@ public class safe_puzzles_check : MonoBehaviour
     {
         if (isCyperUnlocked && Keypad_lock.GetComponent<Keypad>().boss_safe_keypad_solved)
         {
+            GameSoundManager.PlaySound("SafeOpen");
             opened_safe_canvas.SetActive(true);
             canvas_to_close.SetActive(false);
         }
@@ -41,6 +42,7 @@ public class safe_puzzles_check : MonoBehaviour
             + dial3_letter.text
             + dial4_letter.text))
         {
+            GameSoundManager.PlaySound("LockSuccess");
             isCyperUnlocked = true;
             hints.CompletedPuzzle("BossCypher");
             QueuedNotification.NotificationInfo notificationInfo = new();

@@ -30,6 +30,8 @@ public class Keypad : MonoBehaviour
             if (keycodeInput[i].text == "")
             {
                 keycodeInput[i].text = inputText;
+                if (i == keycodeInput.Length-1)
+                    OnClick_checkCode();
                 break;
             }
         }
@@ -48,20 +50,24 @@ public class Keypad : MonoBehaviour
                 keycodeInput[6].text == "1")
             {
                 StartCoroutine(rightCode_boss_Safe());
+                GameSoundManager.PlaySound("LockSuccess");
             }
             else if (keycodeInput[6].text != "")
             {
                 StartCoroutine(wrongCode());
+                GameSoundManager.PlaySound("SafeError");
             }
         }
         else
         {
             if (keycodeInput[0].text == "5" && keycodeInput[1].text == "3" && keycodeInput[2].text == "9" && keycodeInput[3].text == "8")
             {
+                GameSoundManager.PlaySound("LockSuccess");
                 StartCoroutine(rightCode());
             }
             else if (keycodeInput[3].text != "")
             {
+                GameSoundManager.PlaySound("SafeError");
                 StartCoroutine(wrongCode());
             }
         }
@@ -69,7 +75,7 @@ public class Keypad : MonoBehaviour
 
     private void Update()
     {
-        OnClick_checkCode();
+        //OnClick_checkCode();
     }
 
     public void OnClick_deleteKeypadInput()
@@ -94,51 +100,61 @@ public class Keypad : MonoBehaviour
 
     public void OnClick_1()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "1";
         checkKeypadInput();
     }
     public void OnClick_2()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "2";
         checkKeypadInput();
     }
     public void OnClick_3()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "3";
         checkKeypadInput();
     }
     public void OnClick_4()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "4";
         checkKeypadInput();
     }
     public void OnClick_5()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "5";
         checkKeypadInput();
     }
     public void OnClick_6()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "6";
         checkKeypadInput();
     }
     public void OnClick_7()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "7";
         checkKeypadInput();
     }
     public void OnClick_8()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "8";
         checkKeypadInput();
     }
     public void OnClick_9()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "9";
         checkKeypadInput();
     }
     public void OnClick_0()
     {
+        GameSoundManager.PlaySound("Keypad");
         inputText = "0";
         checkKeypadInput();
     }
@@ -169,6 +185,7 @@ public class Keypad : MonoBehaviour
 
     IEnumerator rightCode_boss_Safe()
     {
+        
         changeImageColorGreen();
         yield return new WaitForSeconds(1f);
         QueuedNotification.NotificationInfo notificationInfo = new();

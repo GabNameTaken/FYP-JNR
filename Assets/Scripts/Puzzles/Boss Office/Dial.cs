@@ -24,6 +24,7 @@ public class Dial : MonoBehaviour
 
     public void click_next_letter()
     {
+        GameSoundManager.PlaySound("SafeDial");
         // next_letter
         if (next_letter_array_pos + 1 > alphabet_list_length)
         {
@@ -65,6 +66,7 @@ public class Dial : MonoBehaviour
 
     public void click_prev_letter()
     {
+        GameSoundManager.PlaySound("SafeDial");
         // next_letter
         if (next_letter_array_pos - 1 < 0)
         {

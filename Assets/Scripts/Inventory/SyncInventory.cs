@@ -31,10 +31,9 @@ public class SyncInventory : MonoBehaviour
 
                 if (item)
                 {
+                    GameSoundManager.PlaySound("PickUp");
                     PhotonView itemPV = item.gameObject.GetComponent<PhotonView>();
-                    //itemPV.RPC("AddToInventory", RpcTarget.AllBufferedViaServer);
                     item.gameObject.GetComponent<CItem>().AddToInventory();
-                    //itemPV.RPC("MoveItemToInventory", RpcTarget.AllBufferedViaServer);
                     QueuedNotification.NotificationInfo notificationInfo = new();
                     notificationInfo.title = "Item Received: ";
                     notificationInfo.message = item.GetComponent<CItem>().getGameObjectName();
