@@ -1,4 +1,4 @@
-using UnityEngine;
+  using UnityEngine;
 using TMPro;
 
 [RequireComponent(typeof(SyncedPuzzle))]
@@ -39,12 +39,19 @@ public class PCLogin : MonoBehaviour
         {
             syncedPuzzle.CallSyncSolvePuzzle();
         }
+        else
+        {
+            GameSoundManager.PlaySound("Error");
+        }
     }
     public void OnSolvedPuzzle()
     {
+        GameSoundManager.PlaySound("PCLogin");
+
         pcScreen.SetActive(true);
         toDisable.SetActive(false);
         hints.CompletedPuzzle(pcName);
+
         if (hasTip)
         {
             tips.SetTipActive(tipNum);

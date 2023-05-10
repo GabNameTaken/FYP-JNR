@@ -57,42 +57,52 @@ public class SafeKeypad : MonoBehaviour
 
     public void OnClick_1()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("1");
     }
     public void OnClick_2()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("2");
     }
     public void OnClick_3()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("3");
     }
     public void OnClick_4()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("4");
     }
     public void OnClick_5()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("5");
     }
     public void OnClick_6()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("6");
     }
     public void OnClick_7()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("7");
     }
     public void OnClick_8()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("8");
     }
     public void OnClick_9()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("9");
     }
     public void OnClick_0()
     {
+        GameSoundManager.PlaySound("Keypad");
         KeypadInput("0");
     }
 
@@ -106,6 +116,7 @@ public class SafeKeypad : MonoBehaviour
 
     IEnumerator WrongCode()
     {
+        GameSoundManager.PlaySound("SafeError");
         ChangeImageColorRed();
         keypad.SetActive(false);
         yield return new WaitForSeconds(2);
@@ -118,6 +129,7 @@ public class SafeKeypad : MonoBehaviour
     {
         ChangeImageColorGreen();
         yield return new WaitForSeconds(1);
+        GameSoundManager.PlaySound("KeyUnlock");
         safe.GetComponent<Image>().sprite = img[1];
         ClearKeypadInput();
         ChangeImageColorOrigin();

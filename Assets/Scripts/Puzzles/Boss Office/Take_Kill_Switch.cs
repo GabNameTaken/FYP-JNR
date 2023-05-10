@@ -26,12 +26,13 @@ public class Take_Kill_Switch : MonoBehaviour
         kill_switch_GO.SetActive(true);
     }
 
-    public void objecttaken()
+    public void ObjectTaken()
     {
         kill_switch_GO.SetActive(true);
+        kill_switch_GO.transform.GetChild(0).gameObject.SetActive(true);
         player.GetComponent<SyncInventory>().CallPickupItem("Kill Switch");
         BG.GetComponent<RawImage>().texture = kill_switch_taken_BG;
         kill_switch_button.gameObject.SetActive(false);
-        kill_switch_GO.SetActive(false);
+        //kill_switch_GO.SetActive(false);
     }
 }

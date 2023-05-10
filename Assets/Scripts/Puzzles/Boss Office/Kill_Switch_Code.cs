@@ -17,6 +17,7 @@ public class Kill_Switch_Code : MonoBehaviour
         {
             // Game Ending stuff here
             Debug.Log("ESCAPE ROOM COMPLETED!");
+            GameSoundManager.PlaySound("PCLogin");
             parent_canvas.SetActive(false);
             blackScreen.SetActive(true);
             PhotonView photonView = GetComponent<PhotonView>();

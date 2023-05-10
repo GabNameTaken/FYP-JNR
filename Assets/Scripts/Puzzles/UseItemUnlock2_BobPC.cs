@@ -6,18 +6,15 @@ using TMPro;
 public class UseItemUnlock2_BobPC : MonoBehaviour
 {
     public string itemToUse;
-    [SerializeField] private string textBefore, textAfter;
+    [SerializeField] private string notifTitle, notifMessage;
     [SerializeField] private GameObject unlockedObject, unlockedObject2, closedObject, closedObject2;
     Hints hints;
+
+    public string soundName;
 
     void Start()
     {
         hints = FindObjectOfType<Hints>();
-    }
-
-    void Update()
-    {
-
     }
 
     public void CheckUse()
@@ -31,12 +28,14 @@ public class UseItemUnlock2_BobPC : MonoBehaviour
             closedObject2.SetActive(false);
             this.gameObject.SetActive(false);
             hints.CompletedPuzzle(itemToUse);
+
+            GameSoundManager.PlaySound(soundName);
         }
         else
         {
               QueuedNotification.NotificationInfo notificationInfo = new();
-              notificationInfo.title = "Closed PC case";
-              notificationInfo.message = "Locked";
+              notificationInfo.title = notifTitle;
+              notificationInfo.message = notifMessage;
               notificationInfo.durationSeconds = 5;
               QueuedNotification.instance.QueueNotification(notificationInfo);
         }

@@ -54,8 +54,6 @@ public class CItem : MonoBehaviour
         CInventoryItemButtons.instance.onAddInventoryCItem(gameObject.GetComponent<CItem>());
     }
 
-    [PunRPC]
-
     public void MoveItemToInventory()
     {
         setbIsPickedUp(true);

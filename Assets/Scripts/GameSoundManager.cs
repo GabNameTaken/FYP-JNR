@@ -12,7 +12,7 @@ public class GameSoundManager : MonoBehaviour
 
     public Slider SoundSlider;
 
-    void Start()
+    void Awake()
     {
         for (int i = 0; i < soundNames.Count; ++i)
         {
