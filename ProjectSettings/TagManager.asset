@@ -10,6 +10,7 @@ TagManager:
   - ShareScreenCanvas
   - SharedCamera
   - SharedMouseCursor
+  - CameraCanvas
   layers:
   - Default
   - TransparentFX

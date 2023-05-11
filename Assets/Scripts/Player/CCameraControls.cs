@@ -17,6 +17,15 @@ public class CCameraControls : MonoBehaviourPun
         startPitch = 0 + Input.GetAxis("Mouse Y");
         yaw = startYaw;
         pitch = startPitch;
+        List<Canvas> canvases = new();
+        canvases.AddRange(FindObjectsOfType<Canvas>(true));
+        foreach (Canvas canvas in canvases)
+        {
+            if (canvas.transform.tag == "CameraCanvas")
+            {
+                canvas.worldCamera = GetComponent<Camera>();
+            }
+        }
     }
 
     private void Update()   

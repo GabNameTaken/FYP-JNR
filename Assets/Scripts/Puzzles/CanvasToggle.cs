@@ -9,8 +9,10 @@ public class CanvasToggle : MonoBehaviour
 
     public void SetCanvasToActive()
     {
-        canvas.SetActive(true);
-        roomItems.SetActive(false);
+        if (canvas)
+            canvas.SetActive(true);
+        if (roomItems)
+            roomItems.SetActive(false);
         for (int i = 0; i < otherGOs.Length; i++)
         {
             otherGOs[i].SetActive(false);
@@ -19,8 +21,10 @@ public class CanvasToggle : MonoBehaviour
 
     public void Close()
     {
-        canvas.SetActive(false);
-        roomItems.SetActive(true);
+        if (canvas)
+            canvas.SetActive(false);
+        if (roomItems)
+            roomItems.SetActive(true);
         for (int i = 0; i < otherGOs.Length; i++)
         {
             otherGOs[i].SetActive(true);
