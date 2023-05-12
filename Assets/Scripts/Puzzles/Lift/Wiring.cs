@@ -1,54 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class Wiring : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+
+public class Wiring : MonoBehaviour
 {
-    private Image image;
-    private LineRenderer lineRenderer;
-    private Canvas canvas;
-    private bool dragging = false;
+    public Wire currentDraggedWire;
+    public List<Wire> leftWireList;
+    public List<Wire> rightWireList;
 
-    public Vector3 initialPos;
+    private Dictionary<Wire, Wire> connectedPairs = new();
 
-    private void Awake()
+    private void Start()
     {
-        image = GetComponent<Image>();
-        lineRenderer = GetComponent<LineRenderer>();
-        canvas = GetComponentInParent<Canvas>();
-        initialPos = transform.position;
-    }
-
-    private void Update()
-    {
-        if (dragging)
+        foreach (Transform child in transform.GetChild(0))
         {
-            Vector2 movePos;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out movePos);
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, canvas.transform.TransformPoint(movePos));
+            leftWireList.Add(child.GetComponent<Wire>());
+            child.GetComponent<Wire>().isLeftWire = true;
         }
-        else
+        foreach (Transform child in transform.GetChild(1))
         {
-            lineRenderer.SetPosition(0, Vector3.zero);
-            lineRenderer.SetPosition(0, Vector3.zero);
+            rightWireList.Add(child.GetComponent<Wire>());
         }
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public void ConnectPair(Wire wire1, Wire wire2)
     {
-        
+        connectedPairs[wire1] = wire2;
+        connectedPairs[wire2] = wire1;
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public bool CheckConnection(Wire wire)
     {
-        dragging = true;
+        return connectedPairs.ContainsKey(wire);
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public void RemovePair(Wire wire1, Wire wire2)
     {
-        dragging = false;
+        connectedPairs[wire1] = null;
+        connectedPairs[wire2] = null;
+    }
+
+    public void RemoveWire(Wire wire)
+    {
+        Debug.Log(connectedPairs.Count);
+        foreach (KeyValuePair<Wire, Wire> pair in connectedPairs)
+        {
+            if (pair.Value == wire)
+                connectedPairs.Remove(pair.Value);
+
+            Debug.Log(pair.Key + " : " + pair.Value);
+            //    connectedPairs[pair.Key] = null;
+        }
+        Debug.Log(connectedPairs.Count);
     }
 }
