@@ -30,7 +30,10 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         {
             Vector2 movePos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out movePos);
-            lineRenderer.SetPosition(0, transform.position);
+            if (isLeftWire)
+                lineRenderer.SetPosition(0, new Vector3(transform.position.x - 1,transform.position.y,transform.position.z));
+            else
+                lineRenderer.SetPosition(0, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z));
             lineRenderer.SetPosition(1, canvas.transform.TransformPoint(movePos));
         }
         else
@@ -46,6 +49,12 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     public void OnHover()
     {
         wiringTask.currentHoveredWire = this;
+    }
+
+    public void OnExitHover()
+    {
+        if (wiringTask.currentHoveredWire == this)
+            wiringTask.currentHoveredWire = null;
     }
 
     public void ConnectWire()
