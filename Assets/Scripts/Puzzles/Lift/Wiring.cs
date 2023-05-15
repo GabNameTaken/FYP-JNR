@@ -65,8 +65,11 @@ public class Wiring : MonoBehaviour
 
     private bool CheckPair(Wire wire1, Wire wire2)
     {
-        if (connectedPairs[wire1] == wire2 && connectedPairs[wire2] == wire1)
-            return true;
+        if (connectedPairs.ContainsKey(wire1) && connectedPairs.ContainsKey(wire2))
+        {
+            if (connectedPairs[wire1] == wire2 && connectedPairs[wire2] == wire1)
+                return true;
+        }
         return false;
     }
     private bool CheckSolution()
