@@ -6,8 +6,14 @@ using UnityEngine;
 public class Wiring : MonoBehaviour
 {
     public Wire currentDraggedWire;
+    public Wire currentHoveredWire;
     public List<Wire> leftWireList;
     public List<Wire> rightWireList;
+
+    [Header("Solutions")] 
+    public List<Wire> LeftWireSolutionList;
+    public List<Wire> RightWireSolutionList;
+    public GameObject navigationReward;
 
     private Dictionary<Wire, Wire> connectedPairs = new();
 
@@ -28,6 +34,8 @@ public class Wiring : MonoBehaviour
     {
         connectedPairs[wire1] = wire2;
         connectedPairs[wire2] = wire1;
+        if (CheckSolution())
+            Solved();
     }
 
     public bool CheckConnection(Wire wire)
@@ -43,15 +51,36 @@ public class Wiring : MonoBehaviour
 
     public void RemoveWire(Wire wire)
     {
-        Debug.Log(connectedPairs.Count);
-        foreach (KeyValuePair<Wire, Wire> pair in connectedPairs)
+        Wire connectedWire = null;
+        if (connectedPairs[wire])
         {
-            if (pair.Value == wire)
-                connectedPairs.Remove(pair.Value);
-
-            Debug.Log(pair.Key + " : " + pair.Value);
-            //    connectedPairs[pair.Key] = null;
+            connectedWire = connectedPairs[wire];
         }
-        Debug.Log(connectedPairs.Count);
+        if (connectedWire != null)
+        {
+            connectedPairs.Remove(connectedWire);
+        }
+        connectedPairs.Remove(wire);
+    }
+
+    private bool CheckPair(Wire wire1, Wire wire2)
+    {
+        if (connectedPairs[wire1] == wire2 && connectedPairs[wire2] == wire1)
+            return true;
+        return false;
+    }
+    private bool CheckSolution()
+    {
+        for (byte i = 0; i < LeftWireSolutionList.Count; i++)
+        {
+            if (!CheckPair(LeftWireSolutionList[i], RightWireSolutionList[i]))
+                return false;
+        }
+        return true;
+    }
+
+    private void Solved()
+    {
+        navigationReward.SetActive(true);
     }
 }

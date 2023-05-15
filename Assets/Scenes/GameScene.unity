@@ -4610,7 +4610,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &270916224
 MonoBehaviour:
@@ -4631,7 +4630,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 270916223}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10210,7 +10209,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &627547777
 MonoBehaviour:
@@ -10231,7 +10229,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 627547776}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11792,7 +11790,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &706109099
 MonoBehaviour:
@@ -11813,7 +11810,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 706109098}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -15982,7 +15979,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &1025260615
 MonoBehaviour:
@@ -16003,7 +15999,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1025260614}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -16314,7 +16310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &1029650468
 MonoBehaviour:
@@ -16335,7 +16330,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1029650467}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -18966,7 +18961,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &1169624961
 MonoBehaviour:
@@ -18987,7 +18981,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1169624960}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -20351,8 +20345,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDraggedWire: {fileID: 0}
+  currentHoveredWire: {fileID: 0}
   leftWireList: []
   rightWireList: []
+  LeftWireSolutionList:
+  - {fileID: 1029650467}
+  - {fileID: 1582593943}
+  RightWireSolutionList:
+  - {fileID: 2060878131}
+  - {fileID: 1459915013}
+  navigationReward: {fileID: 2745867334671656247}
 --- !u!1 &1248266313
 GameObject:
   m_ObjectHideFlags: 0
@@ -22064,7 +22066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &1311510148
 MonoBehaviour:
@@ -22085,7 +22086,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1311510147}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -24425,7 +24426,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &1417580480
 MonoBehaviour:
@@ -24446,7 +24446,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1417580479}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25268,7 +25268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &1459915014
 MonoBehaviour:
@@ -25289,7 +25288,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1459915013}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -27397,7 +27396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &1582593944
 MonoBehaviour:
@@ -27418,7 +27416,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1582593943}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -35341,7 +35339,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &1892430500
 MonoBehaviour:
@@ -35362,7 +35359,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1892430499}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -38347,7 +38344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0, z: 0}
-  connected: 0
   isLeftWire: 0
 --- !u!114 &2060878132
 MonoBehaviour:
@@ -38368,7 +38364,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2060878131}
           m_TargetAssemblyTypeName: Wire, Assembly-CSharp
-          m_MethodName: ConnectWire
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -49281,7 +49277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2745867334671656248
 Transform:
   m_ObjectHideFlags: 0

@@ -43,17 +43,23 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         }
     }
 
+    public void OnHover()
+    {
+        wiringTask.currentHoveredWire = this;
+    }
+
     public void ConnectWire()
     {
-        if (wiringTask.currentDraggedWire && wiringTask.currentDraggedWire.isLeftWire != isLeftWire && !wiringTask.CheckConnection(this))
+        if (wiringTask.currentHoveredWire && wiringTask.currentHoveredWire.isLeftWire != isLeftWire && !wiringTask.CheckConnection(wiringTask.currentHoveredWire))
         {
-            wiringTask.ConnectPair(this, wiringTask.currentDraggedWire);
+            wiringTask.ConnectPair(wiringTask.currentHoveredWire, wiringTask.currentDraggedWire);
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        wiringTask.RemoveWire(this);
+        if (wiringTask.CheckConnection(this))
+            wiringTask.RemoveWire(this);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -65,5 +71,6 @@ public class Wire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         dragging = false;
+        ConnectWire();
     }
 }
