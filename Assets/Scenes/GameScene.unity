@@ -25589,8 +25589,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 594272505}
-        m_TargetAssemblyTypeName: ReceptionPClicked, Assembly-CSharp
+      - m_Target: {fileID: 414430219}
+        m_TargetAssemblyTypeName: CanvasToggle, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -32078,8 +32078,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 594272505}
-        m_TargetAssemblyTypeName: ReceptionPClicked, Assembly-CSharp
+      - m_Target: {fileID: 265190930}
+        m_TargetAssemblyTypeName: CanvasToggle, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -34241,8 +34241,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 594272505}
-        m_TargetAssemblyTypeName: ReceptionPClicked, Assembly-CSharp
+      - m_Target: {fileID: 510298672}
+        m_TargetAssemblyTypeName: CanvasToggle, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -35338,8 +35338,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 594272505}
-        m_TargetAssemblyTypeName: ReceptionPClicked, Assembly-CSharp
+      - m_Target: {fileID: 996359394}
+        m_TargetAssemblyTypeName: CanvasToggle, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -38605,8 +38605,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 594272505}
-        m_TargetAssemblyTypeName: ReceptionPClicked, Assembly-CSharp
+      - m_Target: {fileID: 1190016209}
+        m_TargetAssemblyTypeName: CanvasToggle, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -39121,8 +39121,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 594272505}
-        m_TargetAssemblyTypeName: ReceptionPClicked, Assembly-CSharp
+      - m_Target: {fileID: 1427504648}
+        m_TargetAssemblyTypeName: CanvasToggle, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -42650,8 +42650,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 594272505}
-        m_TargetAssemblyTypeName: ReceptionPClicked, Assembly-CSharp
+      - m_Target: {fileID: 1450014619}
+        m_TargetAssemblyTypeName: CanvasToggle, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
