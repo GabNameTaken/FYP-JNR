@@ -85,5 +85,10 @@ public class Wiring : MonoBehaviour
     private void Solved()
     {
         navigationReward.SetActive(true);
+        QueuedNotification.NotificationInfo notificationInfo = new();
+        notificationInfo.title = "Objective: ";
+        notificationInfo.message = "Lift Panel fixed";
+        notificationInfo.durationSeconds = 5;
+        QueuedNotification.instance.QueueNotification(notificationInfo);
     }
 }
