@@ -1,0 +1,1 @@
+The wires should be connected together to form the shapes above. Seems like red is to add and blue is to subtract.
