@@ -17,7 +17,6 @@ public class ShareView : MonoBehaviour
     private LocalPlayerList localPlayerList;
     GameObject host;
     GameObject shareViewCloseButton;
-    GameObject mouseCursor;
     [SerializeField] private GameObject playerButton;
     [SerializeField] GameObject shareViewClosePrefab;
     [SerializeField] GameObject mouseCursorPrefab;
@@ -138,8 +137,6 @@ public class ShareView : MonoBehaviour
         if (host != null)
         {
             Camera hostCam = host.transform.Find("Camera").gameObject.GetComponent<Camera>();
-            //RectTransform screen = (RectTransform)shareScreenCanvas.transform.Find("ShareScreen").Find("Screen").transform;
-            //hostCam.rect = RectTransformToCameraViewport(screen);
             shareScreenCanvas.transform.Find("ShareScreen").Find("Name").GetChild(0).GetComponent<TMP_Text>().text = hostName.ToUpper();
             hostCam.rect = new Rect(0.115f, 0.119f, 0.77f, 0.767f);
             hostCam.depth = 1;
@@ -157,8 +154,6 @@ public class ShareView : MonoBehaviour
                 canvas.sortingOrder = 1;
                 canvas.planeDistance = 1;
             }
-
-            //mouseCursor = Instantiate(mouseCursorPrefab);
 
             Debug.Log("Canvas cam change success");
         }
