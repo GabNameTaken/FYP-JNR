@@ -41,12 +41,12 @@ public class PCLogin : MonoBehaviour
         }
         else
         {
-            GameSoundManager.PlaySound("Error");
+            GameSoundManager.instance.PlaySound("Error");
         }
     }
     public void OnSolvedPuzzle()
     {
-        GameSoundManager.PlaySound("PCLogin");
+        GameSoundManager.instance.PlaySound("PCLogin");
 
         pcScreen.SetActive(true);
         toDisable.SetActive(false);

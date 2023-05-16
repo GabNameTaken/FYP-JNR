@@ -29,7 +29,7 @@ public class UseItemUnlock2_BobPC : MonoBehaviour
             this.gameObject.SetActive(false);
             hints.CompletedPuzzle(itemToUse);
 
-            GameSoundManager.PlaySound(soundName);
+            GameSoundManager.instance.PlaySound(soundName);
         }
         else
         {
