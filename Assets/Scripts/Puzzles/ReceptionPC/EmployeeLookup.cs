@@ -39,7 +39,12 @@ public class EmployeeLookup : MonoBehaviour
             page.SetActive(false);
         }
 
-        if (input.text == "Adam" || input.text == "adam")
+        input.text = input.text.Trim();
+        if (input.text == "")
+        {
+            return;
+        }
+        else if (input.text == "Adam" || input.text == "adam")
         {
             mainPage.SetActive(false);
             employeePageList[0].SetActive(true);
