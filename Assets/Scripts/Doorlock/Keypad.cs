@@ -50,24 +50,24 @@ public class Keypad : MonoBehaviour
                 keycodeInput[6].text == "1")
             {
                 StartCoroutine(rightCode_boss_Safe());
-                GameSoundManager.PlaySound("LockSuccess");
+                GameSoundManager.instance.PlaySound("LockSuccess");
             }
             else if (keycodeInput[6].text != "")
             {
                 StartCoroutine(wrongCode());
-                GameSoundManager.PlaySound("SafeError");
+                GameSoundManager.instance.PlaySound("SafeError");
             }
         }
         else
         {
             if (keycodeInput[0].text == "5" && keycodeInput[1].text == "3" && keycodeInput[2].text == "9" && keycodeInput[3].text == "8")
             {
-                GameSoundManager.PlaySound("LockSuccess");
+                GameSoundManager.instance.PlaySound("LockSuccess");
                 StartCoroutine(rightCode());
             }
             else if (keycodeInput[3].text != "")
             {
-                GameSoundManager.PlaySound("SafeError");
+                GameSoundManager.instance.PlaySound("SafeError");
                 StartCoroutine(wrongCode());
             }
         }
@@ -100,61 +100,61 @@ public class Keypad : MonoBehaviour
 
     public void OnClick_1()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "1";
         checkKeypadInput();
     }
     public void OnClick_2()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "2";
         checkKeypadInput();
     }
     public void OnClick_3()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "3";
         checkKeypadInput();
     }
     public void OnClick_4()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "4";
         checkKeypadInput();
     }
     public void OnClick_5()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "5";
         checkKeypadInput();
     }
     public void OnClick_6()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "6";
         checkKeypadInput();
     }
     public void OnClick_7()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "7";
         checkKeypadInput();
     }
     public void OnClick_8()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "8";
         checkKeypadInput();
     }
     public void OnClick_9()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "9";
         checkKeypadInput();
     }
     public void OnClick_0()
     {
-        GameSoundManager.PlaySound("Keypad");
+        GameSoundManager.instance.PlaySound("Keypad");
         inputText = "0";
         checkKeypadInput();
     }

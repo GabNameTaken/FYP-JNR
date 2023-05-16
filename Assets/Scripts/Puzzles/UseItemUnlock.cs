@@ -44,7 +44,7 @@ public class UseItemUnlock: MonoBehaviour
                     QRPrinter.GetComponent<CanvasToggle>().Close();
                 }
 
-                GameSoundManager.PlaySound(soundName);
+                GameSoundManager.instance.PlaySound(soundName);
 
                 hints.CompletedPuzzle(itemToUse);
             }
