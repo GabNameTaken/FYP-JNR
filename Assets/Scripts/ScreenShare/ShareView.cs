@@ -58,19 +58,7 @@ public class ShareView : MonoBehaviour
         if (listOfViewers.Count > 0)
         {
             shareScreenCanvas.GetComponent<ShareCanvas>().UpdateShare(listOfViewers);
-            //Vector2 mousePos = Input.mousePosition;
-
-            //int[] receivers = new int[listOfViewers.Count];
-            //for (int i = 0; i < listOfViewers.Count; i++)
-            //{
-            //    receivers[i] = listOfViewers[i].ActorNumber;
-            //}
-
-            //foreach (Player viewer in listOfViewers)
-            //{
-            //    object[] content = new object[] { mousePos };
-            //    PhotonNetwork.RaiseEvent(RaiseEventManager.syncCursor, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
-            //}
+            Debug.Log("Running");
         }
     }
 
@@ -101,7 +89,7 @@ public class ShareView : MonoBehaviour
         {
             receivers[i] = listOfViewers[i].ActorNumber;
         }
-        Debug.Log("Raising event for stop share");
+        Debug.Log("Raising event for stop share");  
         object[] content = new object[] { };
         PhotonNetwork.RaiseEvent(RaiseEventManager.stopShare, content, new RaiseEventOptions { TargetActors = receivers }, SendOptions.SendReliable);
     }
@@ -190,6 +178,8 @@ public class ShareView : MonoBehaviour
             {
                 goToDisable.SetActive(true);
             }
+
+            photonView.RPC("RemoveViewer", host.GetComponent<PhotonView>().Owner, PhotonNetwork.LocalPlayer);
         }
         Debug.Log("Quit viewing");
     }
@@ -197,19 +187,10 @@ public class ShareView : MonoBehaviour
     [PunRPC]
     public void RemoveViewer(Player viewer)
     {
-        if (host != null)
+        if (listOfViewers.Contains(viewer))
         {
-            if (host.GetComponent<ShareView>().listOfViewers.Contains(viewer))
-            {
-                host.GetComponent<ShareView>().listOfViewers.Remove(viewer);
-                Debug.Log(viewer.NickName + " removed from the viewerList");
-            }
-            else
-            {
-                Debug.Log("host doesn't contain viewer");
-            }
+            listOfViewers.Remove(viewer);
+            Debug.Log("Removed " + viewer.NickName + " from viewing");
         }
-        else
-            Debug.Log("host is null");
     }
 }
