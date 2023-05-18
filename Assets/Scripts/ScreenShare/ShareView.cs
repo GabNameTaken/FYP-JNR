@@ -39,7 +39,7 @@ public class ShareView : MonoBehaviour
         shareViewList = shareScreenCanvas.transform.Find("SharedList").transform.Find("List").transform.Find("Viewport").transform.Find("Content").gameObject;
     }
 
-    public static Rect RectTransformToCameraViewport(RectTransform rectTransform)
+    public static Rect RectTransformToCameraViewport(RectTransform rectTransform)   // not used but very cool math :)
     {
         float leftDownCornerX = (rectTransform.anchoredPosition.x - rectTransform.sizeDelta.x / 2);
         float leftDownCornerY = (rectTransform.anchoredPosition.y - rectTransform.sizeDelta.y / 2);
@@ -141,7 +141,7 @@ public class ShareView : MonoBehaviour
                 canvas.planeDistance = 1;
             }
 
-            Debug.Log("Canvas cam change success");
+            Debug.Log("Screen share succeeded");
         }
     }
 

@@ -20,23 +20,23 @@ public class MouseCursorChangeHighlight : MonoBehaviour
         isHover = false;
     }
 
-    private void Update()
-    {
-        raycast = cam.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(raycast, out raycastHit) && !isHover)
-        {
-            //InteractableObject interactableObject = raycastHit.transform.gameObject.GetComponent<InteractableObject>();
-            //GameObject GO_interactableObject = raycastHit.transform.gameObject;
+    //private void Update()
+    //{
+    //    raycast = cam.ScreenPointToRay(Input.mousePosition);
+    //    if (Physics.Raycast(raycast, out raycastHit) && !isHover)
+    //    {
+    //        //InteractableObject interactableObject = raycastHit.transform.gameObject.GetComponent<InteractableObject>();
+    //        //GameObject GO_interactableObject = raycastHit.transform.gameObject;
             
-            // Change to cursorHover
-            Cursor.SetCursor(cursorHover, Vector2.zero, CursorMode.ForceSoftware);
-            isHover = true;
-        }
+    //        // Change to cursorHover
+    //        Cursor.SetCursor(cursorHover, Vector2.zero, CursorMode.ForceSoftware);
+    //        isHover = true;
+    //    }
 
-        else if (!Physics.Raycast(raycast, out raycastHit) && isHover)
-        {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
-            isHover = false;
-        }
-    }
+    //    else if (!Physics.Raycast(raycast, out raycastHit) && isHover)
+    //    {
+    //        Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+    //        isHover = false;
+    //    }
+    //}
 }

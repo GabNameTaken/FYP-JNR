@@ -16,6 +16,7 @@ public class ShareViewList : MonoBehaviour
     [SerializeField] private SceneGameManager photonPlayer;
     [SerializeField] private GameObject shareScreen;
     public List<GameObject> disableGOs;
+    public List<GameObject> inventoryGOs;
     private PhotonView photonView;
     private Player client;
     private GameObject toggle;
@@ -76,7 +77,14 @@ public class ShareViewList : MonoBehaviour
         shareScreen.SetActive(true);
         foreach (GameObject go in disableGOs)
         {
-            go.SetActive(false);
+            go.SetActive(false);    // enable/disable selected GameObjects
+        }
+        foreach(GameObject go in inventoryGOs)
+        {
+            if (go.name == "ClosedInventory")
+                go.SetActive(true);
+            else
+                go.SetActive(false);
         }
     }
 
