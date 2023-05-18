@@ -58,7 +58,6 @@ public class ShareView : MonoBehaviour
         if (listOfViewers.Count > 0)
         {
             shareScreenCanvas.GetComponent<ShareCanvas>().UpdateShare(listOfViewers);
-            Debug.Log("Running");
         }
     }
 
@@ -133,7 +132,6 @@ public class ShareView : MonoBehaviour
             shareViewCloseButton = shareScreenCanvas.transform.Find("SharedList").transform.Find("CloseViewButton").gameObject;
             shareViewCloseButton.GetComponent<Button>().onClick.AddListener(delegate { shareViewList.GetComponent<ShareViewList>().CloseView(PhotonNetwork.LocalPlayer); });
             shareViewCloseButton.SetActive(true);
-            Debug.Log("share success");
 
             foreach (Canvas canvas in shareScreenCanvas.GetComponent<ShareCanvas>().shareableCanvases)
             {
@@ -162,8 +160,6 @@ public class ShareView : MonoBehaviour
                 canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             }
 
-            //Destroy(mouseCursor);
-
             shareScreenCanvas.GetComponent<ShareCanvas>().SetActiveStateOfCanvases(savedActiveCanvas);
             shareScreenCanvas.GetComponent<ShareCanvas>().SetActiveStateOfGameObjects(savedActiveGameObjects);
             shareScreenCanvas.GetComponent<ShareCanvas>().SetInputFields(savedInputFields);
@@ -181,7 +177,6 @@ public class ShareView : MonoBehaviour
 
             photonView.RPC("RemoveViewer", host.GetComponent<PhotonView>().Owner, PhotonNetwork.LocalPlayer);
         }
-        Debug.Log("Quit viewing");
     }
 
     [PunRPC]

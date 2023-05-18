@@ -29901,7 +29901,7 @@ PrefabInstance:
       objectReference: {fileID: 650856523}
     - target: {fileID: 2957869496813184046, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: disableGOs.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2957869496813184046, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: disableGOs.Array.data[0]
@@ -29915,6 +29915,14 @@ PrefabInstance:
       propertyPath: disableGOs.Array.data[2]
       value: 
       objectReference: {fileID: 809557516}
+    - target: {fileID: 2957869496813184046, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: disableGOs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1864945739}
+    - target: {fileID: 2957869496813184046, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
+      propertyPath: disableGOs.Array.data[4]
+      value: 
+      objectReference: {fileID: 234510594}
     - target: {fileID: 4820937178390663375, guid: 78b7b23cd8fabeb4fa93fc0b5a564676, type: 3}
       propertyPath: m_Value
       value: 1
