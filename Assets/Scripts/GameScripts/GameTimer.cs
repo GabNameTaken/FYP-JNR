@@ -16,7 +16,7 @@ public class GameTimer : MonoBehaviourPunCallbacks
 
     bool isTimerRunning;
     float currentTimeSeconds;
-    float gameDurationSeconds;
+    public float gameDurationSeconds;
     int gameStartTimeMilliSeconds;
     int timeElapsedMilliSeconds;
 

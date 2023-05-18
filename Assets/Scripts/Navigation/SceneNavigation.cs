@@ -7,8 +7,6 @@ public class SceneNavigation : MonoBehaviour
     [SerializeField] GameObject[] rooms;
     [SerializeField] GameObject[] items;
 
-    private GameObject playercam;
-
     public void ChangeSceneWithSceneName(string name)
     {
         //disables the rooms first
@@ -20,10 +18,8 @@ public class SceneNavigation : MonoBehaviour
         if (name == "Arrow_Office1")
         {
             Debug.Log("Office room 1");
-            playercam = GameObject.FindGameObjectWithTag("MainCamera");
             rooms[2].SetActive(true);
             items[1].SetActive(true);
-            //playercam.GetComponent<CCameraControls>().Office1Cam();
         }
         else if (name == "Arrow_Office2")
         {
@@ -62,26 +58,19 @@ public class SceneNavigation : MonoBehaviour
         }
         else if (name == "Arrow_BossRoom")
         {
-            playercam = GameObject.FindGameObjectWithTag("MainCamera");
-            Debug.Log("Office room right");
             rooms[9].SetActive(true);
             items[5].SetActive(true);
-            //playercam.GetComponent<CCameraControls>().BossCam();
         }
         else if (name == "Arrow_Reception")
         {
-            playercam = GameObject.FindGameObjectWithTag("MainCamera");
             Debug.Log("reception");
             rooms[0].SetActive(true);
             items[0].SetActive(true);
-            //playercam.GetComponent<CCameraControls>().ReceptionCam();
         }
         else if (name == "Arrow_Lobby")
         {
-            playercam = GameObject.FindGameObjectWithTag("MainCamera");
             Debug.Log("Lift Lobby");
             rooms[1].SetActive(true);
-            //playercam.GetComponent<CCameraControls>().Office1Cam();
         }
     }
 }
