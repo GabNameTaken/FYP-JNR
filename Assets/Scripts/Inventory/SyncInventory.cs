@@ -17,6 +17,7 @@ public class SyncInventory : MonoBehaviour
 
     public void CallPickupItem(string itemName)
     {
+        
         photonView.RPC("PickupItem", RpcTarget.AllViaServer, itemName);
     }
 
@@ -31,7 +32,7 @@ public class SyncInventory : MonoBehaviour
 
                 if (item)
                 {
-                    GameSoundManager.PlaySound("PickUp");
+                    GameSoundManager.instance.PlaySound("PickUp");
                     PhotonView itemPV = item.gameObject.GetComponent<PhotonView>();
                     item.gameObject.GetComponent<CItem>().AddToInventory();
                     QueuedNotification.NotificationInfo notificationInfo = new();

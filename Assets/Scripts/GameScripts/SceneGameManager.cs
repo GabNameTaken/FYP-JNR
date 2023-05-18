@@ -14,6 +14,8 @@ public class SceneGameManager : MonoBehaviourPunCallbacks
     [SerializeField] GameTimer timer;
 
     public bool winState;
+    public float time;
+    private float timeToDisplay;
     public override void OnEnable()
     {
         base.OnEnable();
@@ -49,8 +51,12 @@ public class SceneGameManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            timeToDisplay = timer.gameDurationSeconds - time;
+            float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
             WinScreenCanvas.GetComponent<CanvasToggle>().SetCanvasToActive();
-            WinScreenCanvas.transform.GetChild(0).Find("Time").GetComponent<TMP_Text>().text = "Time taken: " + timer.GetComponent<TMP_Text>().text;
+            WinScreenCanvas.transform.GetChild(0).Find("Time").GetComponent<TMP_Text>().text = "Time taken: " + string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
 
