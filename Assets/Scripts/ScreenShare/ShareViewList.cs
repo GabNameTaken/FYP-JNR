@@ -26,8 +26,8 @@ public class ShareViewList : MonoBehaviour
         listOpen = false;
         shareViewList = transform.parent.parent.parent.gameObject;
         shareViewList.SetActive(false);
-        
-        photonView = photonPlayer.GetPlayerPhotonView();
+
+        ResetPhotonView();
     }
 
     private void Awake()
@@ -35,6 +35,11 @@ public class ShareViewList : MonoBehaviour
         toggle = GameObject.Find("ConferenceCanvas").transform.Find("DropDownPanel").transform.Find("HorizontalVideoView").transform.Find("ShareScreenToggle").gameObject;
         toggle.GetComponent<Button>().onClick.AddListener(delegate { ListShareScreen(); });
         toggle.SetActive(true);
+    }
+
+    public void ResetPhotonView()
+    {
+        photonView = photonPlayer.GetPlayerPhotonView();
     }
 
     public void ListShareScreen()

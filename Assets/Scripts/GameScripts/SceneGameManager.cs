@@ -41,6 +41,11 @@ public class SceneGameManager : MonoBehaviourPunCallbacks
         return photonView;
     }
 
+    public void SetPhotonView(PhotonView pv)
+    {
+        photonView = pv;
+    }
+
     public void EndGame(bool win)
     {
         winState = win;

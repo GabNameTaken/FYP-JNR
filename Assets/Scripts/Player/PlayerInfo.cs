@@ -15,6 +15,8 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
     private CItem GOClickedCItem;
     private PopupItems GOClickedPopupItems;
 
+    GameObject Network;
+
     int PFPIndex = 0;
     int MAX_PFPsprites = 6;
 
@@ -24,7 +26,7 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
     {
         objectClicker = gameObject.GetComponentInChildren<ObjectClicker>();
         syncInventory = GetComponent<SyncInventory>();
-        GameObject Network = GameObject.Find("Network");
+        Network = GameObject.Find("Network");
 
         if (photonView.IsMine)
         {
@@ -34,14 +36,23 @@ public class PlayerInfo : MonoBehaviourPun, IPunObservable
                 cam.depth = 1;
                 cam.gameObject.AddComponent(typeof(AudioListener));
             }
-            if (photonView.ViewID % 1000 == 1 && !PhotonNetwork.IsMasterClient)
-            {
-                PhotonNetwork.Destroy(photonView);
+            if (!PhotonNetwork.IsMasterClient)
+            { 
+                if (photonView.ViewID % 1000 == 1)
+                {
+                    PhotonNetwork.Destroy(photonView);
+                }
+                else
+                {
+                    SceneGameManager sceneGameManager = FindObjectOfType<SceneGameManager>();
+                    sceneGameManager.SetPhotonView(photonView);
+                    ShareViewList shareViewList = FindObjectOfType<ShareViewList>(true);
+                    shareViewList.ResetPhotonView();
+                }
             }
         }
         if (!Network.GetComponent<LocalPlayerList>().PlayerList.Contains(gameObject))
             Network.GetComponent<LocalPlayerList>().AddPlayer(gameObject);
-        Debug.Log(Network.GetComponent<LocalPlayerList>().PlayerList.Count);
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
             Debug.Log(PhotonNetwork.PlayerList[i] + "," + i + "," + PhotonNetwork.PlayerList[i].ActorNumber);
     }
