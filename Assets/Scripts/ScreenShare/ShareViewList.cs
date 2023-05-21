@@ -16,6 +16,7 @@ public class ShareViewList : MonoBehaviour
     [SerializeField] private SceneGameManager photonPlayer;
     [SerializeField] private GameObject shareScreen;
     public List<GameObject> disableGOs;
+    public List<GameObject> inventoryGOs;
     private PhotonView photonView;
     private Player client;
     private GameObject toggle;
@@ -25,8 +26,8 @@ public class ShareViewList : MonoBehaviour
         listOpen = false;
         shareViewList = transform.parent.parent.parent.gameObject;
         shareViewList.SetActive(false);
-        
-        photonView = photonPlayer.GetPlayerPhotonView();
+
+        ResetPhotonView();
     }
 
     private void Awake()
@@ -34,6 +35,11 @@ public class ShareViewList : MonoBehaviour
         toggle = GameObject.Find("ConferenceCanvas").transform.Find("DropDownPanel").transform.Find("HorizontalVideoView").transform.Find("ShareScreenToggle").gameObject;
         toggle.GetComponent<Button>().onClick.AddListener(delegate { ListShareScreen(); });
         toggle.SetActive(true);
+    }
+
+    public void ResetPhotonView()
+    {
+        photonView = photonPlayer.GetPlayerPhotonView();
     }
 
     public void ListShareScreen()
@@ -76,7 +82,14 @@ public class ShareViewList : MonoBehaviour
         shareScreen.SetActive(true);
         foreach (GameObject go in disableGOs)
         {
-            go.SetActive(false);
+            go.SetActive(false);    // enable/disable selected GameObjects
+        }
+        foreach(GameObject go in inventoryGOs)
+        {
+            if (go.name == "ClosedInventory")
+                go.SetActive(true);
+            else
+                go.SetActive(false);
         }
     }
 

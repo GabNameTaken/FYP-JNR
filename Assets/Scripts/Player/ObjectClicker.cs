@@ -1,6 +1,7 @@
-using System.Collections;
+//using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class ObjectClicker : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class ObjectClicker : MonoBehaviour
 
     public void Click()
     {
+        if (!gameObject.GetComponentInParent<PhotonView>().IsMine)
+            return;
         raycast = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(raycast, out raycastHit))
         {
@@ -96,6 +99,8 @@ public class ObjectClicker : MonoBehaviour
 
     private void Update()   //object highlighting
     {
+        if (!gameObject.GetComponentInParent<PhotonView>().IsMine)
+            return;
         raycast = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(raycast, out raycastHit))
         {
