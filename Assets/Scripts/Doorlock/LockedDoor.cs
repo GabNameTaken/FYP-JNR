@@ -19,8 +19,10 @@ public class LockedDoor : MonoBehaviourPun, ILockedDoor
     {
         if (isLocked)
         {
-            receptionLock.SetActive(true);
-            roomObjects.SetActive(false);
+            if (receptionLock)
+                receptionLock.SetActive(true);
+            if (roomObjects)
+                roomObjects.SetActive(false);
             for (int i = 0; i < otherGOs.Length; i++)
             {
                 otherGOs[i].SetActive(false);
@@ -30,8 +32,10 @@ public class LockedDoor : MonoBehaviourPun, ILockedDoor
 
     public void UnlockDoor()
     {
-        receptionLock.SetActive(false);
-        roomObjects.SetActive(true);
+        if (receptionLock)
+            receptionLock.SetActive(false);
+        if (roomObjects)
+            roomObjects.SetActive(true);
         for (int i = 0; i < otherGOs.Length; i++)
         {
             otherGOs[i].SetActive(true);
@@ -49,8 +53,10 @@ public class LockedDoor : MonoBehaviourPun, ILockedDoor
 
     public void Close()
     {
-        receptionLock.SetActive(false);
-        roomObjects.SetActive(true);
+        if (receptionLock)
+            receptionLock.SetActive(false);
+        if (roomObjects)
+            roomObjects.SetActive(true);
         for (int i = 0; i < otherGOs.Length; i++)
         {
             otherGOs[i].SetActive(true);
