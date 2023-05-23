@@ -14,9 +14,6 @@ public class Quiz : MonoBehaviour
     [SerializeField] TextMeshProUGUI incorrectText;
     [SerializeField] GameObject incorrectPanel;
 
-    //To set navigation arrow active
-    [SerializeField] LockedDoor lockDoorRef;
-
     public void PickOption(int option)
     {
         if (option == answer)
@@ -29,15 +26,5 @@ public class Quiz : MonoBehaviour
             incorrectText.text = optionText[option];
             incorrectPanel.SetActive(true);
         }
-    }
-
-    public void CloseCorrectPopup()
-    {
-        lockDoorRef.UnlockDoor();
-    }
-
-    public void CloseIncorrectPopup()
-    {
-        incorrectPanel.SetActive(false);
     }
 }
