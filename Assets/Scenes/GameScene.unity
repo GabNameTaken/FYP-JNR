@@ -1247,7 +1247,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Left-click - Pick-up/interact
+  m_text: '
+
+    Left-click - Pick-up/interact
 
 
     Right-click - move camera
@@ -1257,9 +1259,13 @@ MonoBehaviour:
     - reset inspection window
 
 
+    Scroll wheel - scroll inventory
 
 
-    Input codes/passwords'
+
+
+    Input
+    codes/passwords'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
   m_sharedMaterial: {fileID: 4328365591246802938, guid: e9910633d1423f94d8aaa3675a7b3ae0, type: 2}
@@ -4856,7 +4862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: -100}
+  m_AnchoredPosition: {x: -40, y: -170}
   m_SizeDelta: {x: 840, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &259739174
@@ -74925,6 +74931,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6450614887278375314, guid: e0484def5bc5e6540b04ed7964ef9fbe, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450614887278375315, guid: e0484def5bc5e6540b04ed7964ef9fbe, type: 3}
+      propertyPath: m_Spacing
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450614887278375315, guid: e0484def5bc5e6540b04ed7964ef9fbe, type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450614887278375315, guid: e0484def5bc5e6540b04ed7964ef9fbe, type: 3}
+      propertyPath: m_ChildControlHeight
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

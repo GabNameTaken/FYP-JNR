@@ -24,7 +24,6 @@ public class ItemButton : MonoBehaviour, ISelectHandler
         {
             selectedItem = item.gameObject.name;
         }
-        Debug.Log(selectedItem);
     }
 
     public void OnClick_InspectItem()
