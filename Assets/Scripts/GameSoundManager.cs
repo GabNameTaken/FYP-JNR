@@ -37,11 +37,6 @@ public class GameSoundManager : MonoBehaviour
         sounds[soundName].PlayOneShotSoundManaged(sounds[soundName].clip);
     }
 
-    public void PlaySoundLoop(string soundName)
-    {
-        sounds[soundName].PlayLoopingMusicManaged(1.0f, 1.0f, false);
-    }
-
     public void SoundVolumeChanged()
     {
         SoundManager.SoundVolume = SoundSlider.value;
