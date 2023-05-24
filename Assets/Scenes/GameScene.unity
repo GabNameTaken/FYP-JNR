@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 5282858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.2, y: 0, z: 10}
-  m_LocalScale: {x: 2, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 1.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 604520825}
@@ -192,7 +192,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4ba16a2e5b88f824e9acdb520cb23f81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13427,7 +13427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &678154804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19565,6 +19565,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 1013322033}
   password: Security
+  verificationImage: {fileID: 1902747099}
+  invalidVerificationImage: {fileID: 21300000, guid: d6ffcb36b2849354482cab5420d5da9c, type: 3}
+  validVerificationImage: {fileID: 21300000, guid: 64f3e6e8252bfaf4eabbf115b055a21d, type: 3}
 --- !u!1 &1022987601
 GameObject:
   m_ObjectHideFlags: 0
