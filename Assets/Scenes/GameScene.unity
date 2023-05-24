@@ -12066,7 +12066,7 @@ Transform:
   - {fileID: 5282859}
   - {fileID: 678154804}
   m_Father: {fileID: 1397586941}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &604520826
 MonoBehaviour:
@@ -30386,7 +30386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1397586941
 Transform:
   m_ObjectHideFlags: 0
@@ -30399,8 +30399,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1902991959}
   - {fileID: 604520825}
+  - {fileID: 1902991959}
   m_Father: {fileID: 213314859}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45679,7 +45679,7 @@ Transform:
   m_Children:
   - {fileID: 198126148}
   m_Father: {fileID: 1397586941}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1902991960
 MonoBehaviour:
@@ -54943,7 +54943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -58177,7 +58177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2051420555303408531
 Transform:
   m_ObjectHideFlags: 0
