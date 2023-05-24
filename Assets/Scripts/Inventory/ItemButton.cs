@@ -45,7 +45,11 @@ public class ItemButton : MonoBehaviour, ISelectHandler
     {
         if (itemUsed == gameObject.name)
         {
-            Destroy(gameObject);
+            if (item.numberOfUses > 0)
+                item.numberOfUses--;
+
+            if (item.numberOfUses <= 0)
+                Destroy(gameObject);
         }
     }
 }

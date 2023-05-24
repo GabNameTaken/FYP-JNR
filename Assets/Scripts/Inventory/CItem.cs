@@ -14,6 +14,8 @@ public class CItem : MonoBehaviour
     public float anchorY = 1.0f;
     public bool constraintToAnchor = false; //Constraint or no constraint for inspection menu
 
+    public int numberOfUses = 0;
+
     private GameObject inventoryGO;
 
     [SerializeField] private bool bIsRotatable;
