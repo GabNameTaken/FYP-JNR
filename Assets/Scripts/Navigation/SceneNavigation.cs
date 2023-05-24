@@ -9,12 +9,8 @@ public class SceneNavigation : MonoBehaviour
     [SerializeField] GameObject[] rooms;
     [SerializeField] GameObject[] items;
 
-    TMP_Text roomName;
+    [SerializeField] TextMeshProUGUI roomName;
 
-    private void Start()
-    {
-        roomName = GameObject.Find("Canvas").transform.Find("RoomName").GetComponent<TMP_Text>();
-    }
     public void ChangeSceneWithSceneName(string name)
     {
         //disables the rooms first
