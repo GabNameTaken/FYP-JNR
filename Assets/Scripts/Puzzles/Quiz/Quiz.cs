@@ -20,11 +20,13 @@ public class Quiz : MonoBehaviour
         {
             correctText.text = optionText[option];
             correctPanel.SetActive(true);
+            GameSoundManager.instance.PlaySound("PCLogin");
         }
         else
         {
             incorrectText.text = optionText[option];
             incorrectPanel.SetActive(true);
+            GameSoundManager.instance.PlaySound("Error");
         }
     }
 }
