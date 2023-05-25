@@ -2474,10 +2474,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1113579365}
-  roomItems: {fileID: 2745867334698544779}
+  roomItems: {fileID: 0}
   otherGOs:
   - {fileID: 130709919}
   - {fileID: 2677017746287379680}
+  - {fileID: 2745867334698544779}
 --- !u!114 &130709925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16157,9 +16158,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 502452785}
-  roomItems: {fileID: 881449334}
+  roomItems: {fileID: 0}
   otherGOs:
+  - {fileID: 843365257}
   - {fileID: 2677017746287379680}
+  - {fileID: 881449334}
 --- !u!1 &808104083
 GameObject:
   m_ObjectHideFlags: 0
@@ -19033,8 +19036,9 @@ MonoBehaviour:
   otherGOs:
   - {fileID: 5852715752917005898}
   - {fileID: 1638624717}
-  - {fileID: 1118553705}
+  - {fileID: 4564577464749649030}
   - {fileID: 45792556}
+  - {fileID: 1118553705}
   - {fileID: 2677017746287379680}
 --- !u!1 &996359392
 GameObject:
@@ -35596,8 +35600,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1879982798}
-  roomItems: {fileID: 2058756456}
+  roomItems: {fileID: 0}
   otherGOs:
+  - {fileID: 487367327}
+  - {fileID: 1613501590}
+  - {fileID: 2058756456}
   - {fileID: 2677017746287379680}
 --- !u!1 &1606685487
 GameObject:
@@ -35869,9 +35876,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 979587699}
-  roomItems: {fileID: 2058756456}
+  roomItems: {fileID: 0}
   otherGOs:
+  - {fileID: 1590569035}
+  - {fileID: 1026385468}
   - {fileID: 2677017746287379680}
+  - {fileID: 2058756456}
 --- !u!1 &1613852470
 GameObject:
   m_ObjectHideFlags: 0
@@ -36894,6 +36904,7 @@ MonoBehaviour:
   roomItems: {fileID: 1376148536}
   otherGOs:
   - {fileID: 5852715752917005898}
+  - {fileID: 712082005}
   - {fileID: 919132149068791134}
   - {fileID: 45792556}
   - {fileID: 1118553705}
@@ -46179,6 +46190,7 @@ MonoBehaviour:
   - {fileID: 5852715752917005898}
   - {fileID: 1638624717}
   - {fileID: 919132149068791134}
+  - {fileID: 1935437155}
   - {fileID: 1118553705}
   - {fileID: 2677017746287379680}
   img:
@@ -82429,8 +82441,9 @@ MonoBehaviour:
   safe_canvas: {fileID: 7724509821575982400}
   roomItems: {fileID: 42542681}
   otherGOs:
-  - {fileID: 1311033256}
   - {fileID: 221935709}
+  - {fileID: 1311033256}
+  - {fileID: 2677017746287379680}
 --- !u!114 &7450100639158414273
 MonoBehaviour:
   m_ObjectHideFlags: 0
