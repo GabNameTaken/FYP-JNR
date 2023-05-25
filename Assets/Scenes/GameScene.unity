@@ -26688,7 +26688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1276544033
 Transform:
   m_ObjectHideFlags: 0
@@ -26897,9 +26897,9 @@ MonoBehaviour:
   optionText:
   - By using a mix of both numbers and letters, it increases the complexity and creates
     more combinations for an attacker to guess
-  - Using birth dates as your password can easily be guessed
   - Using the same password leaves your accounts more vulnerable if an attacker has
     access to your password
+  - Using birth dates as your password can easily be guessed
   - 'Using a common password let cyber criminals crack your password easily '
   correctText: {fileID: 1121027788}
   correctPanel: {fileID: 545047976}
@@ -59960,7 +59960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2745867333552787146
 Transform:
   m_ObjectHideFlags: 0
