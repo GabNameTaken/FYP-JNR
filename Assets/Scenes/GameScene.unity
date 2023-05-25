@@ -12196,8 +12196,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 502452785}
-  roomItems: {fileID: 881449334}
+  roomItems: {fileID: 0}
   otherGOs:
+  - {fileID: 843365257}
+  - {fileID: 881449334}
   - {fileID: 2129276144}
 --- !u!1 &809557516
 GameObject:
@@ -25108,8 +25110,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1879982798}
-  roomItems: {fileID: 2058756456}
-  otherGOs: []
+  roomItems: {fileID: 0}
+  otherGOs:
+  - {fileID: 487367327}
+  - {fileID: 1613501590}
+  - {fileID: 2058756456}
+  - {fileID: 742818281}
 --- !u!1 &1606685487
 GameObject:
   m_ObjectHideFlags: 0
@@ -25380,8 +25386,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 979587699}
-  roomItems: {fileID: 2058756456}
-  otherGOs: []
+  roomItems: {fileID: 0}
+  otherGOs:
+  - {fileID: 1590569035}
+  - {fileID: 1026385468}
+  - {fileID: 2058756456}
+  - {fileID: 742818281}
 --- !u!1 &1613852470
 GameObject:
   m_ObjectHideFlags: 0
@@ -37666,6 +37676,7 @@ MonoBehaviour:
   current_letter: {fileID: 821296272521139942}
   prev_letter: {fileID: 7952801438389117605}
   knob: {fileID: 7609033290633016354}
+  safePuzzleRef: {fileID: 4626960140473391676}
 --- !u!224 &464706137943846181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43542,6 +43553,7 @@ MonoBehaviour:
   current_letter: {fileID: 9200068357405344434}
   prev_letter: {fileID: 5670249584886591494}
   knob: {fileID: 7609033290633016354}
+  safePuzzleRef: {fileID: 4626960140473391676}
 --- !u!224 &2124272711128483674
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50485,6 +50497,7 @@ MonoBehaviour:
   Keypad_lock: {fileID: 4726506207896632252}
   canvas_to_close: {fileID: 7724509821575982400}
   opened_safe_canvas: {fileID: 5383646162997301503}
+  isCyperUnlocked: 0
 --- !u!222 &4651121576182701109
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50960,6 +50973,7 @@ MonoBehaviour:
   current_letter: {fileID: 1422094427062127063}
   prev_letter: {fileID: 7170407009172572715}
   knob: {fileID: 7609033290633016354}
+  safePuzzleRef: {fileID: 4626960140473391676}
 --- !u!114 &5055248980124711093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64850,6 +64864,7 @@ MonoBehaviour:
   current_letter: {fileID: 4622279702856031736}
   prev_letter: {fileID: 8181034492928158964}
   knob: {fileID: 7609033290633016354}
+  safePuzzleRef: {fileID: 4626960140473391676}
 --- !u!222 &7108172127943002999
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -65562,8 +65577,8 @@ MonoBehaviour:
   safe_canvas: {fileID: 7724509821575982400}
   roomItems: {fileID: 42542681}
   otherGOs:
-  - {fileID: 1311033256}
   - {fileID: 221935709}
+  - {fileID: 1311033256}
   - {fileID: 2129276144}
 --- !u!114 &7450100639158414273
 MonoBehaviour:

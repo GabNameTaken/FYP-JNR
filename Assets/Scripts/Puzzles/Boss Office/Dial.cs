@@ -14,6 +14,8 @@ public class Dial : MonoBehaviour
     private int current_letter_array_pos;
     private int prev_letter_array_pos;
 
+    [SerializeField] safe_puzzles_check safePuzzleRef; //reference to safe puzzle to prevent dial from changing on completion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,9 @@ public class Dial : MonoBehaviour
 
     public void click_next_letter()
     {
+        if (safePuzzleRef.isCyperUnlocked)
+            return;
+
         GameSoundManager.instance.PlaySound("SafeDial");
         // next_letter
         if (next_letter_array_pos + 1 > alphabet_list_length)
@@ -66,6 +71,9 @@ public class Dial : MonoBehaviour
 
     public void click_prev_letter()
     {
+        if (safePuzzleRef.isCyperUnlocked)
+            return;
+
         GameSoundManager.instance.PlaySound("SafeDial");
         // next_letter
         if (next_letter_array_pos - 1 < 0)
