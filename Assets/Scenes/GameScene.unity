@@ -14458,6 +14458,7 @@ MonoBehaviour:
   otherGOs:
   - {fileID: 5852715752917005898}
   - {fileID: 1638624717}
+  - {fileID: 4564577464749649030}
   - {fileID: 1118553705}
   - {fileID: 45792556}
   - {fileID: 2129276144}
@@ -26414,6 +26415,7 @@ MonoBehaviour:
   roomItems: {fileID: 1376148536}
   otherGOs:
   - {fileID: 5852715752917005898}
+  - {fileID: 712082005}
   - {fileID: 919132149068791134}
   - {fileID: 45792556}
   - {fileID: 1118553705}
@@ -33610,6 +33612,7 @@ MonoBehaviour:
   - {fileID: 5852715752917005898}
   - {fileID: 1638624717}
   - {fileID: 919132149068791134}
+  - {fileID: 1935437155}
   - {fileID: 1118553705}
   - {fileID: 2129276144}
   img:
