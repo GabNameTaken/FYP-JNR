@@ -13,24 +13,42 @@ public class InputFieldQuiz : MonoBehaviour
     [SerializeField] TMP_InputField inputField;
     [SerializeField] string password;
     [SerializeField] Image verificationImage;
+    [SerializeField] Sprite defaultVerificationImage;
     [SerializeField] Sprite invalidVerificationImage;
     [SerializeField] Sprite validVerificationImage;
+
     public void CheckInput()
     {
-        if (inputField.text.ToUpper() == password.ToUpper())
+        if (inputField.text.Length != 8)
+            return;
+
+        if (inputField.text.ToLower() == password)
         {
-            verificationImage.sprite = validVerificationImage;
-            GameSoundManager.instance.PlaySound("PCLogin");
             StartCoroutine(EndGame());
         }
         else
         {
-            verificationImage.sprite = invalidVerificationImage;
+            StartCoroutine(WrongCode());
         }
     }
+
+    private IEnumerator WrongCode()
+    {
+        verificationImage.sprite = invalidVerificationImage;
+        inputField.DeactivateInputField();
+        GameSoundManager.instance.PlaySound("Error");
+        yield return new WaitForSeconds(2f);
+
+        verificationImage.sprite = defaultVerificationImage;
+        inputField.text = "";
+        inputField.ActivateInputField();
+    }
+
     private IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(3f);
+        verificationImage.sprite = validVerificationImage;
+        GameSoundManager.instance.PlaySound("PCLogin");
+        yield return new WaitForSeconds(2f);
 
         object[] content = new object[] { true };
         PhotonNetwork.RaiseEvent(RaiseEventManager.endGame, content, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
