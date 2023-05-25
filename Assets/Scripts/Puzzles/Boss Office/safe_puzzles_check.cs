@@ -10,7 +10,7 @@ public class safe_puzzles_check : MonoBehaviour
     [SerializeField] GameObject Keypad_lock, canvas_to_close, opened_safe_canvas;
     Hints hints;
 
-    bool isCyperUnlocked = false;
+    public bool isCyperUnlocked = false;
 
     private void Awake()
     {

@@ -13249,7 +13249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &670844824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26689,7 +26689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1276544033
 Transform:
   m_ObjectHideFlags: 0
@@ -30011,7 +30011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1376148537
 Transform:
   m_ObjectHideFlags: 0
@@ -51252,6 +51252,7 @@ MonoBehaviour:
   current_letter: {fileID: 821296272521139942}
   prev_letter: {fileID: 7952801438389117605}
   knob: {fileID: 7609033290633016354}
+  safePuzzleRef: {fileID: 4626960140473391676}
 --- !u!224 &464706137943846181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -58419,6 +58420,7 @@ MonoBehaviour:
   current_letter: {fileID: 9200068357405344434}
   prev_letter: {fileID: 5670249584886591494}
   knob: {fileID: 7609033290633016354}
+  safePuzzleRef: {fileID: 4626960140473391676}
 --- !u!224 &2124272711128483674
 RectTransform:
   m_ObjectHideFlags: 0
@@ -66719,6 +66721,7 @@ MonoBehaviour:
   Keypad_lock: {fileID: 4726506207896632252}
   canvas_to_close: {fileID: 7724509821575982400}
   opened_safe_canvas: {fileID: 5383646162997301503}
+  isCyperUnlocked: 0
 --- !u!222 &4651121576182701109
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -67194,6 +67197,7 @@ MonoBehaviour:
   current_letter: {fileID: 1422094427062127063}
   prev_letter: {fileID: 7170407009172572715}
   knob: {fileID: 7609033290633016354}
+  safePuzzleRef: {fileID: 4626960140473391676}
 --- !u!114 &5055248980124711093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67585,7 +67589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5101805489837488923
 Transform:
   m_ObjectHideFlags: 0
@@ -81712,6 +81716,7 @@ MonoBehaviour:
   current_letter: {fileID: 4622279702856031736}
   prev_letter: {fileID: 8181034492928158964}
   knob: {fileID: 7609033290633016354}
+  safePuzzleRef: {fileID: 4626960140473391676}
 --- !u!222 &7108172127943002999
 CanvasRenderer:
   m_ObjectHideFlags: 0
