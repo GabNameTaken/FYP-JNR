@@ -1838,7 +1838,7 @@ GameObject:
   - component: {fileID: 105368051}
   - component: {fileID: 105368050}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StandCanvas4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2994,7 +2994,7 @@ GameObject:
   - component: {fileID: 156432938}
   - component: {fileID: 156432937}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StandCanvas2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13417,7 +13417,7 @@ GameObject:
   - component: {fileID: 678154806}
   - component: {fileID: 678154805}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: FinalQuizCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14510,7 +14510,7 @@ GameObject:
   - component: {fileID: 710921228}
   - component: {fileID: 710921227}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StandCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20426,7 +20426,7 @@ GameObject:
   - component: {fileID: 1043700272}
   - component: {fileID: 1043700271}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: QuizCanvas2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20693,7 +20693,7 @@ GameObject:
   - component: {fileID: 1054243996}
   - component: {fileID: 1054243995}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StandCanvas7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22355,7 +22355,7 @@ GameObject:
   - component: {fileID: 1096966303}
   - component: {fileID: 1096966302}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StandCanvas6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26642,7 +26642,7 @@ GameObject:
   - component: {fileID: 1277274605}
   - component: {fileID: 1277274608}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: QuizCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39033,7 +39033,7 @@ GameObject:
   - component: {fileID: 1718620136}
   - component: {fileID: 1718620135}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StandCanvas3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39556,7 +39556,7 @@ GameObject:
   - component: {fileID: 1735023817}
   - component: {fileID: 1735023816}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StandCanvas5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
