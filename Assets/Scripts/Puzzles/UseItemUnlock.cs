@@ -11,6 +11,8 @@ public class UseItemUnlock: MonoBehaviour
     Hints hints;
     public bool isScanner;
 
+    [SerializeField] string timeUsed;
+
     public string soundName;
 
     void Start()
@@ -45,7 +47,7 @@ public class UseItemUnlock: MonoBehaviour
 
                 GameSoundManager.instance.PlaySound(soundName);
 
-                hints.CompletedPuzzle(itemToUse);
+                hints.CompletedPuzzle(itemToUse + timeUsed);
             }
             else
             {

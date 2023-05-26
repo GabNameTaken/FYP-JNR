@@ -14,6 +14,9 @@ public class Quiz : MonoBehaviour
     [SerializeField] TextMeshProUGUI incorrectText;
     [SerializeField] GameObject incorrectPanel;
 
+    [SerializeField] Hints hintRef;
+    [SerializeField] string quizNo;
+
     public void PickOption(int option)
     {
         if (option == answer)
@@ -21,6 +24,7 @@ public class Quiz : MonoBehaviour
             correctText.text = optionText[option];
             correctPanel.SetActive(true);
             GameSoundManager.instance.PlaySound("PCLogin");
+            hintRef.CompletedPuzzle("Quiz" + quizNo);
         }
         else
         {

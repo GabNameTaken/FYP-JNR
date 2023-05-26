@@ -17,6 +17,8 @@ public class InputFieldQuiz : MonoBehaviour
     [SerializeField] Sprite invalidVerificationImage;
     [SerializeField] Sprite validVerificationImage;
 
+    [SerializeField] Hints hintRef;
+
     public void CheckInput()
     {
         if (inputField.text.Length != 8)
@@ -24,6 +26,7 @@ public class InputFieldQuiz : MonoBehaviour
 
         if (inputField.text.ToLower() == password)
         {
+            hintRef.CompletedPuzzle("Final");
             StartCoroutine(EndGame());
         }
         else

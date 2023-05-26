@@ -17,6 +17,8 @@ public class Wiring : MonoBehaviour
 
     private Dictionary<Wire, Wire> connectedPairs = new();
 
+    [SerializeField] Hints hintRef;
+
     private void Start()
     {
         foreach (Transform child in transform.GetChild(0))
@@ -34,6 +36,8 @@ public class Wiring : MonoBehaviour
     {
         connectedPairs[wire1] = wire2;
         connectedPairs[wire2] = wire1;
+        GameSoundManager.instance.PlaySound("LiftWire");
+
         if (CheckSolution())
             Solved();
     }
@@ -90,5 +94,7 @@ public class Wiring : MonoBehaviour
         notificationInfo.message = "Lift Panel fixed";
         notificationInfo.durationSeconds = 5;
         QueuedNotification.instance.QueueNotification(notificationInfo);
+        hintRef.CompletedPuzzle("Wire");
+        GameSoundManager.instance.PlaySound("LiftPing");
     }
 }
