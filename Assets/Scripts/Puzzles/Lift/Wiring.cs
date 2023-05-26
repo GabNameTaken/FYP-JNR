@@ -17,6 +17,8 @@ public class Wiring : MonoBehaviour
 
     private Dictionary<Wire, Wire> connectedPairs = new();
 
+    [SerializeField] Hints hintRef;
+
     private void Start()
     {
         foreach (Transform child in transform.GetChild(0))
@@ -90,5 +92,6 @@ public class Wiring : MonoBehaviour
         notificationInfo.message = "Lift Panel fixed";
         notificationInfo.durationSeconds = 5;
         QueuedNotification.instance.QueueNotification(notificationInfo);
+        hintRef.CompletedPuzzle("Wire");
     }
 }
